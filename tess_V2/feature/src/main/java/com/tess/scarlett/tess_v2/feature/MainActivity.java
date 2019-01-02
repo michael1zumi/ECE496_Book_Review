@@ -1,8 +1,11 @@
 package com.tess.scarlett.tess_v2.feature;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,14 +21,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 //import com.googlecode.tesseract.android.TessBaseAPI;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    public static final String TESS_DATA = "/tessdata";
+    public static final String TESS_DATA = "/tessdata_v2";
     private TextView textView;
     //private TessBaseAPI tessBaseAPI;
     private Uri outputFileDir;
@@ -81,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
             StrictMode.setVmPolicy(builder.build());
             String imagePath = DATA_PATH + "/imgs";
             File dir = new File(imagePath);
-            isWriteStoragePermissionGranted();
             if (isWriteStoragePermissionGranted() == true) {
                 if(!dir.exists()){ System.out.println("HERE1\n");
                     if (!dir.mkdirs()) {
@@ -108,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public  boolean isWriteStoragePermissionGranted() {
+    public boolean isWriteStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_GRANTED) {
@@ -128,7 +134,94 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if (requestCode == 100 && resultCode == Activity.RESULT_OK){
+            prepareTessData();
+            startOCR(outputFileDir);
+            System.out.println("outputFileDir is "+outputFileDir+"\n");
+        }else{
+            Toast.makeText(getApplicationContext(),"Image problem", Toast.LENGTH_SHORT).show();
+        }
 
+    }
+
+
+    private void prepareTessData(){
+        try{System.out.print("lallalala0\n");
+            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+            StrictMode.setVmPolicy(builder.build());
+            File dir = new File(DATA_PATH + TESS_DATA);
+            if (!dir.exists()){
+                System.out.print("lallalala0.2\n");
+                //if (isWriteStoragePermissionGranted() == true) {
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
+                    System.out.print("lallalala0.1\n");
+                    dir.mkdir();
+
+                //}
+            }
+            String fileList[] = getAssets().list("");
+            System.out.print("lallalala1\n");
+            for (String fileName : fileList){
+                String pathToDataFile = DATA_PATH + TESS_DATA + "/" + fileName;
+                System.out.print("file name is " + fileName + "\n");
+                if (!(new File(pathToDataFile)).exists()){
+                    System.out.print("lallalala1.1\n");
+                    InputStream in = getAssets().open(fileName);
+                    System.out.print("lallalala1.2\n");
+                    OutputStream out = new FileOutputStream(pathToDataFile);
+                    System.out.print("lallalala1.3\n");
+                    byte [] buff = new byte[1024];
+                    int len;
+                    System.out.print("lallalala2\n");
+                    while((len = in.read(buff)) > 0){
+                        out.write(buff,0,len);
+                        System.out.print("lallalala3\n");
+                    }
+                    in.close();
+                    out.close();
+                }
+            }
+        } catch (Exception e){
+            Log.e(TAG, e.getMessage());
+            System.out.print("lallalala4\n");
+        }
+    }
+
+
+    private void startOCR(Uri imageUri){
+        try{
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 7;
+            Bitmap bitmap = BitmapFactory.decodeFile(imageUri.getPath(),options);
+            //String result = this.getText(bitmap);
+            //textView.setText(result);
+        } catch (Exception e){
+            Log.e(TAG, e.getMessage());
+        }
+    }
+/*
+    private String getText(Bitmap bitmap){
+        try{
+            tessBaseAPI = new TessBaseAPI();
+        } catch (Exception e){
+            Log.e(TAG, e.getMessage());
+        }
+        tessBaseAPI.init(DATA_PATH,"eng");
+        tessBaseAPI.setImage(bitmap);
+        String retStr = "No result";
+        try{
+            retStr = tessBaseAPI.getUTF8Text();
+        } catch (Exception e){
+            Log.e(TAG, e.getMessage());
+        }
+        tessBaseAPI.end();
+        return retStr;
+    }
+
+
+    */
 
 
 

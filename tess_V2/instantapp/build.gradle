@@ -4,3 +4,7 @@ dependencies {
     implementation project(':feature')
     implementation project(':base')
 }
+
+android {
+    compileSdkVersion 28
+}
