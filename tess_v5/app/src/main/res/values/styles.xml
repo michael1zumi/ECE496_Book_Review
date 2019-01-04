@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="navigationBar" parent="Theme.AppCompat.Light">
+        <item name="android:background">@color/colorNavi</item>
+    </style>
+
 </resources>
