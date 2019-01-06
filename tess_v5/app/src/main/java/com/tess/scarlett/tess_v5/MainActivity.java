@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity{
     private void startCameraActivity(){
 
         try{
-
+            //camera.setDisplayOrientation(90);
             StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
             StrictMode.setVmPolicy(builder.build());
             String imagePath = DATA_PATH + "/imgs";
@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity{
             Bitmap bitmap = BitmapFactory.decodeFile(imageUri.getPath(),options);
             String result = this.getText(bitmap);
             System.out.println("return string is "+result +"\n");
-            textView.setText(result);
+            mTextMessage.setText(result);
         } catch (Exception e){
             Log.e(TAG, e.getMessage());
         }
