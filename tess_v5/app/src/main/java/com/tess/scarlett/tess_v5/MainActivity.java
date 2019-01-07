@@ -20,8 +20,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,16 +48,16 @@ public class MainActivity extends AppCompatActivity{
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.navigation_search:
                     //mTextMessage.setText(R.string.title_home);
-                    selectedFragment = HomeFragment.newInstance("","");
+                    selectedFragment = SearchFragment.newInstance("","");
                     break;
                 case R.id.navigation_camera:
                     startCameraActivity();
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_profile:
                     //mTextMessage.setText(R.string.title_notifications);
-                    selectedFragment = NotificationFragment.newInstance("","");
+                    selectedFragment = ProfileFragment.newInstance("","");
                     break;
 
             }
@@ -79,6 +77,12 @@ public class MainActivity extends AppCompatActivity{
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        //render Search fragment when first time visit
+        Fragment selectedFragment = SearchFragment.newInstance("","");
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_layout, selectedFragment);
+        transaction.commit();
     }
 
 

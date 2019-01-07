@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">tess_v5</string>
-    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profile</string>
     <string name="title_camera">Camera</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_home_fragment">This is home view</string>
-    <string name="hello_notification_fragment">This is notification view</string>
+    <string name="hello_search_fragment">This is search view</string>
+    <string name="hello_profile_fragment">This is profile view</string>
 </resources>
