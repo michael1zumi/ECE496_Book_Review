@@ -79,6 +79,7 @@ public class SearchFragment extends Fragment {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 searchview.setQuery("button pressed",false);
+                searchview.clearFocus();
                 return true;
             }
         };
