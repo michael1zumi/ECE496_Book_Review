@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -68,7 +69,7 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_search, container, false);
+        final View view = inflater.inflate(R.layout.fragment_search, container, false);
         searchview = view.findViewById(R.id.searchView);
 
         queryTextListener = new SearchView.OnQueryTextListener() {
@@ -78,7 +79,10 @@ public class SearchFragment extends Fragment {
             }
             @Override
             public boolean onQueryTextSubmit(String query) {
-                searchview.setQuery("button pressed",false);
+                //searchview.setQuery("button pressed",false);
+                EditText info;
+                info = view.findViewById(R.id.editText2);
+                info.setVisibility(View.VISIBLE);
                 searchview.clearFocus();
                 return true;
             }
