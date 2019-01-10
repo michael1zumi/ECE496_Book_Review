@@ -30,7 +30,8 @@
         app:layout_constraintEnd_toStartOf="@+id/frame_layout"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/frame_layout"
-        app:layout_constraintTop_toBottomOf="@+id/frame_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/frame_layout"
+        app:layout_constraintVertical_bias="0.32" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
