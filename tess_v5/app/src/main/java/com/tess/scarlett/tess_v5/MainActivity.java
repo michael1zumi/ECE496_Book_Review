@@ -20,6 +20,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity{
     private static final String DATA_PATH = Environment.getExternalStorageDirectory().toString()+"/tess_v5";
 
     private TextView mTextMessage;
+    private SearchView searchview;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -205,6 +207,8 @@ public class MainActivity extends AppCompatActivity{
             String result = this.getText(bitmap);
             System.out.println("return string is "+result +"\n");
             mTextMessage.setText(result);
+            searchview = findViewById(R.id.searchView);
+            searchview.setQuery(result,true);
         } catch (Exception e){
             Log.e(TAG, e.getMessage());
         }
