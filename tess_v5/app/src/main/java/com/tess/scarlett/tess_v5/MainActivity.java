@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity{
                     selectedFragment = SearchFragment.newInstance("","");
                     break;
                 case R.id.navigation_camera:
+                    selectedFragment = SearchFragment.newInstance("","");
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frame_layout, selectedFragment);
+                    transaction.commit();
                     startCameraActivity();
                     return true;
                 case R.id.navigation_profile:
