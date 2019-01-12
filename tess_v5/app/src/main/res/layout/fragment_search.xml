@@ -42,23 +42,59 @@
             app:layout_constraintVertical_bias="0.516" />
     </android.support.v7.widget.CardView>
 
-    <EditText
-        android:id="@+id/editText2"
+    <TextView
+        android:id="@+id/price"
         android:layout_width="136dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:text="Price:"
+        android:textSize="30dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/reviews"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <TextView
+        android:id="@+id/ratings"
+        android:layout_width="136dp"
+        android:layout_height="81dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Product info:"
+        android:text="Ratings:"
+        android:textSize="30dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/reviews"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.013" />
+
+    <TextView
+        android:id="@+id/reviews"
+        android:layout_width="309dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:text="Reviews:"
+        android:textSize="30dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.014" />
+        app:layout_constraintVertical_bias="0.342" />
 
 </android.support.constraint.ConstraintLayout>

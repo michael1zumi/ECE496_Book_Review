@@ -80,8 +80,12 @@ public class SearchFragment extends Fragment {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 //searchview.setQuery("button pressed",false);
-                EditText info;
-                info = view.findViewById(R.id.editText2);
+                TextView info;
+                info = view.findViewById(R.id.price);
+                info.setVisibility(View.VISIBLE);
+                info = view.findViewById(R.id.ratings);
+                info.setVisibility(View.VISIBLE);
+                info = view.findViewById(R.id.reviews);
                 info.setVisibility(View.VISIBLE);
                 searchview.clearFocus();
                 return true;
