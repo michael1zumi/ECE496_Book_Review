@@ -71,7 +71,6 @@ public class SearchFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_search, container, false);
         searchview = view.findViewById(R.id.searchView);
-        searchview.clearFocus();
 
         queryTextListener = new SearchView.OnQueryTextListener() {
             @Override
