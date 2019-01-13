@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
 import android.widget.TextView;
 
 /**
@@ -32,8 +31,6 @@ public class ProfileFragment extends Fragment {
     private TextView recentScans;
     private TextView purchased;
     private TextView favourites;
-    private SearchView searchview;
-
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -70,9 +67,6 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        searchview = view.findViewById(R.id.searchView);
-        searchview.clearFocus();
-        
         recentScans = view.findViewById(R.id.recentScans);
         purchased = view.findViewById(R.id.purchased);
         favourites = view.findViewById(R.id.favourites);
