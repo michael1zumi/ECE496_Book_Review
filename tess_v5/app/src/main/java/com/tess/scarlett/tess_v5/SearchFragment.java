@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -32,6 +33,7 @@ public class SearchFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private SearchView searchview;
     private SearchView.OnQueryTextListener queryTextListener;
+    private String userInput;
 
     public SearchFragment() {
         // Required empty public constructor
@@ -81,13 +83,20 @@ public class SearchFragment extends Fragment {
             public boolean onQueryTextSubmit(String query) {
                 //searchview.setQuery("button pressed",false);
                 TextView info;
+                RatingBar rating;
+                float score = (float)3.5;
                 info = view.findViewById(R.id.price);
                 info.setVisibility(View.VISIBLE);
                 info = view.findViewById(R.id.ratings);
+                info.setText(String.valueOf(score));
                 info.setVisibility(View.VISIBLE);
                 info = view.findViewById(R.id.reviews);
                 info.setVisibility(View.VISIBLE);
+                rating = view.findViewById(R.id.ratingBar);
+                rating.setRating(score);
+                rating.setVisibility(View.VISIBLE);
                 searchview.clearFocus();
+                userInput = searchview.getQuery().toString();
                 return true;
             }
         };

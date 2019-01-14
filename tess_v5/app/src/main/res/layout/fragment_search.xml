@@ -46,7 +46,7 @@
 
     <TextView
         android:id="@+id/price"
-        android:layout_width="136dp"
+        android:layout_width="84dp"
         android:layout_height="81dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="24dp"
@@ -64,7 +64,7 @@
 
     <TextView
         android:id="@+id/ratings"
-        android:layout_width="136dp"
+        android:layout_width="32dp"
         android:layout_height="81dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
@@ -75,10 +75,27 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/reviews"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintHorizontal_bias="0.588"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.013" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:visibility="invisible"
+        android:progressTint="@color/colorNavi"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:stepSize="0.1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ratings"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <TextView
         android:id="@+id/reviews"
