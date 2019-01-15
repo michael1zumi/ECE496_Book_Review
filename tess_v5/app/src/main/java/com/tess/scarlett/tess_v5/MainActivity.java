@@ -212,7 +212,8 @@ public class MainActivity extends AppCompatActivity{
             System.out.println("return string is "+result +"\n");
             mTextMessage.setText(result);
             searchview = findViewById(R.id.searchView);
-            searchview.setQuery(result,true);
+            searchview.setQuery(result,false);
+            searchview.requestFocus();
         } catch (Exception e){
             Log.e(TAG, e.getMessage());
         }
