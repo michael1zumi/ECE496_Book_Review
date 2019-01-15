@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 /**
@@ -28,9 +29,9 @@ public class ProfileFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private TextView recentScans;
-    private TextView purchased;
-    private TextView favourites;
+    private FrameLayout recentScans;
+    private FrameLayout purchased;
+    private FrameLayout favourites;
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -75,6 +76,10 @@ public class ProfileFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
+//                Fragment selectedFragment = SearchFragment.newInstance("","");
+//                FragmentTransaction transaction = getFragmentManager() .beginTransaction();
+//                transaction.replace(R.id.frame_layout, selectedFragment);
+//                transaction.commit();
             }
 
         });

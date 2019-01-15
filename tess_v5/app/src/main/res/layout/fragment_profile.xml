@@ -21,47 +21,90 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
-
-        <TextView
+        <FrameLayout
             android:id="@+id/recentScans"
-            android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_width="match_parent"
             android:layout_marginTop="64dp"
             android:background="@drawable/border_set"
-            android:drawableStart="@drawable/ic_history"
-            android:gravity="center_vertical"
-            android:paddingLeft="30px"
-            android:drawablePadding="10px"
-            android:text="Recent Scans"
-            android:textColor="#000000"
-            android:textSize="40px" />
+            android:textSize="40px">
 
-        <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_history"
+                android:drawablePadding="10px"
+                android:layout_gravity="center_vertical|left"
+                android:gravity="center_vertical"
+                android:paddingLeft="30px"
+                android:text="Recent Scans"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:paddingRight="30px"
+                android:text=">" />
+
+
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/purchased"
-            android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_width="match_parent"
             android:layout_marginTop="0dp"
             android:background="@drawable/border_set"
-            android:drawableStart="@drawable/ic_cart"
-            android:gravity="center_vertical"
-            android:paddingLeft="30px"
-            android:drawablePadding="10px"
-            android:text="Purchased"
-            android:textColor="#000000"
-            android:textSize="40px" />
+            android:textSize="40px">
 
-        <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_cart"
+                android:drawablePadding="10px"
+                android:layout_gravity="center_vertical|left"
+                android:gravity="center_vertical"
+                android:paddingLeft="30px"
+                android:text="Purchased"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:paddingRight="30px"
+                android:text=">" />
+
+
+        </FrameLayout>
+        <FrameLayout
             android:id="@+id/favourites"
-            android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_width="match_parent"
             android:layout_marginTop="0dp"
             android:background="@drawable/border_set"
-            android:drawableStart="@drawable/ic_favourite"
-            android:gravity="center_vertical"
-            android:paddingLeft="30px"
-            android:drawablePadding="10px"
-            android:text="Favourites"
-            android:textColor="#000000"
-            android:textSize="40px" />
+            android:textSize="40px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_favourite"
+                android:drawablePadding="10px"
+                android:layout_gravity="center_vertical|left"
+                android:gravity="center_vertical"
+                android:paddingLeft="30px"
+                android:text="Favourites"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:paddingRight="30px"
+                android:text=">" />
+
+
+        </FrameLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
