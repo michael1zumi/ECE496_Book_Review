@@ -30,6 +30,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -210,6 +211,7 @@ public class MainActivity extends AppCompatActivity{
             Bitmap bitmap = BitmapFactory.decodeFile(imageUri.getPath(),options);
             String result = this.getText(bitmap);
             System.out.println("return string is "+result +"\n");
+            processText(result);
             mTextMessage.setText(result);
             searchview = findViewById(R.id.searchView);
             searchview.setQuery(result,false);
@@ -218,6 +220,55 @@ public class MainActivity extends AppCompatActivity{
             Log.e(TAG, e.getMessage());
         }
     }
+
+    private void processText(String text){
+        int i, row, j=0;
+        row = 0;
+        int model_start_id=0;
+        //ArrayList<Character> brand = new ArrayList<>();
+        //ArrayList<Character> model = new ArrayList<>();
+        String Brand = "";
+        String Model = "";
+        for (i = 0; i< text.length(); i++){
+            if (text.charAt(i) == '\n'){
+
+
+                if (row == 0) {
+                    Brand = Brand.copyValueOf(text.toCharArray(), 0, i);
+                    System.out.println("----------brand is " + Brand + "\n");
+
+                    model_start_id = i+1;
+                }
+                if (row == 1) {
+                    Model = Model.copyValueOf(text.toCharArray(), model_start_id, i - 1);
+                    System.out.println("----------model is " + Model + ", row number is " + Integer.toString(row) + "\n");
+                }
+                row ++;
+            }
+            /*else{
+                if (row == 0 && text.charAt(i) != ' ') {
+                    brand.add(text.charAt(i));
+                }
+                else if (row == 1)
+                    model.add(text.charAt(i));
+            }*/
+            if (row >1)
+                break;
+        }
+        /*
+        String newBrand = "";
+        for (i=0; i<Brand.length(); i++){
+            if (Brand.charAt(i) == ' '){
+                continue;
+            }
+            newBrand.setCharAt()
+
+        }*/
+        Brand.replaceAll(" ", "");
+
+
+    }
+
 
     private String getText(Bitmap bitmap){
         try{
