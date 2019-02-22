@@ -20,9 +20,15 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RatingBar;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.widget.CardView;
+import android.widget.RelativeLayout;
+import android.widget.EditText;
+import android.widget.Button;
 
 import com.googlecode.tesseract.android.TessBaseAPI;
 
@@ -43,6 +49,14 @@ public class MainActivity extends AppCompatActivity{
 
     private TextView mTextMessage;
     private SearchView searchview;
+    private CardView cardview;
+    private RelativeLayout relativeLayout;
+    private EditText editText;
+    private Button button;
+
+    private String Brand = "";
+    private String Model = "";
+    private String query = "";
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -214,8 +228,37 @@ public class MainActivity extends AppCompatActivity{
             processText(result);
             mTextMessage.setText(result);
             searchview = findViewById(R.id.searchView);
-            searchview.setQuery(result,false);
-            searchview.requestFocus();
+            cardview = findViewById(R.id.cardView);
+            cardview.setVisibility(View.GONE);
+            //searchview.setQuery(result,false);
+            //searchview.requestFocus();
+            editText = findViewById(R.id.brand_entry);
+            editText.setText(Brand, TextView.BufferType.EDITABLE);
+            editText = findViewById(R.id.model_entry);
+            editText.setText(Model, TextView.BufferType.EDITABLE);
+
+            relativeLayout = findViewById(R.id.brand_and_model);
+            relativeLayout.setVisibility(View.VISIBLE);
+
+            button = findViewById(R.id.confirm_query);
+            button.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    relativeLayout.setVisibility(View.GONE);
+                    cardview.setVisibility(View.VISIBLE);
+                    Brand = editText.getText().toString();
+                    Model = editText.getText().toString();
+                    query = Brand+" "+Model;
+                    showResult();
+                }
+            });
+            button = findViewById(R.id.cancel_query);
+            button.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    relativeLayout.setVisibility(View.GONE);
+                    cardview.setVisibility(View.VISIBLE);
+                }
+            });
+
         } catch (Exception e){
             Log.e(TAG, e.getMessage());
         }
@@ -227,8 +270,6 @@ public class MainActivity extends AppCompatActivity{
         int model_start_id=0;
         //ArrayList<Character> brand = new ArrayList<>();
         //ArrayList<Character> model = new ArrayList<>();
-        String Brand = "";
-        String Model = "";
         for (i = 0; i< text.length(); i++){
             if (text.charAt(i) == '\n'){
 
@@ -286,6 +327,23 @@ public class MainActivity extends AppCompatActivity{
         }
         tessBaseAPI.end();
         return retStr;
+    }
+
+    public void showResult(){
+        TextView info;
+        RatingBar rating;
+        float score = (float)3.5;
+        info = findViewById(R.id.price);
+        info.setVisibility(View.VISIBLE);
+        info = findViewById(R.id.ratings);
+        info.setText(String.valueOf(score));
+        info.setVisibility(View.VISIBLE);
+        info = findViewById(R.id.reviews);
+        info.setVisibility(View.VISIBLE);
+        rating = findViewById(R.id.ratingBar);
+        rating.setRating(score);
+        rating.setVisibility(View.VISIBLE);
+
     }
 
 

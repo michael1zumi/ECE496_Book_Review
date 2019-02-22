@@ -82,19 +82,7 @@ public class SearchFragment extends Fragment {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 //searchview.setQuery("button pressed",false);
-                TextView info;
-                RatingBar rating;
-                float score = (float)3.5;
-                info = view.findViewById(R.id.price);
-                info.setVisibility(View.VISIBLE);
-                info = view.findViewById(R.id.ratings);
-                info.setText(String.valueOf(score));
-                info.setVisibility(View.VISIBLE);
-                info = view.findViewById(R.id.reviews);
-                info.setVisibility(View.VISIBLE);
-                rating = view.findViewById(R.id.ratingBar);
-                rating.setRating(score);
-                rating.setVisibility(View.VISIBLE);
+                ((MainActivity)getActivity()).showResult();
                 searchview.clearFocus();
                 userInput = searchview.getQuery().toString();
                 return true;

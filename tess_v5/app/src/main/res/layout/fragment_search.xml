@@ -44,6 +44,98 @@
             app:layout_constraintVertical_bias="0.516" />
     </android.support.v7.widget.CardView>
 
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/brand_and_model"
+        android:layout_width="fill_parent"
+        android:layout_height="125dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="2dp"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/brand_text"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="27dp"
+            android:layout_marginLeft="27dp"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="Brand:  " />
+
+        <EditText
+            android:id="@+id/brand_entry"
+            android:layout_width="323dp"
+            android:layout_height="35dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/brand_text"
+            android:background="@android:drawable/editbox_background" />
+
+        <TextView
+            android:id="@+id/model_text"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/brand_text"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="27dp"
+            android:layout_marginLeft="27dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="55dp"
+            android:gravity="center"
+            android:text="Model: " />
+
+        <EditText
+            android:id="@+id/model_entry"
+            android:layout_width="321dp"
+            android:layout_height="35dp"
+            android:layout_below="@id/brand_entry"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="55dp"
+            android:layout_toRightOf="@+id/model_text"
+            android:background="@android:drawable/editbox_background" />
+
+        <Button
+            android:id="@+id/confirm_query"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="75dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toEndOf="@+id/brand_text"
+            android:backgroundTint="@android:color/white"
+            android:text="Confirm" />
+
+        <Button
+            android:id="@+id/cancel_query"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@android:color/white"
+            android:text="Cancel"
+            android:textAllCaps="true" />
+
+
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/price"
         android:layout_width="84dp"
