@@ -353,18 +353,23 @@ public class MainActivity extends AppCompatActivity{
     public void showResult(){
         TextView info;
         RatingBar rating;
-        float score = (float)3.5;
+        RelativeLayout search_results;
+        float score = (float)4.7;
+
+        search_results = findViewById(R.id.search_results);
+        search_results.setVisibility(View.VISIBLE);
+
         info = findViewById(R.id.price);
-        info.setVisibility(View.VISIBLE);
+        info.append(" $"+"50");
+
         info = findViewById(R.id.ratings);
-        info.setText(String.valueOf(score));
-        info.setVisibility(View.VISIBLE);
-        info = findViewById(R.id.reviews);
-        info.setVisibility(View.VISIBLE);
+        info.append(" "+String.valueOf(score));
+
         rating = findViewById(R.id.ratingBar);
         rating.setRating(score);
-        rating.setVisibility(View.VISIBLE);
 
+        info = findViewById(R.id.reviews);
+        info.append(" "+"This is a super longgggggggggggggggggggggggggggg test review");
     }
 
 
