@@ -68,9 +68,11 @@ public class MainActivity extends AppCompatActivity{
                 case R.id.navigation_search:
                     //mTextMessage.setText(R.string.title_home);
                     selectedFragment = SearchFragment.newInstance("","");
+                    hideUpButton();
                     break;
                 case R.id.navigation_camera:
                     selectedFragment = SearchFragment.newInstance("","");
+                    hideUpButton();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.frame_layout, selectedFragment);
                     transaction.commit();
@@ -79,6 +81,7 @@ public class MainActivity extends AppCompatActivity{
                 case R.id.navigation_profile:
                     //mTextMessage.setText(R.string.title_notifications);
                     selectedFragment = ProfileFragment.newInstance("","");
+                    hideUpButton();
                     break;
 
             }
@@ -106,6 +109,24 @@ public class MainActivity extends AppCompatActivity{
         transaction.commit();
     }
 
+
+    public void showUpButton() { getSupportActionBar().setDisplayHomeAsUpEnabled(true); }
+    public void hideUpButton() { getSupportActionBar().setDisplayHomeAsUpEnabled(false); }
+
+    public boolean onOptionsItemSelected(MenuItem item)  {
+
+        int itemId = item.getItemId();
+        switch (itemId) {
+            case android.R.id.home: //back to profile page
+                Fragment selectedFragment = ProfileFragment.newInstance("","");
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, selectedFragment);
+                transaction.commit();
+                break;
+        }
+
+        return true;
+    }
 
     private void startCameraActivity(){
 

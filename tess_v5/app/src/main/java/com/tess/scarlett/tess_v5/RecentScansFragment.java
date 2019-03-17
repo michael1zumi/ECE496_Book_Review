@@ -5,11 +5,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,6 +62,10 @@ public class RecentScansFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+//        FragmentManager fragmentManager = getFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.addToBackStack(null);
+        ((MainActivity)getActivity()).showUpButton();
     }
 
     @Override
@@ -67,6 +73,8 @@ public class RecentScansFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_recent_scans, container, false);
 
+        //ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        //actionBar.setDisplayHomeAsUpEnabled(true);
 
         return view;
     }
