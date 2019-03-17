@@ -354,22 +354,55 @@ public class MainActivity extends AppCompatActivity{
         TextView info;
         RatingBar rating;
         RelativeLayout search_results;
-        float score = (float)4.7;
+        float score = (float)4.4;
 
         search_results = findViewById(R.id.search_results);
         search_results.setVisibility(View.VISIBLE);
 
         info = findViewById(R.id.price);
-        info.append(" $"+"50");
+        info.setText("Price: $"+"50");
 
         info = findViewById(R.id.ratings);
-        info.append(" "+String.valueOf(score));
+        info.setText("Ratings: "+String.valueOf(score));
 
         rating = findViewById(R.id.ratingBar);
         rating.setRating(score);
 
         info = findViewById(R.id.reviews);
-        info.append(" "+"This is a super longgggggggggggggggggggggggggggg test review");
+        info.setText("Reviews: "+"This is a super longgggggggggggggggggggggggggggg test review" +
+                "asdadadasdasdqwewqe" +
+                "qweqweqweqw" +
+                "qweqweqwewqeqeqwe" +
+                "wqeqweqwe" +
+                "qweqwewqeq" +
+                "wqeqweqwe" +
+                "qweqweqeqwe" +
+                "qewqeqweqe" +
+                "qweqweqeqweqe" +
+                "qweqeqeqe" +
+                "qewqewqeqeqe" +
+                "qewqewqeqwe" +
+                "qweqweqeqwe" +
+                "qeqweqeqeqe" +
+                "qewqeqeqee" +
+                "qeqeqeqeqeqe" +
+                "qeqeqeqeqe" +
+                "qeq" +
+                "sadasd" +
+                "asdasdasd" +
+                "" +
+                "asdasdasd" +
+                "" +
+                "asda" +
+                "sda" +
+                "sd" +
+                "ad" +
+                "asd" +
+                "asdas" +
+                "da" +
+                "dasdasdasd" +
+                "adsadasdada" +
+                "adasdaaa");
     }
 
 

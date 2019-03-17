@@ -136,79 +136,95 @@
 
     </RelativeLayout>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:id="@+id/search_results"
-        android:layout_width="fill_parent"
-        android:layout_height="186dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="506dp"
         android:orientation="vertical"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:visibility="invisible">
 
-        <TextView
-            android:id="@+id/price"
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
+            android:layout_height="match_parent"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="29dp"
-            android:layout_marginEnd="35dp"
-            android:ems="10"
-            android:text="Price:"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/ratings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/price"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="10dp"
-
-            android:ems="10"
-            android:text="Ratings:"
-            android:textSize="20dp" />
-
-        <RatingBar
-            android:id="@+id/ratingBar"
-            style="?android:attr/ratingBarStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="22dp"
-            android:layout_below="@+id/price"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="183dp"
-            android:layout_marginBottom="94dp"
-            android:isIndicator="true"
-            android:numStars="5"
-            android:progressTint="@color/colorNavi"
-            android:rating="1"
-            android:stepSize="0.1" />
-
-        <TextView
-            android:id="@+id/reviews"
-            android:layout_width="wrap_content"
-            android:layout_height="92dp"
-            android:layout_below="@+id/ratings"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="35dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="100dp"
             android:layout_marginBottom="10dp"
-            android:ems="10"
-            android:text="Reviews:"
-            android:textSize="20dp" />
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="29dp"
+                    android:layout_marginEnd="35dp"
+                    android:ems="10"
+                    android:text="Price:"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/ratings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/price"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:text="Ratings:"
+                    android:textSize="20dp" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="145dp"
+                    android:layout_marginTop="71dp"
+                    android:layout_marginEnd="173dp"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:progressTint="@color/colorNavi"
+                    android:stepSize="0.1" />
+
+                <TextView
+                    android:id="@+id/reviews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ratings"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="35dp"
+                    android:layout_marginBottom="0dp"
+                    android:ems="10"
+                    android:text="Reviews:"
+                    android:textSize="20dp" />
+
+            </RelativeLayout>
+        </ScrollView>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
