@@ -5,6 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".MainActivity">
 
     <FrameLayout
@@ -16,22 +17,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"></FrameLayout>
 
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="44dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="168dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/title_search"
-        app:layout_constraintBottom_toTopOf="@+id/frame_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/frame_layout"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/frame_layout"
-        app:layout_constraintTop_toBottomOf="@+id/frame_layout"
-        app:layout_constraintVertical_bias="0.32" />
+    <!--<TextView-->
+        <!--android:id="@+id/message"-->
+        <!--android:layout_width="44dp"-->
+        <!--android:layout_height="19dp"-->
+        <!--android:layout_marginStart="168dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:layout_marginEnd="168dp"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:text="@string/title_search"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/frame_layout"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/frame_layout"-->
+        <!--app:layout_constraintHorizontal_bias="0.5"-->
+        <!--app:layout_constraintStart_toEndOf="@+id/frame_layout"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/frame_layout"-->
+        <!--app:layout_constraintVertical_bias="0.32" />-->
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

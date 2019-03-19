@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
+        //mTextMessage = (TextView) findViewById(R.id.message);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -247,7 +247,7 @@ public class MainActivity extends AppCompatActivity{
             String result = this.getText(bitmap);
             System.out.println("return string is "+result +"\n");
             processText(result);
-            mTextMessage.setText(result);
+            //mTextMessage.setText(result);
             searchview = findViewById(R.id.searchView);
             cardview = findViewById(R.id.cardView);
             cardview.setVisibility(View.GONE);
