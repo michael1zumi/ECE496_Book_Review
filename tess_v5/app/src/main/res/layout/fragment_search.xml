@@ -47,30 +47,6 @@
 
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/GalleryLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="@id/cardView"
-        app:layout_constraintTop_toBottomOf="@id/cardView">
-
-        <Button
-            android:id="@+id/ViewGallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:text="Gallery" />
-
-    </RelativeLayout>
-
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/brand_and_model"
         android:layout_width="fill_parent"
         android:layout_height="125dp"
