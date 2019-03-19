@@ -36,6 +36,7 @@
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
+        app:labelVisibilityMode="labeled"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/colorNavi"

@@ -79,6 +79,16 @@ public class MainActivity extends AppCompatActivity{
                     transaction.commit();
                     startCameraActivity();
                     return true;
+                case R.id.access_gallery:
+                    final SearchFragment fragment = new SearchFragment();
+                    selectedFragment = SearchFragment.newInstance("","");
+                    hideUpButton();
+                    transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frame_layout, selectedFragment);
+                    transaction.commit();
+                    //start from here
+
+                    return true;
                 case R.id.navigation_profile:
                     //mTextMessage.setText(R.string.title_notifications);
                     selectedFragment = ProfileFragment.newInstance("","");
