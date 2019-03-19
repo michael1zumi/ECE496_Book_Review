@@ -317,7 +317,7 @@ public class MainActivity extends AppCompatActivity{
                     Brand = editText.getText().toString();
                     Model = editText.getText().toString();
                     query = Brand+" "+Model;
-                    showResult();
+                    showResult("text");
                 }
             });
             button = findViewById(R.id.cancel_query);
@@ -400,7 +400,7 @@ public class MainActivity extends AppCompatActivity{
         return retStr;
     }
 
-    public void showResult(){
+    public void showResult(String userInput){
         TextView info;
         RatingBar rating;
         RelativeLayout search_results;

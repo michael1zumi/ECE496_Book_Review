@@ -104,9 +104,9 @@ public class SearchFragment extends Fragment {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 //searchview.setQuery("button pressed",false);
-                ((MainActivity)getActivity()).showResult();
                 searchview.clearFocus();
                 userInput = searchview.getQuery().toString();
+                ((MainActivity)getActivity()).showResult("text");
                 return true;
             }
         };
