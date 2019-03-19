@@ -42,7 +42,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.516" />
+
     </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/ViewGallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gallery"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/brand_and_model"
@@ -224,6 +236,7 @@
                     android:ems="10"
                     android:text="Reviews:"
                     android:textSize="20dp" />
+
 
             </RelativeLayout>
         </ScrollView>

@@ -10,7 +10,23 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.Toast;
 
+import com.googlecode.tesseract.android.TessBaseAPI;
+import com.tess.scarlett.tess_v5.MainActivity;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import static android.support.constraint.Constraints.TAG;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +50,11 @@ public class SearchFragment extends Fragment {
     private SearchView searchview;
     private SearchView.OnQueryTextListener queryTextListener;
     private String userInput;
+
+    private TessBaseAPI tessBaseAPI;
+    private static final String DATA_PATH = Environment.getExternalStorageDirectory().toString()+"/tess_v5";
+
+
 
     public SearchFragment() {
         // Required empty public constructor
@@ -89,10 +110,68 @@ public class SearchFragment extends Fragment {
                 return true;
             }
         };
+        // Inflate the layout for this fragment
+        Button button;
+        button = (Button) view.findViewById(R.id.ViewGallery);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pickImage();
 
+            }
+        });
         searchview.setOnQueryTextListener(queryTextListener);
 
         return view;
+    }
+
+    public void pickImage() {
+        Intent intent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        /*
+        intent.setType("image/*");
+        intent.putExtra("crop", "true");
+        intent.putExtra("scale", true);
+        intent.putExtra("outputX", 256);
+        intent.putExtra("outputY", 256);
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        //intent.putExtra("return-data", true);*/
+        startActivityForResult(intent, 1);
+        System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~"+ "gg" + "~~~~~~~~~~~~~~~~~~~\n");
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK){
+
+            if (data != null) {
+                Uri contentURI = data.getData();
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), contentURI);
+                    //String path = saveImage(bitmap);
+                    Toast.makeText(getActivity().getApplicationContext(),"Image Saved Sueecssfully!", Toast.LENGTH_SHORT).show();
+                    //imageview.setImageBitmap(bitmap);
+                    //String result = this.getText(bitmap);
+
+                    String result = ((MainActivity)getActivity()).getText(bitmap);
+                    System.out.println("return string is "+result +"\n");
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getActivity().getApplicationContext(),"Failed!", Toast.LENGTH_SHORT).show();
+                }
+                System.out.println("\n????????????request 1 fragment???????????????");
+            }
+        }
+        else{
+            System.out.println("\n???????????????????else fragment???????????????????~~");
+            Toast.makeText(getActivity().getApplicationContext(),"Image problem", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event

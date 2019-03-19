@@ -34,6 +34,7 @@ import com.googlecode.tesseract.android.TessBaseAPI;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -184,14 +185,45 @@ public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK){
+
+            if (data != null) {
+                Uri contentURI = data.getData();
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
+                    //String path = saveImage(bitmap);
+                    Toast.makeText(getApplicationContext(),"Image Saved Sueecssfully!", Toast.LENGTH_SHORT).show();
+                    //imageview.setImageBitmap(bitmap);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(),"Failed!", Toast.LENGTH_SHORT).show();
+                }
+                System.out.println("\n????????????request 1???????????????");
+            }
+        }
         if (requestCode == 100 && resultCode == Activity.RESULT_OK){
             prepareTessData();
             System.out.println("outputFileDir is "+outputFileDir+"\n");
             startOCR(outputFileDir);
             System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n\n\n");
-        }else{
+        }/*
+        else if (requestCode == 1 && resultCode == Activity.RESULT_OK){
+            final Bundle extras = data.getExtras();
+            if (extras != null) {
+                //Get image
+                Bitmap newProfilePic = extras.getParcelable("data");
+            }
+            System.out.println("\nhahahah"+ "hahahahaha" + "\n~~~~~~~~~~~~~~~~~~~");
+        }*/
+        else{
+            System.out.println("\n????????????else???????????????");
             Toast.makeText(getApplicationContext(),"Image problem", Toast.LENGTH_SHORT).show();
         }
+
+
+        System.out.println("---------------------end------------------------\n\n\n\n");
 
     }
 
@@ -291,6 +323,8 @@ public class MainActivity extends AppCompatActivity{
         int model_start_id=0;
         //ArrayList<Character> brand = new ArrayList<>();
         //ArrayList<Character> model = new ArrayList<>();
+        String Brand = "";
+        String Model = "";
         for (i = 0; i< text.length(); i++){
             if (text.charAt(i) == '\n'){
 
@@ -332,7 +366,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
-    private String getText(Bitmap bitmap){
+    public String getText(Bitmap bitmap){
         try{
             tessBaseAPI = new TessBaseAPI();
         } catch (Exception e){
