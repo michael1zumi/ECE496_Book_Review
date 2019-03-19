@@ -87,6 +87,10 @@ public class MainActivity extends AppCompatActivity{
                     transaction.replace(R.id.frame_layout, selectedFragment);
                     transaction.commit();
                     //start from here
+                    pickImage();
+                    Toast.makeText(getApplicationContext(),"Accessing Gallery!", Toast.LENGTH_LONG).show();
+
+
 
                     return true;
                 case R.id.navigation_profile:
@@ -205,19 +209,21 @@ public class MainActivity extends AppCompatActivity{
                     //String path = saveImage(bitmap);
                     Toast.makeText(getApplicationContext(),"Image Saved Sueecssfully!", Toast.LENGTH_SHORT).show();
                     //imageview.setImageBitmap(bitmap);
+                    String retstr = getText(bitmap);
+                    System.out.println("\n Gallery Returned Str is : \n" + retstr);
 
                 } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(),"Failed!", Toast.LENGTH_SHORT).show();
                 }
-                System.out.println("\n????????????request 1???????????????");
+                System.out.println("\n????????????request 1 Main???????????????");
             }
         }
-        if (requestCode == 100 && resultCode == Activity.RESULT_OK){
+        else if (requestCode == 100 && resultCode == Activity.RESULT_OK){
             prepareTessData();
             System.out.println("outputFileDir is "+outputFileDir+"\n");
             startOCR(outputFileDir);
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n\n\n");
+            System.out.println("!!!!!!!!!!!!!OCR finished Main!!!!!!!!!!!!!\n\n\n\n");
         }/*
         else if (requestCode == 1 && resultCode == Activity.RESULT_OK){
             final Bundle extras = data.getExtras();
@@ -228,12 +234,12 @@ public class MainActivity extends AppCompatActivity{
             System.out.println("\nhahahah"+ "hahahahaha" + "\n~~~~~~~~~~~~~~~~~~~");
         }*/
         else{
-            System.out.println("\n????????????else???????????????");
+            System.out.println("\n????????????else: image problem???????????????");
             Toast.makeText(getApplicationContext(),"Image problem", Toast.LENGTH_SHORT).show();
         }
 
 
-        System.out.println("---------------------end------------------------\n\n\n\n");
+        System.out.println("---------------------end onActivityResult Main------------------------\n\n\n\n");
 
     }
 
@@ -450,7 +456,21 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
-
+    public void pickImage() {
+        Intent intent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        /*
+        intent.setType("image/*");
+        intent.putExtra("crop", "true");
+        intent.putExtra("scale", true);
+        intent.putExtra("outputX", 256);
+        intent.putExtra("outputY", 256);
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        //intent.putExtra("return-data", true);*/
+        startActivityForResult(intent, 1);
+        System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~"+ "pickImage_Main" + "~~~~~~~~~~~~~~~~~~~\n");
+    }
 
 
 

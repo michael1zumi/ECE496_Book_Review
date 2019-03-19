@@ -111,6 +111,9 @@ public class SearchFragment extends Fragment {
             }
         };
         // Inflate the layout for this fragment
+
+        /*
+        //button for the old gallery access; now using tabs in mainactivity
         Button button;
         button = (Button) view.findViewById(R.id.ViewGallery);
         button.setOnClickListener(new View.OnClickListener() {
@@ -120,31 +123,19 @@ public class SearchFragment extends Fragment {
 
             }
         });
+        */
         searchview.setOnQueryTextListener(queryTextListener);
 
         return view;
     }
 
-    public void pickImage() {
-        Intent intent = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        /*
-        intent.setType("image/*");
-        intent.putExtra("crop", "true");
-        intent.putExtra("scale", true);
-        intent.putExtra("outputX", 256);
-        intent.putExtra("outputY", 256);
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
-        //intent.putExtra("return-data", true);*/
-        startActivityForResult(intent, 1);
-        System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~"+ "gg" + "~~~~~~~~~~~~~~~~~~~\n");
-    }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
-
+        /*
+        //requestCode = 1 is the old gallery access button; now mvoed to mainactivity
         if (requestCode == 1 && resultCode == Activity.RESULT_OK){
 
             if (data != null) {
@@ -171,6 +162,7 @@ public class SearchFragment extends Fragment {
             System.out.println("\n???????????????????else fragment???????????????????~~");
             Toast.makeText(getActivity().getApplicationContext(),"Image problem", Toast.LENGTH_SHORT).show();
         }
+        */
 
     }
 
