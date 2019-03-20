@@ -106,7 +106,7 @@ public class SearchFragment extends Fragment {
                 //searchview.setQuery("button pressed",false);
                 searchview.clearFocus();
                 userInput = searchview.getQuery().toString();
-                ((MainActivity)getActivity()).showResult("text");
+                ((MainActivity)getActivity()).showResult(userInput);
                 return true;
             }
         };

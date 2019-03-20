@@ -330,7 +330,7 @@ public class MainActivity extends AppCompatActivity{
                     Brand = editText.getText().toString();
                     Model = editText.getText().toString();
                     query = Brand+" "+Model;
-                    showResult("text");
+                    showResult(query);
                 }
             });
             button = findViewById(R.id.cancel_query);
