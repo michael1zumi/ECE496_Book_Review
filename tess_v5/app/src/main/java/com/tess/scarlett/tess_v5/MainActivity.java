@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity{
     private String Model = "";
     private String query = "";
 
+    private String bookname;
     // string array
     private String[] price = new String[2];
     private String[] rate = new String[2];
@@ -465,6 +466,9 @@ public class MainActivity extends AppCompatActivity{
                 "dasdasdasd" +
                 "adsadasdada" +
                 "adasdaaa");*/
+        bookname = userInput;
+        bookname = bookname.replaceAll(" ", "+");
+        System.out.println(userInput);
         JsoupAsyncTask jsoupAsyncTask = new JsoupAsyncTask();
         jsoupAsyncTask.execute();
     }
@@ -487,7 +491,8 @@ public class MainActivity extends AppCompatActivity{
                 Elements secondReview;
                 String isbn = "";
 
-                String bookname = "the+fifth+risk";
+                //bookname = "the+fifth+risk";
+                //System.out.println("Product name is: " + bookname);
                 String url = "https://www.amazon.ca/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=" + bookname;
                 Document firstSearch = Jsoup.connect(url).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
                         .timeout(999999999)
