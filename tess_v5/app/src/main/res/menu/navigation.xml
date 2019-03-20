@@ -8,6 +8,11 @@
         android:title="@string/title_search" />
 
     <item
+        android:id="@+id/navigation_isbn"
+        android:icon="@drawable/ic_isbn"
+        android:title="@string/title_isbn" />
+
+    <item
         android:id="@+id/navigation_camera"
         android:icon="@drawable/ic_camera"
         android:title="@string/title_camera" />

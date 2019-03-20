@@ -3,7 +3,7 @@
     <string name="title_search">Search</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_profile">Profile</string>
-    <string name="title_camera">Camera</string>
+    <string name="title_camera">OCR</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_search_fragment">This is search view</string>
@@ -13,4 +13,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_gallery">Gallery</string>
+    <string name="title_isbn">ISBN</string>
 </resources>

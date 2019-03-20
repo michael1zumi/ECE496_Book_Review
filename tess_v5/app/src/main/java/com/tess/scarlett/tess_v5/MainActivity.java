@@ -84,6 +84,10 @@ public class MainActivity extends AppCompatActivity{
                     selectedFragment = SearchFragment.newInstance("","");
                     hideUpButton();
                     break;
+                case R.id.navigation_isbn:
+                    selectedFragment = SearchFragment.newInstance("","");
+                    hideUpButton();
+                    break;
                 case R.id.navigation_camera:
                     selectedFragment = SearchFragment.newInstance("","");
                     hideUpButton();
