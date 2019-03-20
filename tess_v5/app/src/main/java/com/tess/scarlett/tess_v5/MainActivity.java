@@ -227,6 +227,7 @@ public class MainActivity extends AppCompatActivity{
                     Toast.makeText(getApplicationContext(),"Image Saved Sueecssfully!", Toast.LENGTH_SHORT).show();
                     //imageview.setImageBitmap(bitmap);
                     String retstr = getText(bitmap);
+                    showResult(retstr);
                     System.out.println("\n Gallery Returned Str is : \n" + retstr);
 
                 } catch (IOException e) {
@@ -418,58 +419,6 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void showResult(String userInput){
-        /*TextView info;
-        RatingBar rating;
-        RelativeLayout search_results;
-        float score = (float)4.4;
-
-        search_results = findViewById(R.id.search_results);
-        search_results.setVisibility(View.VISIBLE);
-
-        info = findViewById(R.id.price);
-        info.setText("Price: $"+"50");
-
-        info = findViewById(R.id.ratings);
-        info.setText("Ratings: "+String.valueOf(score));
-
-        rating = findViewById(R.id.ratingBar);
-        rating.setRating(score);
-
-        info = findViewById(R.id.reviews);
-        info.setText("Reviews: "+"This is a super longgggggggggggggggggggggggggggg test review" +
-                "asdadadasdasdqwewqe" +
-                "qweqweqweqw" +
-                "qweqweqwewqeqeqwe" +
-                "wqeqweqwe" +
-                "qweqwewqeq" +
-                "wqeqweqwe" +
-                "qweqweqeqwe" +
-                "qewqeqweqe" +
-                "qweqweqeqweqe" +
-                "qweqeqeqe" +
-                "qewqewqeqeqe" +
-                "qewqewqeqwe" +
-                "qweqweqeqwe" +
-                "qeqweqeqeqe" +
-                "qewqeqeqee" +
-                "qeqeqeqeqeqe" +
-                "qeqeqeqeqe" +
-                "qeq" +
-                "sadasd" +
-                "asdasdasd" +
-                "" +
-                "asdasdasd" +
-                "" +
-                "asda" +
-                "sda" +
-                "sd" +
-                "ad" +
-                "asd" +
-                "asdas" +
-                "da" +
-                "dasdasdasd" +
-                "adsadasdada" +
-                "adasdaaa");*/
         bookname = userInput;
         bookname = bookname.replaceAll(" ", "+");
         System.out.println(userInput);
