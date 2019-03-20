@@ -171,62 +171,153 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/price"
+                    android:id="@+id/price_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
+                    android:layout_marginStart="35sp"
+                    android:layout_marginTop="0sp"
+                    android:layout_marginEnd="35sp"
+                    android:text="Price:"
+                    android:textColor="#B12704"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/price_title"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginStart="35dp"
-                    android:layout_marginTop="29dp"
+                    android:layout_marginTop="0sp"
                     android:layout_marginEnd="35dp"
                     android:ems="10"
-                    android:text="Price:"
-                    android:textSize="20dp" />
+                    android:text="Amazon:"
+                    android:textColor="#F30F0F0F"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/price2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/price"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="35sp"
+                    android:layout_marginTop="27sp"
+                    android:layout_marginEnd="35sp"
+                    android:text="Indigo:"
+                    android:textColor="#F30F0F0F"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/rating_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/price2"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="35sp"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginEnd="35sp"
+                    android:text="Rating:"
+                    android:textColor="#FF9900"
+                    android:textSize="20sp" />
+
 
                 <TextView
                     android:id="@+id/ratings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/price"
+                    android:layout_below="@+id/rating_title"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginStart="35dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="35dp"
                     android:ems="10"
-                    android:text="Ratings:"
-                    android:textSize="20dp" />
+                    android:text="Amazon:"
+                    android:textColor="#F30F0F0F"
+                    android:textSize="20sp" />
 
-                <RatingBar
-                    android:id="@+id/ratingBar"
-                    style="?android:attr/ratingBarStyleSmall"
+                <TextView
+                    android:id="@+id/ratings2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/rating_title"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="145dp"
-                    android:layout_marginTop="71dp"
-                    android:layout_marginEnd="173dp"
-                    android:isIndicator="true"
-                    android:numStars="5"
-                    android:progressTint="@color/colorNavi"
-                    android:stepSize="0.1" />
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="35dp"
+                    android:ems="10"
+                    android:text="Goodreads"
+                    android:textColor="#F30F0F0F"
+                    android:textSize="20sp" />
+
+                <!--<RatingBar-->
+                    <!--android:id="@+id/ratingBar"-->
+                    <!--style="?android:attr/ratingBarStyleSmall"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentStart="true"-->
+                    <!--android:layout_alignParentTop="true"-->
+                    <!--android:layout_alignParentEnd="true"-->
+                    <!--android:layout_marginStart="145dp"-->
+                    <!--android:layout_marginTop="71dp"-->
+                    <!--android:layout_marginEnd="173dp"-->
+                    <!--android:isIndicator="true"-->
+                    <!--android:numStars="5"-->
+                    <!--android:progressTint="@color/colorNavi"-->
+                    <!--android:stepSize="0.1" />-->
+
+                <TextView
+                    android:id="@+id/review_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ratings2"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="35sp"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginEnd="35sp"
+                    android:text="Reviews:"
+                    android:textColor="#DAA520"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/reviews"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/ratings"
+                    android:layout_below="@+id/review_title"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
                     android:layout_marginStart="35dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="35dp"
+                    android:layout_marginTop="0sp"
+                    android:layout_marginEnd="35sp"
                     android:layout_marginBottom="0dp"
                     android:ems="10"
-                    android:text="Reviews:"
+                    android:text="Amazon:"
+                    android:textColor="#F30F0F0F"
                     android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/reviews2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/reviews"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="0sp"
+                    android:layout_marginEnd="35sp"
+                    android:text="Goodreads:"
+                    android:textColor="#F30F0F0F"
+                    android:textSize="20sp" />
 
 
             </RelativeLayout>
