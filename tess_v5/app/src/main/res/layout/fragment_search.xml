@@ -234,39 +234,61 @@
 
                     <TextView
                         android:id="@+id/ratings"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/rating_title"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="0dp"
+                        android:layout_toStartOf="@+id/ratingBar"
                         android:ems="10"
-                        android:text="Amazon:"
+                        android:gravity="left"
                         android:textColor="#F30F0F0F"
                         android:textSize="20sp" />
 
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rating_title"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="150sp"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:progressTint="@color/colorNavi"
+                        android:stepSize="0.1" />
+
                     <TextView
                         android:id="@+id/ratings2"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/ratings"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="0sp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="0dp"
+                        android:layout_toStartOf="@+id/ratingBar2"
                         android:ems="10"
-                        android:text="Goodreads"
                         android:textColor="#F30F0F0F"
                         android:textSize="20sp" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBar2"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ratings"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="115sp"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:progressTint="@color/colorNavi"
+                        android:stepSize="0.1" />
                 </RelativeLayout>
-                <!--<RatingBar-->
-                <!--android:id="@+id/ratingBar"-->
-                <!--style="?android:attr/ratingBarStyleSmall"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_alignParentStart="true"-->
-                <!--android:layout_alignParentTop="true"-->
-                <!--android:layout_alignParentEnd="true"-->
-                <!--android:layout_marginStart="145dp"-->
-                <!--android:layout_marginTop="71dp"-->
-                <!--android:layout_marginEnd="173dp"-->
-                <!--android:isIndicator="true"-->
-                <!--android:numStars="5"-->
-                <!--android:progressTint="@color/colorNavi"-->
-                <!--android:stepSize="0.1" />-->
 
                 <RelativeLayout
                     android:id="@+id/review_frame"
