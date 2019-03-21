@@ -549,7 +549,7 @@ public class MainActivity extends AppCompatActivity{
 
             System.out.println("Price: "+ price[0] + " + " + price[1]);
             info = findViewById(R.id.price);
-            info.setText("Amazon: $"+price[0]);
+            info.setText("Amazon: $"+price[0].replaceAll("\\s",""));
             info = findViewById(R.id.price2);
             info.setText("Indigo: $"+price[1]);
 
