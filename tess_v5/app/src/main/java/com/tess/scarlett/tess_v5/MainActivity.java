@@ -2,8 +2,15 @@ package com.tess.scarlett.tess_v5;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -40,11 +47,20 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import android.os.AsyncTask;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import static java.util.Collections.list;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -72,6 +88,11 @@ public class MainActivity extends AppCompatActivity{
     private String[] rate = new String[2];
     private String[] review = new String[4];
 
+    public static final int REQUEST_CODE = 0x0000c0de; // Only use bottom 16 bits
+
+
+
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -87,11 +108,19 @@ public class MainActivity extends AppCompatActivity{
                 case R.id.navigation_isbn:
                     selectedFragment = SearchFragment.newInstance("","");
                     hideUpButton();
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frame_layout, selectedFragment);
+                    transaction.commit();
+                    //new code below
+                    System.out.println("lololololololol   before getParent()\n ");
+                    IntentIntegrator integrator = new IntentIntegrator(MainActivity.this); //////// may not be correct
+                    System.out.println("lololololololol   after getParent()\n ");
+                    integrator.initiateScan();
                     break;
                 case R.id.navigation_camera:
                     selectedFragment = SearchFragment.newInstance("","");
                     hideUpButton();
-                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.frame_layout, selectedFragment);
                     transaction.commit();
                     startCameraActivity();
@@ -251,6 +280,12 @@ public class MainActivity extends AppCompatActivity{
             }
             System.out.println("\nhahahah"+ "hahahahaha" + "\n~~~~~~~~~~~~~~~~~~~");
         }*/
+        else if (requestCode == REQUEST_CODE) {
+            IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+            if (scanResult != null) {
+                System.out.println("&&&&&&&&&&&&&&&&&&&&&&Scan result is " + scanResult.getContents() + "\n");
+            }
+        }
         else{
             System.out.println("\n????????????else: image problem???????????????");
             Toast.makeText(getApplicationContext(),"Image problem", Toast.LENGTH_SHORT).show();
@@ -588,8 +623,6 @@ public class MainActivity extends AppCompatActivity{
         startActivityForResult(intent, 1);
         System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~"+ "pickImage_Main" + "~~~~~~~~~~~~~~~~~~~\n");
     }
-
-
 
 
 }
