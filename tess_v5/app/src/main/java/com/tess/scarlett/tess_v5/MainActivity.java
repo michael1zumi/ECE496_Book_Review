@@ -25,6 +25,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -654,9 +655,11 @@ public class MainActivity extends AppCompatActivity{
 //            rating.setRating(Float.valueOf(rate[0]));
 
             info = findViewById(R.id.reviews);
-            info.setText("Amazon: "+ review[0]);
+            String amazon_review = "<b>" + "Amazon: "+ "</b> " + review[0];
+            info.setText(Html.fromHtml(amazon_review));
+            String goodreads_review = "<b>" + "Goodreads: "+ "</b> " + review[2];
             info = findViewById(R.id.reviews2);
-            info.setText("Goodreads: "+ review[2]);
+            info.setText(Html.fromHtml(goodreads_review));
 
 
         }
