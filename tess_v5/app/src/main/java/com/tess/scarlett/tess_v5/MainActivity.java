@@ -263,7 +263,12 @@ public class MainActivity extends AppCompatActivity{
                     Toast.makeText(getApplicationContext(),"Image Saved Sueecssfully!", Toast.LENGTH_SHORT).show();
                     //imageview.setImageBitmap(bitmap);
                     String retstr = getText(bitmap);
-                    showResult(retstr);
+
+                    //showResult(retstr);
+                    searchview = findViewById(R.id.searchView);
+                    searchview.setQuery(retstr,false);
+                    searchview.requestFocus();
+
                     System.out.println("\n Gallery Returned Str is : \n" + retstr);
 
                 } catch (IOException e) {
