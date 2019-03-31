@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity{
     private String Brand = "";
     private String Model = "";
     private String query = "";
+    private boolean foundProduct = false;
 
 
     // string array
@@ -462,9 +463,14 @@ public class MainActivity extends AppCompatActivity{
     public void showResult(String userInput){
         RelativeLayout layout;
         RelativeLayout search_results;
+        RelativeLayout notFoundPage;
         ScrollView scrollview;
+
         search_results = findViewById(R.id.search_results);
         search_results.setVisibility(View.GONE);
+        notFoundPage = findViewById(R.id.productNotFound);
+        notFoundPage.setVisibility(View.GONE);
+
         scrollview = findViewById(R.id.scrollView1);
         scrollview.fullScroll(ScrollView.FOCUS_UP);
 
@@ -506,7 +512,7 @@ public class MainActivity extends AppCompatActivity{
 
                 Element itemLink = itemInList.select("a[class=a-size-base a-link-normal a-text-bold]").first();
                 if (itemLink == null){
-                    foundItem = bookname + " is not found, please try another book.";
+                    foundItem = bookname;
                     rate[0] = "0.0";
                     rate[1] = "0.0";
                     price[0] = "0.0";
@@ -517,13 +523,12 @@ public class MainActivity extends AppCompatActivity{
                     review[3] = "None";
                     productLink[0] = "None";
                     productLink[1] = "None";
-
                 }
                 else{
                     String itemVersion = itemLink.text();
                     System.out.println(itemVersion);
                     if (itemVersion.startsWith("Paperback")==false&itemVersion.startsWith("Hardcover")==false){
-                        foundItem = bookname + " is not found, please try another book.";
+                        foundItem = bookname;
                         rate[0] = "0.0";
                         rate[1] = "0.0";
                         price[0] = "0.0";
@@ -536,6 +541,7 @@ public class MainActivity extends AppCompatActivity{
                         productLink[1] = "None";
                     }
                     else {
+                        foundProduct = true;
                         // get amazon rate
                         Elements rateINFO =  itemInList.select("span[class=a-icon-alt]");
                         String amazon_rate = rateINFO.text();
@@ -642,42 +648,51 @@ public class MainActivity extends AppCompatActivity{
         @Override
         protected void onPostExecute(Void result) {
             TextView info;
-            RatingBar rating;
+//            RatingBar rating;
             RelativeLayout search_results;
             RelativeLayout layout;
+            RelativeLayout notFoundPage;
             layout = findViewById(R.id.progressBarLayer);
             layout.setVisibility(View.GONE);
 
-            search_results = findViewById(R.id.search_results);
-            search_results.setVisibility(View.VISIBLE);
+            if (foundProduct) {
+                search_results = findViewById(R.id.search_results);
+                search_results.setVisibility(View.VISIBLE);
 
-            info = findViewById(R.id.product_name);
-            info.setText(foundItem);
+                info = findViewById(R.id.product_name);
+                info.setText(foundItem);
 
-            System.out.println("Price: "+ price[0] + " + " + price[1]);
-            info = findViewById(R.id.price);
-            info.setText(price[0]);
-            info = findViewById(R.id.price2);
-            info.setText(price[1]);
+                System.out.println("Price: " + price[0] + " + " + price[1]);
+                info = findViewById(R.id.price);
+                info.setText(price[0]);
+                info = findViewById(R.id.price2);
+                info.setText(price[1]);
 
-            info = findViewById(R.id.ratings);
-            info.setText("Goodreads: "+ rate[1]+"/5");
-            info = findViewById(R.id.ratings2);
-            info.setText("Amazon: "+ rate[0]+"/5");
+                info = findViewById(R.id.ratings);
+                info.setText("Goodreads: " + rate[1] + "/5");
+                info = findViewById(R.id.ratings2);
+                info.setText("Amazon: " + rate[0] + "/5");
 
 //            rating = findViewById(R.id.ratingBar);
 //            rating.setRating(Float.valueOf(rate[1]));
 //            rating = findViewById(R.id.ratingBar2);
 //            rating.setRating(Float.valueOf(rate[0]));
 
-            info = findViewById(R.id.reviews);
-            String amazon_review = "<b>" + "Amazon: "+ "</b> " + review[0];
-            info.setText(Html.fromHtml(amazon_review));
-            String goodreads_review = "<b>" + "Goodreads: "+ "</b> " + review[2];
-            info = findViewById(R.id.reviews2);
-            info.setText(Html.fromHtml(goodreads_review));
+                info = findViewById(R.id.reviews);
+                String amazon_review = "<b>" + "Amazon: " + "</b> " + review[0];
+                info.setText(Html.fromHtml(amazon_review));
+                String goodreads_review = "<b>" + "Goodreads: " + "</b> " + review[2];
+                info = findViewById(R.id.reviews2);
+                info.setText(Html.fromHtml(goodreads_review));
 
-
+                foundProduct=false;
+            }
+            else{
+                notFoundPage = findViewById(R.id.productNotFound);
+                notFoundPage.setVisibility(View.VISIBLE);
+                info = findViewById(R.id.notFoundText3);
+                info.setText("\""+foundItem+"\"");
+            }
         }
     }
 
