@@ -286,6 +286,7 @@ public class MainActivity extends AppCompatActivity{
         else if (requestCode == REQUEST_CODE) {
             IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
             if (scanResult != null) {
+                showResult(scanResult.getContents());
                 System.out.println("&&&&&&&&&&&&&&&&&&&&&&Scan result is " + scanResult.getContents() + "\n");
             }
         }
