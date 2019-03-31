@@ -165,13 +165,39 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+
+                <RelativeLayout
+                    android:id="@+id/name_frame"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="0dp"
+                    android:background="@drawable/result_style">
+
+                    <TextView
+                        android:id="@+id/product_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="0sp"
+                        android:text="Product name"
+                        android:textColor="#F30F0F0F"
+                        android:textSize="20sp"
+                        android:textStyle="bold|italic" />
+
+                </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/price_frame"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/name_frame"
                     android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
                     android:layout_marginEnd="0dp"
                     android:background="@drawable/result_style">
 

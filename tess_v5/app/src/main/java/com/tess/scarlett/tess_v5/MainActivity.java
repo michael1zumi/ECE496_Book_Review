@@ -633,6 +633,9 @@ public class MainActivity extends AppCompatActivity{
             search_results = findViewById(R.id.search_results);
             search_results.setVisibility(View.VISIBLE);
 
+            info = findViewById(R.id.product_name);
+            info.setText(foundItem);
+
             System.out.println("Price: "+ price[0] + " + " + price[1]);
             info = findViewById(R.id.price);
             info.setText(price[0]);
