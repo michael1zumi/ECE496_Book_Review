@@ -634,19 +634,19 @@ public class MainActivity extends AppCompatActivity{
 
             System.out.println("Price: "+ price[0] + " + " + price[1]);
             info = findViewById(R.id.price);
-            info.setText(price[0].replaceAll("\\s",""));
+            info.setText(price[0]);
             info = findViewById(R.id.price2);
             info.setText(price[1]);
 
             info = findViewById(R.id.ratings);
-            info.setText("Goodreads:"+ rate[1]+"/5");
+            info.setText("Goodreads: "+ rate[1]+"/5");
             info = findViewById(R.id.ratings2);
-            info.setText("Amazon:"+ rate[0]+"/5");
+            info.setText("Amazon: "+ rate[0]+"/5");
 
-            rating = findViewById(R.id.ratingBar);
-            rating.setRating(Float.valueOf(rate[1]));
-            rating = findViewById(R.id.ratingBar2);
-            rating.setRating(Float.valueOf(rate[0]));
+//            rating = findViewById(R.id.ratingBar);
+//            rating.setRating(Float.valueOf(rate[1]));
+//            rating = findViewById(R.id.ratingBar2);
+//            rating.setRating(Float.valueOf(rate[0]));
 
             info = findViewById(R.id.reviews);
             info.setText("Amazon: "+ review[0]);
