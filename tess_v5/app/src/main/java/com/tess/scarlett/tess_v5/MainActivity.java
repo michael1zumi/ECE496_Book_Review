@@ -355,39 +355,38 @@ public class MainActivity extends AppCompatActivity{
             Bitmap bitmap = BitmapFactory.decodeFile(imageUri.getPath(),options);
             String result = this.getText(bitmap);
             System.out.println("return string is "+result +"\n");
-            processText(result);
-            //mTextMessage.setText(result);
-            searchview = findViewById(R.id.searchView);
-            cardview = findViewById(R.id.cardView);
-            cardview.setVisibility(View.GONE);
-            //searchview.setQuery(result,false);
-            //searchview.requestFocus();
-            editText = findViewById(R.id.brand_entry);
-            editText.setText(Brand, TextView.BufferType.EDITABLE);
-            editText = findViewById(R.id.model_entry);
-            editText.setText(Model, TextView.BufferType.EDITABLE);
-
-            relativeLayout = findViewById(R.id.brand_and_model);
-            relativeLayout.setVisibility(View.VISIBLE);
-
-            button = findViewById(R.id.confirm_query);
-            button.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    relativeLayout.setVisibility(View.GONE);
-                    cardview.setVisibility(View.VISIBLE);
-                    Brand = editText.getText().toString();
-                    Model = editText.getText().toString();
-                    query = Brand+" "+Model;
-                    showResult(query);
-                }
-            });
-            button = findViewById(R.id.cancel_query);
-            button.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    relativeLayout.setVisibility(View.GONE);
-                    cardview.setVisibility(View.VISIBLE);
-                }
-            });
+            searchview.setQuery(result,false);
+            searchview.requestFocus();
+//            processText(result);
+//            searchview = findViewById(R.id.searchView);
+//            cardview = findViewById(R.id.cardView);
+//            cardview.setVisibility(View.GONE);
+//            editText = findViewById(R.id.brand_entry);
+//            editText.setText(Brand, TextView.BufferType.EDITABLE);
+//            editText = findViewById(R.id.model_entry);
+//            editText.setText(Model, TextView.BufferType.EDITABLE);
+//
+//            relativeLayout = findViewById(R.id.brand_and_model);
+//            relativeLayout.setVisibility(View.VISIBLE);
+//
+//            button = findViewById(R.id.confirm_query);
+//            button.setOnClickListener(new View.OnClickListener() {
+//                public void onClick(View v) {
+//                    relativeLayout.setVisibility(View.GONE);
+//                    cardview.setVisibility(View.VISIBLE);
+//                    Brand = editText.getText().toString();
+//                    Model = editText.getText().toString();
+//                    query = Brand+" "+Model;
+//                    showResult(query);
+//                }
+//            });
+//            button = findViewById(R.id.cancel_query);
+//            button.setOnClickListener(new View.OnClickListener() {
+//                public void onClick(View v) {
+//                    relativeLayout.setVisibility(View.GONE);
+//                    cardview.setVisibility(View.VISIBLE);
+//                }
+//            });
 
         } catch (Exception e){
             Log.e(TAG, e.getMessage());
