@@ -355,6 +355,7 @@ public class MainActivity extends AppCompatActivity{
             Bitmap bitmap = BitmapFactory.decodeFile(imageUri.getPath(),options);
             String result = this.getText(bitmap);
             System.out.println("return string is "+result +"\n");
+            searchview = findViewById(R.id.searchView);
             searchview.setQuery(result,false);
             searchview.requestFocus();
 //            processText(result);
