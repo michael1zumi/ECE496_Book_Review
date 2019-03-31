@@ -486,7 +486,7 @@ public class MainActivity extends AppCompatActivity{
                 Document firstSearch = Jsoup.connect(url).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
                         .timeout(999999999)
                         .get();
-                Elements itemInList = firstSearch.select("div[data-index=0]");
+                Element itemInList = firstSearch.select("div[data-index=0]").first();
 
 
                 Element itemLink = itemInList.select("a[class=a-size-base a-link-normal a-text-bold]").first();
@@ -544,6 +544,7 @@ public class MainActivity extends AppCompatActivity{
                         String amazon_price = priceINFO.text();
                         int start = amazon_price.indexOf("$");
                         amazon_price = amazon_price.substring(start+1);
+                        amazon_price = amazon_price.replaceAll(" ","");
                         price[0] = amazon_price;
 
 
