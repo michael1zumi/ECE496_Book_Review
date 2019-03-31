@@ -82,8 +82,11 @@ public class MainActivity extends AppCompatActivity{
     private String Model = "";
     private String query = "";
 
-    private String bookname;
+
     // string array
+    private String bookname;
+    private String foundItem;
+    private String[] productLink = new String[2];
     private String[] price = new String[2];
     private String[] rate = new String[2];
     private String[] review = new String[4];
@@ -427,7 +430,6 @@ public class MainActivity extends AppCompatActivity{
                 continue;
             }
             newBrand.setCharAt()
-
         }*/
         Brand.replaceAll(" ", "");
 
@@ -479,90 +481,138 @@ public class MainActivity extends AppCompatActivity{
                 Elements secondReview;
                 String isbn = "";
 
-                //bookname = "the+fifth+risk";
-                //System.out.println("Product name is: " + bookname);
+
                 String url = "https://www.amazon.ca/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=" + bookname;
                 Document firstSearch = Jsoup.connect(url).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
                         .timeout(999999999)
                         .get();
                 Elements itemInList = firstSearch.select("div[data-index=0]");
 
-                // get amazon rate
-                Elements rateINFO =  itemInList.select("span[class=a-icon-alt]");
-                String amazon_rate = rateINFO.text();
-                amazon_rate = amazon_rate.substring(0,3);
-                rate[0] = amazon_rate;
-
 
                 Element itemLink = itemInList.select("a[class=a-size-base a-link-normal a-text-bold]").first();
-                String itemVersion = itemLink.text();
+                if (itemLink == null){
+                    foundItem = bookname + " is not found, please try another book.";
+                    rate[0] = "0.0";
+                    rate[1] = "0.0";
+                    price[0] = "0.0";
+                    price[1] = "0.0";
+                    review[0] = "None";
+                    review[1] = "None";
+                    review[2] = "None";
+                    review[3] = "None";
+                    productLink[0] = "None";
+                    productLink[1] = "None";
 
-                if (itemVersion.startsWith("Paperback")==false&itemVersion.startsWith("Hardcover")==false){
-                    price[0] = "Something wrong";
                 }
-                else {
-                    String link = "https://www.amazon.ca"+ itemLink.attr("href");
-                    secondSearch = Jsoup.connect(link).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
-                            .timeout(999999999)
-                            .get();
+                else{
+                    String itemVersion = itemLink.text();
+                    System.out.println(itemVersion);
+                    if (itemVersion.startsWith("Paperback")==false&itemVersion.startsWith("Hardcover")==false){
+                        foundItem = bookname + " is not found, please try another book.";
+                        rate[0] = "0.0";
+                        rate[1] = "0.0";
+                        price[0] = "0.0";
+                        price[1] = "0.0";
+                        review[0] = "None";
+                        review[1] = "None";
+                        review[2] = "None";
+                        review[3] = "None";
+                        productLink[0] = "None";
+                        productLink[1] = "None";
+                    }
+                    else {
+                        // get amazon rate
+                        Elements rateINFO =  itemInList.select("span[class=a-icon-alt]");
+                        String amazon_rate = rateINFO.text();
+                        amazon_rate = amazon_rate.substring(0,3);
+                        rate[0] = amazon_rate;
+                        
+                        // get book name
+                        String itemname = itemInList.select("a[class=a-link-normal a-text-normal]").text();
+                        foundItem = itemname;
 
-                    // get amazon price
-                    Elements priceINFO = secondSearch.getElementsByClass("swatchElement selected");
-                    priceINFO = priceINFO.select("a[class=a-button-text]");
-                    String amazon_price = priceINFO.text();
-                    int start = amazon_price.indexOf("$");
-                    amazon_price = amazon_price.substring(start+1);
-                    price[0] = amazon_price;
+                        // get amazon link
+                        String link = "https://www.amazon.ca"+ itemLink.attr("href");
+                        productLink[0] = link;
+                        secondSearch = Jsoup.connect(link).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
+                                .timeout(999999999)
+                                .get();
+
+                        // get amazon price
+                        Elements priceINFO = secondSearch.getElementsByClass("swatchElement selected");
+                        priceINFO = priceINFO.select("a[class=a-button-text]");
+                        String amazon_price = priceINFO.text();
+                        int start = amazon_price.indexOf("$");
+                        amazon_price = amazon_price.substring(start+1);
+                        price[0] = amazon_price;
 
 
-                    // get book isbn
-                    productDetail = secondSearch.select("div[class=content]");
-                    isbn = productDetail.select("li:contains(ISBN-13)").text();
+                        // get book isbn
+                        productDetail = secondSearch.select("div[class=content]");
+                        isbn = productDetail.select("li:contains(ISBN-13)").text();
 
-                    // get amazon review
-                    reviews = secondSearch.select("div[class=a-row a-spacing-small review-data]");
-                    firstReview = reviews.eq(1);
-                    secondReview = reviews.eq(2);
-                    String amazon_review_1 = firstReview.text();
-                    String amazon_review_2 = secondReview.text();
-                    int end = amazon_review_1.lastIndexOf("Read more");
-                    amazon_review_1 = amazon_review_1.substring(0,end);
-                    end = amazon_review_2.lastIndexOf("Read more");
-                    amazon_review_2 = amazon_review_2.substring(0,end);
-                    review[0] = amazon_review_1;
-                    review[1] = amazon_review_2;
+                        // get amazon review
+                        reviews = secondSearch.select("div[class=a-row a-spacing-small review-data]");
+                        firstReview = reviews.eq(1);
+                        secondReview = reviews.eq(2);
+                        String amazon_review_1 = firstReview.text();
+                        String amazon_review_2 = secondReview.text();
+                        int end = amazon_review_1.lastIndexOf("Read more");
+                        amazon_review_1 = amazon_review_1.substring(0,end);
+                        end = amazon_review_2.lastIndexOf("Read more");
+                        amazon_review_2 = amazon_review_2.substring(0,end);
+                        review[0] = amazon_review_1;
+                        review[1] = amazon_review_2;
+
+                        // search for indigo
+                        String finalISBN = isbn.substring(9, 12)+isbn.substring(13, 23);
+
+                        String indigourl = "https://www.chapters.indigo.ca/en-ca/books/as/" + finalISBN + "-item.html";
+                        productLink[1] = indigourl;
+
+                        Document indigoSearch = Jsoup.connect(indigourl).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
+                                .timeout(999999999)
+                                .get();
+                        productDetail = indigoSearch.getElementsByClass​("item-price__price-amount");
+                        String indigoPrice = productDetail.text();
+                        start = indigoPrice.indexOf("$");
+                        end = indigoPrice.lastIndexOf("online");
+                        indigoPrice = indigoPrice.substring(start+1,end);
+                        price[1] = indigoPrice;
+
+
+                        // search for goodread
+                        String goodreadurl = "https://www.goodreads.com/search?q=" + finalISBN;
+                        Document goodreadSearch = Jsoup.connect(goodreadurl).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
+                                .timeout(999999999)
+                                .get();
+                        String goodreadRates = goodreadSearch.select("span[itemprop='ratingValue']").first().text();
+                        rate[1] = goodreadRates;
+
+                        Elements goodreadReviews = goodreadSearch.getElementsByClass​("reviewText stacked");
+                        Elements goodreadFirstReview = goodreadReviews.eq(0);
+                        Elements goodreadSecondReview = goodreadReviews.eq(2);
+                        String goodread_review_1 = goodreadFirstReview.text();
+                        String goodread_review_2 = goodreadSecondReview.text();
+                        review[2] = goodread_review_1;
+                        review[3] = goodread_review_2;
+
+                        if (Float.parseFloat(price[0])>Float.parseFloat(price[1])){
+                            String swap = price[0];
+                            price[0] = "Indigo: $" + price[1];
+                            price[1] = "Amazon: $" + swap;
+                        }
+                        else{
+                            price[0] = "Amazon: $" + price[0];
+                            price[1] = "Indigo: $" + price[1];
+                        }
+
+
+                    }
+
+
                 }
 
-                // search for indigo
-                String finalISBN = isbn.substring(9, 12)+isbn.substring(13, 23);
-
-                String indigourl = "https://www.chapters.indigo.ca/en-ca/books/as/" + finalISBN + "-item.html";
-                Document indigoSearch = Jsoup.connect(indigourl).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
-                        .timeout(999999999)
-                        .get();
-                productDetail = indigoSearch.getElementsByClass​("item-price__price-amount");
-                String indigoPrice = productDetail.text();
-                int start = indigoPrice.indexOf("$");
-                int end = indigoPrice.lastIndexOf("online");
-                indigoPrice = indigoPrice.substring(start+1,end);
-                price[1] = indigoPrice;
-
-
-                // search for goodread
-                String goodreadurl = "https://www.goodreads.com/search?q=" + finalISBN;
-                Document goodreadSearch = Jsoup.connect(goodreadurl).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
-                        .timeout(999999999)
-                        .get();
-                String goodreadRates = goodreadSearch.select("span[itemprop='ratingValue']").first().text();
-                rate[1] = goodreadRates;
-
-                Elements goodreadReviews = goodreadSearch.getElementsByClass​("reviewText stacked");
-                Elements goodreadFirstReview = goodreadReviews.eq(0);
-                Elements goodreadSecondReview = goodreadReviews.eq(2);
-                String goodread_review_1 = goodreadFirstReview.text();
-                String goodread_review_2 = goodreadSecondReview.text();
-                review[2] = goodread_review_1;
-                review[3] = goodread_review_2;
 
 
 
@@ -584,19 +634,19 @@ public class MainActivity extends AppCompatActivity{
 
             System.out.println("Price: "+ price[0] + " + " + price[1]);
             info = findViewById(R.id.price);
-            info.setText("Amazon: $"+price[0].replaceAll("\\s",""));
+            info.setText(price[0].replaceAll("\\s",""));
             info = findViewById(R.id.price2);
-            info.setText("Indigo: $"+price[1]);
+            info.setText(price[1]);
 
             info = findViewById(R.id.ratings);
-            info.setText("Amazon: "+ rate[0]+"/5");
+            info.setText("Goodreads:"+ rate[1]+"/5");
             info = findViewById(R.id.ratings2);
-            info.setText("Goodreads: "+ rate[1]+"/5");
+            info.setText("Amazon:"+ rate[0]+"/5");
 
             rating = findViewById(R.id.ratingBar);
-            rating.setRating(Float.valueOf(rate[0]));
-            rating = findViewById(R.id.ratingBar2);
             rating.setRating(Float.valueOf(rate[1]));
+            rating = findViewById(R.id.ratingBar2);
+            rating.setRating(Float.valueOf(rate[0]));
 
             info = findViewById(R.id.reviews);
             info.setText("Amazon: "+ review[0]);
