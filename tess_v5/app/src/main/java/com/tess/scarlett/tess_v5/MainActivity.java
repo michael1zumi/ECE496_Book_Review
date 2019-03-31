@@ -29,6 +29,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -458,6 +459,14 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void showResult(String userInput){
+        RelativeLayout layout;
+        RelativeLayout search_results;
+        search_results = findViewById(R.id.search_results);
+        search_results.setVisibility(View.GONE);
+
+        layout = findViewById(R.id.progressBarLayer);
+        layout.setVisibility(View.VISIBLE);
+
         bookname = userInput;
         bookname = bookname.replaceAll(" ", "+");
         System.out.println(userInput);
@@ -631,6 +640,9 @@ public class MainActivity extends AppCompatActivity{
             TextView info;
             RatingBar rating;
             RelativeLayout search_results;
+            RelativeLayout layout;
+            layout = findViewById(R.id.progressBarLayer);
+            layout.setVisibility(View.GONE);
 
             search_results = findViewById(R.id.search_results);
             search_results.setVisibility(View.VISIBLE);

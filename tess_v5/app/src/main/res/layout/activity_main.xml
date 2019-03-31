@@ -17,22 +17,41 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"></FrameLayout>
 
-    <!--<TextView-->
-        <!--android:id="@+id/message"-->
-        <!--android:layout_width="44dp"-->
-        <!--android:layout_height="19dp"-->
-        <!--android:layout_marginStart="168dp"-->
-        <!--android:layout_marginTop="8dp"-->
-        <!--android:layout_marginEnd="168dp"-->
-        <!--android:layout_marginBottom="8dp"-->
-        <!--android:text="@string/title_search"-->
-        <!--app:layout_constraintBottom_toTopOf="@+id/frame_layout"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintEnd_toStartOf="@+id/frame_layout"-->
-        <!--app:layout_constraintHorizontal_bias="0.5"-->
-        <!--app:layout_constraintStart_toEndOf="@+id/frame_layout"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/frame_layout"-->
-        <!--app:layout_constraintVertical_bias="0.32" />-->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/progressBarLayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/colorNavi"
+            android:indeterminateTintMode="src_in"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progressBar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1dp"
+            android:text="Searching"
+            android:textAlignment="center"
+            android:textColor="#F30F0F0F"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
