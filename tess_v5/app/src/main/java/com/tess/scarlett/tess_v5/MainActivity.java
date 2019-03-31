@@ -31,6 +31,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
+import android.widget.ScrollView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -461,8 +462,11 @@ public class MainActivity extends AppCompatActivity{
     public void showResult(String userInput){
         RelativeLayout layout;
         RelativeLayout search_results;
+        ScrollView scrollview;
         search_results = findViewById(R.id.search_results);
         search_results.setVisibility(View.GONE);
+        scrollview = findViewById(R.id.scrollView1);
+        scrollview.fullScroll(ScrollView.FOCUS_UP);
 
         layout = findViewById(R.id.progressBarLayer);
         layout.setVisibility(View.VISIBLE);
