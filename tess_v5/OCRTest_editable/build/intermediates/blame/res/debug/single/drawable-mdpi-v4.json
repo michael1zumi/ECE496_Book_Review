@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\shutter.png",
+        "source": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\drawable-mdpi\\shutter.png"
+    },
+    {
+        "merged": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\background_pressed.png",
+        "source": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\drawable-mdpi\\background_pressed.png"
+    },
+    {
+        "merged": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\background.png",
+        "source": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\drawable-mdpi\\background.png"
+    },
+    {
+        "merged": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\shutter_pressed.png",
+        "source": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\drawable-mdpi\\shutter_pressed.png"
+    }
+]

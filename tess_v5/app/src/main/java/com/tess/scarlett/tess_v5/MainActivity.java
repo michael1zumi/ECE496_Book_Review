@@ -197,8 +197,31 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void startCameraActivity(){
+        //Uri message = Uri.parse("111");
+        Intent geniusIntent= new Intent(this, edu.sfsu.cs.orange.ocr.CaptureActivity.class);
 
-        try{
+
+
+        startActivityForResult(geniusIntent, 205);
+
+        /*PackageManager packageManager = getPackageManager();
+        List<ResolveInfo> activities = packageManager.queryIntentActivities(geniusIntent,0);
+        boolean isIntentsafe = activities.size() > 0;
+
+        if (isIntentsafe){
+            startActivityForResult(geniusIntent, 205);
+        }
+        // This says something like "Share this photo with"
+        String title = getResources().getString(R.string.app_name);
+        // Create intent to show chooser
+        Intent chooser = Intent.createChooser(geniusIntent, title);
+
+        // Verify the intent will resolve to at least one activity
+        if (geniusIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(chooser);
+        }*/
+
+        /*try{
             //camera.setDisplayOrientation(90);
             StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
             StrictMode.setVmPolicy(builder.build());
@@ -226,7 +249,7 @@ public class MainActivity extends AppCompatActivity{
             }
         } catch (Exception e){
             Log.e(TAG, e.getMessage());
-        }
+        }*/
     }
 
 
@@ -283,15 +306,13 @@ public class MainActivity extends AppCompatActivity{
             System.out.println("outputFileDir is "+outputFileDir+"\n");
             startOCR(outputFileDir);
             System.out.println("!!!!!!!!!!!!!OCR finished Main!!!!!!!!!!!!!\n\n\n\n");
-        }/*
-        else if (requestCode == 1 && resultCode == Activity.RESULT_OK){
-            final Bundle extras = data.getExtras();
-            if (extras != null) {
-                //Get image
-                Bitmap newProfilePic = extras.getParcelable("data");
-            }
-            System.out.println("\nhahahah"+ "hahahahaha" + "\n~~~~~~~~~~~~~~~~~~~");
-        }*/
+        }
+        else if (requestCode == 205 && resultCode == Activity.RESULT_OK){
+            //Uri OCRuri = data.getData();
+            String recvData = data.getStringExtra("returnedLibString");
+            System.out.println("........returnedLibString is :" + recvData);
+            showResult(recvData);
+        }
         else if (requestCode == REQUEST_CODE) {
             IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
             if (scanResult != null) {

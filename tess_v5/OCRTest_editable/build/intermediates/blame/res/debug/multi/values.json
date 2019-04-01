@@ -1,0 +1,675 @@
+[
+    {
+        "outputFile": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\build\\intermediates\\res\\merged\\debug\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 5,
+                    "endColumn": 16,
+                    "endOffset": 159
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\arrays.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 1,
+                        "startOffset": 626,
+                        "endLine": 20,
+                        "endColumn": 16,
+                        "endOffset": 730
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 164,
+                    "endLine": 40,
+                    "endColumn": 16,
+                    "endOffset": 1418
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\arrays.xml",
+                    "position": {
+                        "startLine": 166,
+                        "startColumn": 1,
+                        "startOffset": 5066,
+                        "endLine": 200,
+                        "endColumn": 16,
+                        "endOffset": 6320
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 41,
+                    "startColumn": 4,
+                    "startOffset": 1423,
+                    "endLine": 98,
+                    "endColumn": 16,
+                    "endOffset": 3551
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\arrays.xml",
+                    "position": {
+                        "startLine": 106,
+                        "startColumn": 1,
+                        "startOffset": 2917,
+                        "endLine": 163,
+                        "endColumn": 16,
+                        "endOffset": 5045
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 99,
+                    "startColumn": 4,
+                    "startOffset": 3556,
+                    "endLine": 156,
+                    "endColumn": 16,
+                    "endOffset": 4954
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\arrays.xml",
+                    "position": {
+                        "startLine": 46,
+                        "startColumn": 1,
+                        "startOffset": 1440,
+                        "endLine": 103,
+                        "endColumn": 16,
+                        "endOffset": 2838
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 157,
+                    "startColumn": 4,
+                    "startOffset": 4959,
+                    "endLine": 161,
+                    "endColumn": 19,
+                    "endOffset": 5098
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\arrays.xml",
+                    "position": {
+                        "startLine": 34,
+                        "startColumn": 4,
+                        "startOffset": 1112,
+                        "endLine": 38,
+                        "endColumn": 19,
+                        "endOffset": 1251
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 162,
+                    "startColumn": 4,
+                    "startOffset": 5103,
+                    "endLine": 172,
+                    "endColumn": 19,
+                    "endOffset": 5469
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\arrays.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 736,
+                        "endLine": 32,
+                        "endColumn": 19,
+                        "endOffset": 1102
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 173,
+                    "startColumn": 4,
+                    "startOffset": 5474,
+                    "endLine": 244,
+                    "endColumn": 16,
+                    "endOffset": 8037
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\arrays.xml",
+                    "position": {
+                        "startLine": 204,
+                        "startColumn": 1,
+                        "startOffset": 6481,
+                        "endLine": 275,
+                        "endColumn": 16,
+                        "endOffset": 9044
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 245,
+                    "startColumn": 4,
+                    "startOffset": 8042,
+                    "endLine": 288,
+                    "endColumn": 16,
+                    "endOffset": 9879
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\arrays.xml",
+                    "position": {
+                        "startLine": 354,
+                        "startColumn": 1,
+                        "startOffset": 11104,
+                        "endLine": 397,
+                        "endColumn": 16,
+                        "endOffset": 12941
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 289,
+                    "startColumn": 4,
+                    "startOffset": 9884,
+                    "endLine": 360,
+                    "endColumn": 16,
+                    "endOffset": 11605
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\arrays.xml",
+                    "position": {
+                        "startLine": 279,
+                        "startColumn": 1,
+                        "startOffset": 9199,
+                        "endLine": 350,
+                        "endColumn": 16,
+                        "endOffset": 10920
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 361,
+                    "startColumn": 4,
+                    "startOffset": 11610,
+                    "endLine": 404,
+                    "endColumn": 16,
+                    "endOffset": 12940
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\arrays.xml",
+                    "position": {
+                        "startLine": 401,
+                        "startColumn": 1,
+                        "startOffset": 13110,
+                        "endLine": 444,
+                        "endColumn": 16,
+                        "endOffset": 14440
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 405,
+                    "startColumn": 4,
+                    "startOffset": 12945,
+                    "endLine": 408,
+                    "endColumn": 16,
+                    "endOffset": 13058
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\arrays.xml",
+                    "position": {
+                        "startLine": 40,
+                        "startColumn": 1,
+                        "startOffset": 1254,
+                        "endLine": 43,
+                        "endColumn": 16,
+                        "endOffset": 1367
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 409,
+                    "startColumn": 4,
+                    "startOffset": 13063,
+                    "endColumn": 52,
+                    "endOffset": 13111
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 2,
+                        "startOffset": 742,
+                        "endColumn": 50,
+                        "endOffset": 790
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 410,
+                    "startColumn": 4,
+                    "startOffset": 13116,
+                    "endColumn": 45,
+                    "endOffset": 13157
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 2,
+                        "startOffset": 836,
+                        "endColumn": 43,
+                        "endOffset": 877
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 411,
+                    "startColumn": 4,
+                    "startOffset": 13162,
+                    "endColumn": 53,
+                    "endOffset": 13211
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 2,
+                        "startOffset": 927,
+                        "endColumn": 51,
+                        "endOffset": 976
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 412,
+                    "startColumn": 4,
+                    "startOffset": 13216,
+                    "endColumn": 47,
+                    "endOffset": 13259
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 2,
+                        "startOffset": 1054,
+                        "endColumn": 45,
+                        "endOffset": 1097
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 413,
+                    "startColumn": 4,
+                    "startOffset": 13264,
+                    "endColumn": 47,
+                    "endOffset": 13307
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 2,
+                        "startOffset": 1131,
+                        "endColumn": 45,
+                        "endOffset": 1174
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 414,
+                    "startColumn": 4,
+                    "startOffset": 13312,
+                    "endColumn": 47,
+                    "endOffset": 13355
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 2,
+                        "startOffset": 1215,
+                        "endColumn": 45,
+                        "endOffset": 1258
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 415,
+                    "startColumn": 4,
+                    "startOffset": 13360,
+                    "endColumn": 62,
+                    "endOffset": 13418
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 2,
+                        "startOffset": 1316,
+                        "endColumn": 60,
+                        "endOffset": 1374
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 416,
+                    "startColumn": 4,
+                    "startOffset": 13423,
+                    "endColumn": 50,
+                    "endOffset": 13469
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 2,
+                        "startOffset": 1424,
+                        "endColumn": 48,
+                        "endOffset": 1470
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 417,
+                    "startColumn": 4,
+                    "startOffset": 13474,
+                    "endColumn": 54,
+                    "endOffset": 13524
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 2,
+                        "startOffset": 1505,
+                        "endColumn": 52,
+                        "endOffset": 1555
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 418,
+                    "startColumn": 4,
+                    "startOffset": 13529,
+                    "endColumn": 52,
+                    "endOffset": 13577
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 2,
+                        "startOffset": 1603,
+                        "endColumn": 50,
+                        "endOffset": 1651
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 419,
+                    "startColumn": 4,
+                    "startOffset": 13582,
+                    "endColumn": 51,
+                    "endOffset": 13629
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 31,
+                        "startColumn": 2,
+                        "startOffset": 1684,
+                        "endColumn": 49,
+                        "endOffset": 1731
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 421,
+                    "startColumn": 4,
+                    "startOffset": 13681,
+                    "endColumn": 35,
+                    "endOffset": 13712
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\ids.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 2,
+                        "startOffset": 661,
+                        "endColumn": 33,
+                        "endOffset": 692
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 422,
+                    "startColumn": 4,
+                    "startOffset": 13717,
+                    "endColumn": 42,
+                    "endOffset": 13755
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\ids.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 2,
+                        "startOffset": 695,
+                        "endColumn": 40,
+                        "endOffset": 733
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 423,
+                    "startColumn": 4,
+                    "startOffset": 13760,
+                    "endColumn": 45,
+                    "endOffset": 13801
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\ids.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 2,
+                        "startOffset": 736,
+                        "endColumn": 43,
+                        "endOffset": 777
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 424,
+                    "startColumn": 4,
+                    "startOffset": 13806,
+                    "endColumn": 50,
+                    "endOffset": 13852
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\ids.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 2,
+                        "startOffset": 781,
+                        "endColumn": 48,
+                        "endOffset": 827
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 425,
+                    "startColumn": 4,
+                    "startOffset": 13857,
+                    "endColumn": 57,
+                    "endOffset": 13910
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\ids.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 2,
+                        "startOffset": 830,
+                        "endColumn": 55,
+                        "endOffset": 883
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 426,
+                    "startColumn": 4,
+                    "startOffset": 13915,
+                    "endColumn": 60,
+                    "endOffset": 13971
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\ids.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 2,
+                        "startOffset": 886,
+                        "endColumn": 58,
+                        "endOffset": 942
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 427,
+                    "startColumn": 4,
+                    "startOffset": 13976,
+                    "endColumn": 39,
+                    "endOffset": 14011
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\ids.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 2,
+                        "startOffset": 945,
+                        "endColumn": 37,
+                        "endOffset": 980
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 428,
+                    "startColumn": 4,
+                    "startOffset": 14016,
+                    "endColumn": 46,
+                    "endOffset": 14058
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\ids.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 2,
+                        "startOffset": 983,
+                        "endColumn": 44,
+                        "endOffset": 1025
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 429,
+                    "startColumn": 4,
+                    "startOffset": 14063,
+                    "endColumn": 49,
+                    "endOffset": 14108
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\ids.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 2,
+                        "startOffset": 1028,
+                        "endColumn": 47,
+                        "endOffset": 1073
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 430,
+                    "startColumn": 4,
+                    "startOffset": 14113,
+                    "endColumn": 33,
+                    "endOffset": 14142
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\ids.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 2,
+                        "startOffset": 1079,
+                        "endColumn": 31,
+                        "endOffset": 1108
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 431,
+                    "startColumn": 4,
+                    "startOffset": 14147,
+                    "endColumn": 44,
+                    "endOffset": 14187
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\ids.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 2,
+                        "startOffset": 1111,
+                        "endColumn": 42,
+                        "endOffset": 1151
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 432,
+                    "startColumn": 4,
+                    "startOffset": 14192,
+                    "endColumn": 45,
+                    "endOffset": 14233
+                },
+                "from": {
+                    "file": "C:\\Users\\Michael Liu\\Desktop\\android-ocr-master\\OCRTest\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 663,
+                        "endColumn": 45,
+                        "endOffset": 704
+                    }
+                }
+            }
+        ]
+    }
+]

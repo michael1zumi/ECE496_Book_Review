@@ -1,0 +1,864 @@
+com.google.api.Files
+com.google.api.Files: void write(java.io.File,java.lang.String)
+com.google.api.Files: java.lang.String read(java.io.File)
+com.google.api.GoogleAPI
+com.google.api.GoogleAPI: java.lang.String ENCODING
+com.google.api.GoogleAPI: java.lang.String referrer
+com.google.api.GoogleAPI: java.lang.String key
+com.google.api.GoogleAPI: GoogleAPI()
+com.google.api.GoogleAPI: void setHttpReferrer(java.lang.String)
+com.google.api.GoogleAPI: void setKey(java.lang.String)
+com.google.api.GoogleAPI: void validateReferrer()
+com.google.api.GoogleAPI: org.json.JSONObject retrieveJSON(java.net.URL)
+com.google.api.GoogleAPI: org.json.JSONObject retrieveJSON(java.net.URL,java.lang.String)
+com.google.api.GoogleAPIException
+com.google.api.GoogleAPIException: long serialVersionUID
+com.google.api.GoogleAPIException: GoogleAPIException(java.lang.String)
+com.google.api.GoogleAPIException: GoogleAPIException(java.lang.Exception)
+com.google.api.translate.Language
+com.google.api.translate.Language: com.google.api.translate.Language AUTO_DETECT
+com.google.api.translate.Language: com.google.api.translate.Language AFRIKAANS
+com.google.api.translate.Language: com.google.api.translate.Language ALBANIAN
+com.google.api.translate.Language: com.google.api.translate.Language AMHARIC
+com.google.api.translate.Language: com.google.api.translate.Language ARABIC
+com.google.api.translate.Language: com.google.api.translate.Language ARMENIAN
+com.google.api.translate.Language: com.google.api.translate.Language AZERBAIJANI
+com.google.api.translate.Language: com.google.api.translate.Language BASQUE
+com.google.api.translate.Language: com.google.api.translate.Language BELARUSIAN
+com.google.api.translate.Language: com.google.api.translate.Language BENGALI
+com.google.api.translate.Language: com.google.api.translate.Language BIHARI
+com.google.api.translate.Language: com.google.api.translate.Language BULGARIAN
+com.google.api.translate.Language: com.google.api.translate.Language BURMESE
+com.google.api.translate.Language: com.google.api.translate.Language CATALAN
+com.google.api.translate.Language: com.google.api.translate.Language CHEROKEE
+com.google.api.translate.Language: com.google.api.translate.Language CHINESE
+com.google.api.translate.Language: com.google.api.translate.Language CHINESE_SIMPLIFIED
+com.google.api.translate.Language: com.google.api.translate.Language CHINESE_TRADITIONAL
+com.google.api.translate.Language: com.google.api.translate.Language CROATIAN
+com.google.api.translate.Language: com.google.api.translate.Language CZECH
+com.google.api.translate.Language: com.google.api.translate.Language DANISH
+com.google.api.translate.Language: com.google.api.translate.Language DHIVEHI
+com.google.api.translate.Language: com.google.api.translate.Language DUTCH
+com.google.api.translate.Language: com.google.api.translate.Language ENGLISH
+com.google.api.translate.Language: com.google.api.translate.Language ESPERANTO
+com.google.api.translate.Language: com.google.api.translate.Language ESTONIAN
+com.google.api.translate.Language: com.google.api.translate.Language FILIPINO
+com.google.api.translate.Language: com.google.api.translate.Language FINNISH
+com.google.api.translate.Language: com.google.api.translate.Language FRENCH
+com.google.api.translate.Language: com.google.api.translate.Language GALICIAN
+com.google.api.translate.Language: com.google.api.translate.Language GEORGIAN
+com.google.api.translate.Language: com.google.api.translate.Language GERMAN
+com.google.api.translate.Language: com.google.api.translate.Language GREEK
+com.google.api.translate.Language: com.google.api.translate.Language GUARANI
+com.google.api.translate.Language: com.google.api.translate.Language GUJARATI
+com.google.api.translate.Language: com.google.api.translate.Language HEBREW
+com.google.api.translate.Language: com.google.api.translate.Language HINDI
+com.google.api.translate.Language: com.google.api.translate.Language HUNGARIAN
+com.google.api.translate.Language: com.google.api.translate.Language ICELANDIC
+com.google.api.translate.Language: com.google.api.translate.Language INDONESIAN
+com.google.api.translate.Language: com.google.api.translate.Language INUKTITUT
+com.google.api.translate.Language: com.google.api.translate.Language IRISH
+com.google.api.translate.Language: com.google.api.translate.Language ITALIAN
+com.google.api.translate.Language: com.google.api.translate.Language JAPANESE
+com.google.api.translate.Language: com.google.api.translate.Language KANNADA
+com.google.api.translate.Language: com.google.api.translate.Language KAZAKH
+com.google.api.translate.Language: com.google.api.translate.Language KHMER
+com.google.api.translate.Language: com.google.api.translate.Language KOREAN
+com.google.api.translate.Language: com.google.api.translate.Language KURDISH
+com.google.api.translate.Language: com.google.api.translate.Language KYRGYZ
+com.google.api.translate.Language: com.google.api.translate.Language LAOTHIAN
+com.google.api.translate.Language: com.google.api.translate.Language LATVIAN
+com.google.api.translate.Language: com.google.api.translate.Language LITHUANIAN
+com.google.api.translate.Language: com.google.api.translate.Language MACEDONIAN
+com.google.api.translate.Language: com.google.api.translate.Language MALAY
+com.google.api.translate.Language: com.google.api.translate.Language MALAYALAM
+com.google.api.translate.Language: com.google.api.translate.Language MALTESE
+com.google.api.translate.Language: com.google.api.translate.Language MARATHI
+com.google.api.translate.Language: com.google.api.translate.Language MONGOLIAN
+com.google.api.translate.Language: com.google.api.translate.Language NEPALI
+com.google.api.translate.Language: com.google.api.translate.Language NORWEGIAN
+com.google.api.translate.Language: com.google.api.translate.Language ORIYA
+com.google.api.translate.Language: com.google.api.translate.Language PASHTO
+com.google.api.translate.Language: com.google.api.translate.Language PERSIAN
+com.google.api.translate.Language: com.google.api.translate.Language POLISH
+com.google.api.translate.Language: com.google.api.translate.Language PORTUGUESE
+com.google.api.translate.Language: com.google.api.translate.Language PUNJABI
+com.google.api.translate.Language: com.google.api.translate.Language ROMANIAN
+com.google.api.translate.Language: com.google.api.translate.Language RUSSIAN
+com.google.api.translate.Language: com.google.api.translate.Language SANSKRIT
+com.google.api.translate.Language: com.google.api.translate.Language SERBIAN
+com.google.api.translate.Language: com.google.api.translate.Language SINDHI
+com.google.api.translate.Language: com.google.api.translate.Language SINHALESE
+com.google.api.translate.Language: com.google.api.translate.Language SLOVAK
+com.google.api.translate.Language: com.google.api.translate.Language SLOVENIAN
+com.google.api.translate.Language: com.google.api.translate.Language SPANISH
+com.google.api.translate.Language: com.google.api.translate.Language SWAHILI
+com.google.api.translate.Language: com.google.api.translate.Language SWEDISH
+com.google.api.translate.Language: com.google.api.translate.Language TAJIK
+com.google.api.translate.Language: com.google.api.translate.Language TAMIL
+com.google.api.translate.Language: com.google.api.translate.Language TAGALOG
+com.google.api.translate.Language: com.google.api.translate.Language TELUGU
+com.google.api.translate.Language: com.google.api.translate.Language THAI
+com.google.api.translate.Language: com.google.api.translate.Language TIBETAN
+com.google.api.translate.Language: com.google.api.translate.Language TURKISH
+com.google.api.translate.Language: com.google.api.translate.Language UKRANIAN
+com.google.api.translate.Language: com.google.api.translate.Language URDU
+com.google.api.translate.Language: com.google.api.translate.Language UZBEK
+com.google.api.translate.Language: com.google.api.translate.Language UIGHUR
+com.google.api.translate.Language: com.google.api.translate.Language VIETNAMESE
+com.google.api.translate.Language: com.google.api.translate.Language WELSH
+com.google.api.translate.Language: com.google.api.translate.Language YIDDISH
+com.google.api.translate.Language: com.google.api.translate.Language fromString(java.lang.String)
+com.google.api.translate.Language: java.lang.String toString()
+com.google.api.translate.Language: com.google.api.translate.Language[] values()
+com.google.api.translate.Language: com.google.api.translate.Language valueOf(java.lang.String)
+com.google.api.translate.Translate
+com.google.api.translate.Translate: com.google.api.translate.Translate DEFAULT
+com.google.api.translate.Translate: java.lang.String execute(java.lang.String,com.google.api.translate.Language,com.google.api.translate.Language)
+com.google.api.translate.Translate: java.lang.String[] execute(java.lang.String[],com.google.api.translate.Language,com.google.api.translate.Language)
+com.google.api.translate.Translate: java.lang.String[] execute(java.lang.String,com.google.api.translate.Language,com.google.api.translate.Language[])
+com.google.api.translate.Translate: java.lang.String[] execute(java.lang.String[],com.google.api.translate.Language[],com.google.api.translate.Language[])
+com.google.api.translate.TranslateV1
+com.google.api.translate.TranslateV1: TranslateV1()
+com.google.api.translate.TranslateV1: java.lang.String execute(java.lang.String,com.google.api.translate.Language,com.google.api.translate.Language)
+com.google.api.translate.TranslateV1: java.lang.String[] execute(java.lang.String[],com.google.api.translate.Language,com.google.api.translate.Language)
+com.google.api.translate.TranslateV1: java.lang.String[] execute(java.lang.String,com.google.api.translate.Language,com.google.api.translate.Language[])
+com.google.api.translate.TranslateV1: java.lang.String[] execute(java.lang.String[],com.google.api.translate.Language[],com.google.api.translate.Language[])
+com.google.api.translate.TranslateV2
+com.google.api.translate.TranslateV2: TranslateV2()
+com.google.api.translate.TranslateV2: java.lang.String execute(java.lang.String,com.google.api.translate.Language,com.google.api.translate.Language)
+com.google.api.translate.TranslateV2: java.lang.String[] execute(java.lang.String[],com.google.api.translate.Language,com.google.api.translate.Language)
+com.google.api.translate.TranslateV2: java.lang.String[] execute(java.lang.String,com.google.api.translate.Language,com.google.api.translate.Language[])
+com.google.api.translate.TranslateV2: java.lang.String[] execute(java.lang.String[],com.google.api.translate.Language[],com.google.api.translate.Language[])
+com.googlecode.tesseract.android.R
+com.memetix.mst.MicrosoftTranslatorAPI
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String ENCODING
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String apiKey
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String PARAM_APP_ID
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String PARAM_TO_LANG
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String PARAM_FROM_LANG
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String PARAM_TEXT_SINGLE
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String PARAM_TEXT_ARRAY
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String PARAM_SPOKEN_LANGUAGE
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String PARAM_SENTENCES_LANGUAGE
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String PARAM_LOCALE
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String PARAM_LANGUAGE_CODES
+com.memetix.mst.MicrosoftTranslatorAPI: MicrosoftTranslatorAPI()
+com.memetix.mst.MicrosoftTranslatorAPI: void setKey(java.lang.String)
+com.memetix.mst.MicrosoftTranslatorAPI: void setClientId(java.lang.String)
+com.memetix.mst.MicrosoftTranslatorAPI: void setClientSecret(java.lang.String)
+com.memetix.mst.MicrosoftTranslatorAPI: void setHttpReferrer(java.lang.String)
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String getToken(java.lang.String,java.lang.String)
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String retrieveString(java.net.URL)
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String[] retrieveStringArr(java.net.URL,java.lang.String)
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String[] retrieveStringArr(java.net.URL)
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.Integer[] retrieveIntArray(java.net.URL)
+com.memetix.mst.MicrosoftTranslatorAPI: void validateServiceState()
+com.memetix.mst.MicrosoftTranslatorAPI: java.lang.String buildStringArrayParam(java.lang.Object[])
+com.memetix.mst.detect.Detect
+com.memetix.mst.detect.Detect: com.memetix.mst.language.Language execute(java.lang.String)
+com.memetix.mst.detect.Detect: java.lang.String[] execute(java.lang.String[])
+com.memetix.mst.language.Language
+com.memetix.mst.language.Language: com.memetix.mst.language.Language AUTO_DETECT
+com.memetix.mst.language.Language: com.memetix.mst.language.Language ARABIC
+com.memetix.mst.language.Language: com.memetix.mst.language.Language BULGARIAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language CATALAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language CHINESE_SIMPLIFIED
+com.memetix.mst.language.Language: com.memetix.mst.language.Language CHINESE_TRADITIONAL
+com.memetix.mst.language.Language: com.memetix.mst.language.Language CZECH
+com.memetix.mst.language.Language: com.memetix.mst.language.Language DANISH
+com.memetix.mst.language.Language: com.memetix.mst.language.Language DUTCH
+com.memetix.mst.language.Language: com.memetix.mst.language.Language ENGLISH
+com.memetix.mst.language.Language: com.memetix.mst.language.Language ESTONIAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language FINNISH
+com.memetix.mst.language.Language: com.memetix.mst.language.Language FRENCH
+com.memetix.mst.language.Language: com.memetix.mst.language.Language GERMAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language GREEK
+com.memetix.mst.language.Language: com.memetix.mst.language.Language HAITIAN_CREOLE
+com.memetix.mst.language.Language: com.memetix.mst.language.Language HEBREW
+com.memetix.mst.language.Language: com.memetix.mst.language.Language HINDI
+com.memetix.mst.language.Language: com.memetix.mst.language.Language HMONG_DAW
+com.memetix.mst.language.Language: com.memetix.mst.language.Language HUNGARIAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language INDONESIAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language ITALIAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language JAPANESE
+com.memetix.mst.language.Language: com.memetix.mst.language.Language KOREAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language LATVIAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language LITHUANIAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language NORWEGIAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language POLISH
+com.memetix.mst.language.Language: com.memetix.mst.language.Language PORTUGUESE
+com.memetix.mst.language.Language: com.memetix.mst.language.Language ROMANIAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language RUSSIAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language SLOVAK
+com.memetix.mst.language.Language: com.memetix.mst.language.Language SLOVENIAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language SPANISH
+com.memetix.mst.language.Language: com.memetix.mst.language.Language SWEDISH
+com.memetix.mst.language.Language: com.memetix.mst.language.Language THAI
+com.memetix.mst.language.Language: com.memetix.mst.language.Language TURKISH
+com.memetix.mst.language.Language: com.memetix.mst.language.Language UKRAINIAN
+com.memetix.mst.language.Language: com.memetix.mst.language.Language VIETNAMESE
+com.memetix.mst.language.Language: com.memetix.mst.language.Language fromString(java.lang.String)
+com.memetix.mst.language.Language: java.lang.String toString()
+com.memetix.mst.language.Language: void setKey(java.lang.String)
+com.memetix.mst.language.Language: void setClientId(java.lang.String)
+com.memetix.mst.language.Language: void setClientSecret(java.lang.String)
+com.memetix.mst.language.Language: java.lang.String getName(com.memetix.mst.language.Language)
+com.memetix.mst.language.Language: java.util.List getLanguageCodesForTranslation()
+com.memetix.mst.language.Language: java.util.Map values(com.memetix.mst.language.Language)
+com.memetix.mst.language.Language: void flushNameCache()
+com.memetix.mst.language.Language: com.memetix.mst.language.Language[] values()
+com.memetix.mst.language.Language: com.memetix.mst.language.Language valueOf(java.lang.String)
+com.memetix.mst.language.SpokenDialect
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect CATALAN_SPAIN
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect DANISH_DENMARK
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect GERMAN_GERMANY
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect ENGLISH_AUSTRALIA
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect ENGLISH_CANADA
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect ENGLISH_UNITED_KINGDOM
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect ENGLISH_INDIA
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect ENGLISH_UNITED_STATES
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect SPANISH_SPAIN
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect SPANISH_MEXICO
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect FINNISH_FINLAND
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect FRENCH_CANADA
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect FRENCH_FRANCE
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect ITALIAN_ITALY
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect JAPANESE_JAPAN
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect KOREAN_KOREA
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect NORWEGIAN_NORWAY
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect DUTCH_NETHERLANDS
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect POLISH_POLAND
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect PORTUGUESE_BRAZIL
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect PORTUGUESE_PORTUGAL
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect RUSSIAN_RUSSIA
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect SWEDISH_SWEDEN
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect CHINESE_SIMPLIFIED_PEOPLES_REPUBLIC_OF_CHINA
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect CHINESE_TRADITIONAL_HONG_KONG_SAR
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect CHINESE_TRADITIONAL_TAIWAN
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect fromString(java.lang.String)
+com.memetix.mst.language.SpokenDialect: java.lang.String toString()
+com.memetix.mst.language.SpokenDialect: void setKey(java.lang.String)
+com.memetix.mst.language.SpokenDialect: void setClientId(java.lang.String)
+com.memetix.mst.language.SpokenDialect: void setClientSecret(java.lang.String)
+com.memetix.mst.language.SpokenDialect: java.lang.String getName(com.memetix.mst.language.Language)
+com.memetix.mst.language.SpokenDialect: void flushNameCache()
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect[] values()
+com.memetix.mst.language.SpokenDialect: com.memetix.mst.language.SpokenDialect valueOf(java.lang.String)
+com.memetix.mst.sentence.BreakSentences
+com.memetix.mst.sentence.BreakSentences: java.lang.Integer[] execute(java.lang.String,com.memetix.mst.language.Language)
+com.memetix.mst.speak.Speak
+com.memetix.mst.speak.Speak: java.lang.String execute(java.lang.String,com.memetix.mst.language.SpokenDialect)
+com.memetix.mst.translate.Translate
+com.memetix.mst.translate.Translate: java.lang.String execute(java.lang.String,com.memetix.mst.language.Language,com.memetix.mst.language.Language)
+com.memetix.mst.translate.Translate: java.lang.String execute(java.lang.String,com.memetix.mst.language.Language)
+com.memetix.mst.translate.Translate: java.lang.String[] execute(java.lang.String[],com.memetix.mst.language.Language,com.memetix.mst.language.Language)
+com.memetix.mst.translate.Translate: java.lang.String[] execute(java.lang.String[],com.memetix.mst.language.Language)
+com.tecnick.htmlutils.htmlentities.HTMLEntities
+com.tecnick.htmlutils.htmlentities.HTMLEntities: HTMLEntities()
+com.tecnick.htmlutils.htmlentities.HTMLEntities: java.lang.Object[][] getEntitiesTable()
+com.tecnick.htmlutils.htmlentities.HTMLEntities: java.lang.String htmlentities(java.lang.String)
+com.tecnick.htmlutils.htmlentities.HTMLEntities: java.lang.String unhtmlentities(java.lang.String)
+com.tecnick.htmlutils.htmlentities.HTMLEntities: java.lang.String htmlSingleQuotes(java.lang.String)
+com.tecnick.htmlutils.htmlentities.HTMLEntities: java.lang.String unhtmlSingleQuotes(java.lang.String)
+com.tecnick.htmlutils.htmlentities.HTMLEntities: java.lang.String htmlDoubleQuotes(java.lang.String)
+com.tecnick.htmlutils.htmlentities.HTMLEntities: java.lang.String unhtmlDoubleQuotes(java.lang.String)
+com.tecnick.htmlutils.htmlentities.HTMLEntities: java.lang.String htmlQuotes(java.lang.String)
+com.tecnick.htmlutils.htmlentities.HTMLEntities: java.lang.String unhtmlQuotes(java.lang.String)
+com.tecnick.htmlutils.htmlentities.HTMLEntities: java.lang.String htmlAngleBrackets(java.lang.String)
+com.tecnick.htmlutils.htmlentities.HTMLEntities: java.lang.String unhtmlAngleBrackets(java.lang.String)
+com.tecnick.htmlutils.htmlentities.HTMLEntities: java.lang.String htmlAmpersand(java.lang.String)
+com.tecnick.htmlutils.htmlentities.HTMLEntities: java.lang.String unhtmlAmpersand(java.lang.String)
+edu.sfsu.cs.orange.ocr.BeepManager
+edu.sfsu.cs.orange.ocr.BeepManager: BeepManager(android.app.Activity)
+edu.sfsu.cs.orange.ocr.BeepManager: void updatePrefs()
+edu.sfsu.cs.orange.ocr.BeepManager: void playBeepSoundAndVibrate()
+edu.sfsu.cs.orange.ocr.BuildConfig
+edu.sfsu.cs.orange.ocr.BuildConfig: boolean DEBUG
+edu.sfsu.cs.orange.ocr.BuildConfig: java.lang.String APPLICATION_ID
+edu.sfsu.cs.orange.ocr.BuildConfig: java.lang.String BUILD_TYPE
+edu.sfsu.cs.orange.ocr.BuildConfig: java.lang.String FLAVOR
+edu.sfsu.cs.orange.ocr.BuildConfig: int VERSION_CODE
+edu.sfsu.cs.orange.ocr.BuildConfig: java.lang.String VERSION_NAME
+edu.sfsu.cs.orange.ocr.BuildConfig: BuildConfig()
+edu.sfsu.cs.orange.ocr.CaptureActivity
+edu.sfsu.cs.orange.ocr.CaptureActivity: java.lang.String DEFAULT_SOURCE_LANGUAGE_CODE
+edu.sfsu.cs.orange.ocr.CaptureActivity: java.lang.String DEFAULT_TARGET_LANGUAGE_CODE
+edu.sfsu.cs.orange.ocr.CaptureActivity: java.lang.String DEFAULT_TRANSLATOR
+edu.sfsu.cs.orange.ocr.CaptureActivity: java.lang.String DEFAULT_OCR_ENGINE_MODE
+edu.sfsu.cs.orange.ocr.CaptureActivity: java.lang.String DEFAULT_PAGE_SEGMENTATION_MODE
+edu.sfsu.cs.orange.ocr.CaptureActivity: boolean DEFAULT_TOGGLE_AUTO_FOCUS
+edu.sfsu.cs.orange.ocr.CaptureActivity: boolean DEFAULT_DISABLE_CONTINUOUS_FOCUS
+edu.sfsu.cs.orange.ocr.CaptureActivity: boolean DEFAULT_TOGGLE_BEEP
+edu.sfsu.cs.orange.ocr.CaptureActivity: boolean DEFAULT_TOGGLE_CONTINUOUS
+edu.sfsu.cs.orange.ocr.CaptureActivity: boolean DEFAULT_TOGGLE_REVERSED_IMAGE
+edu.sfsu.cs.orange.ocr.CaptureActivity: boolean DEFAULT_TOGGLE_TRANSLATION
+edu.sfsu.cs.orange.ocr.CaptureActivity: boolean DEFAULT_TOGGLE_LIGHT
+edu.sfsu.cs.orange.ocr.CaptureActivity: CaptureActivity()
+edu.sfsu.cs.orange.ocr.CaptureActivity: void onCreate(android.os.Bundle)
+edu.sfsu.cs.orange.ocr.CaptureActivity: void onResume()
+edu.sfsu.cs.orange.ocr.CaptureActivity: void surfaceCreated(android.view.SurfaceHolder)
+edu.sfsu.cs.orange.ocr.CaptureActivity: void onPause()
+edu.sfsu.cs.orange.ocr.CaptureActivity: void onDestroy()
+edu.sfsu.cs.orange.ocr.CaptureActivity: boolean onKeyDown(int,android.view.KeyEvent)
+edu.sfsu.cs.orange.ocr.CaptureActivity: boolean onCreateOptionsMenu(android.view.Menu)
+edu.sfsu.cs.orange.ocr.CaptureActivity: boolean onOptionsItemSelected(android.view.MenuItem)
+edu.sfsu.cs.orange.ocr.CaptureActivity: void surfaceDestroyed(android.view.SurfaceHolder)
+edu.sfsu.cs.orange.ocr.CaptureActivity: void surfaceChanged(android.view.SurfaceHolder,int,int,int)
+edu.sfsu.cs.orange.ocr.CaptureActivity: void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo)
+edu.sfsu.cs.orange.ocr.CaptureActivity: boolean onContextItemSelected(android.view.MenuItem)
+edu.sfsu.cs.orange.ocr.CaptureActivity: void onShutterButtonClick(edu.sfsu.cs.orange.ocr.camera.ShutterButton)
+edu.sfsu.cs.orange.ocr.CaptureActivity: void onShutterButtonFocus(edu.sfsu.cs.orange.ocr.camera.ShutterButton,boolean)
+edu.sfsu.cs.orange.ocr.CaptureActivityHandler$State: edu.sfsu.cs.orange.ocr.CaptureActivityHandler$State[] values()
+edu.sfsu.cs.orange.ocr.CaptureActivityHandler$State: edu.sfsu.cs.orange.ocr.CaptureActivityHandler$State valueOf(java.lang.String)
+edu.sfsu.cs.orange.ocr.HelpActivity
+edu.sfsu.cs.orange.ocr.HelpActivity: java.lang.String REQUESTED_PAGE_KEY
+edu.sfsu.cs.orange.ocr.HelpActivity: java.lang.String DEFAULT_PAGE
+edu.sfsu.cs.orange.ocr.HelpActivity: java.lang.String ABOUT_PAGE
+edu.sfsu.cs.orange.ocr.HelpActivity: java.lang.String TERMS_PAGE
+edu.sfsu.cs.orange.ocr.HelpActivity: java.lang.String WHATS_NEW_PAGE
+edu.sfsu.cs.orange.ocr.HelpActivity: HelpActivity()
+edu.sfsu.cs.orange.ocr.HelpActivity: void onCreate(android.os.Bundle)
+edu.sfsu.cs.orange.ocr.HelpActivity: void onSaveInstanceState(android.os.Bundle)
+edu.sfsu.cs.orange.ocr.HelpActivity: boolean onKeyDown(int,android.view.KeyEvent)
+edu.sfsu.cs.orange.ocr.LuminanceSource
+edu.sfsu.cs.orange.ocr.LuminanceSource: LuminanceSource(int,int)
+edu.sfsu.cs.orange.ocr.LuminanceSource: byte[] getRow(int,byte[])
+edu.sfsu.cs.orange.ocr.LuminanceSource: byte[] getMatrix()
+edu.sfsu.cs.orange.ocr.LuminanceSource: int getWidth()
+edu.sfsu.cs.orange.ocr.LuminanceSource: int getHeight()
+edu.sfsu.cs.orange.ocr.LuminanceSource: boolean isCropSupported()
+edu.sfsu.cs.orange.ocr.LuminanceSource: edu.sfsu.cs.orange.ocr.LuminanceSource crop(int,int,int,int)
+edu.sfsu.cs.orange.ocr.LuminanceSource: boolean isRotateSupported()
+edu.sfsu.cs.orange.ocr.LuminanceSource: edu.sfsu.cs.orange.ocr.LuminanceSource rotateCounterClockwise()
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_AFRIKAANS
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_ALBANIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_ARABIC
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_AZERI
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_BASQUE
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_BELARUSIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_BENGALI
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_BULGARIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_CATALAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_CHINESE_SIMPLIFIED
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_CHINESE_TRADITIONAL
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_CROATIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_CZECH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_DANISH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_DUTCH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_ENGLISH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_ESTONIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_FINNISH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_FRENCH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_GALICIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_GERMAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_GREEK
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_HEBREW
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_HINDI
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_HUNGARIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_ICELANDIC
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_INDONESIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_ITALIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_JAPANESE
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_KANNADA
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_KOREAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_LATVIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_LITHUANIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_MACEDONIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_MALAY
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_MALAYALAM
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_MALTESE
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_NORWEGIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_POLISH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_PORTUGUESE
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_ROMANIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_RUSSIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_SERBIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_SLOVAK
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_SLOVENIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_SPANISH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_SWAHILI
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_SWEDISH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_TAGALOG
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_TAMIL
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_TELUGU
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_THAI
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_TURKISH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_UKRAINIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_BLACKLIST_VIETNAMESE
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_AFRIKAANS
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_ALBANIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_ARABIC
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_AZERI
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_BASQUE
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_BELARUSIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_BENGALI
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_BULGARIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_CATALAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_CHINESE_SIMPLIFIED
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_CHINESE_TRADITIONAL
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_CROATIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_CZECH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_DANISH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_DUTCH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_ENGLISH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_ESTONIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_FINNISH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_FRENCH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_GALICIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_GERMAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_GREEK
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_HEBREW
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_HINDI
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_HUNGARIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_ICELANDIC
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_INDONESIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_ITALIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_JAPANESE
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_KANNADA
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_KOREAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_LATVIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_LITHUANIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_MACEDONIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_MALAY
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_MALAYALAM
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_MALTESE
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_NORWEGIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_POLISH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_PORTUGUESE
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_ROMANIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_RUSSIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_SERBIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_SLOVAK
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_SLOVENIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_SPANISH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_SWAHILI
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_SWEDISH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_TAGALOG
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_TAMIL
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_TELUGU
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_THAI
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_TURKISH
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_UKRAINIAN
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String KEY_CHARACTER_WHITELIST_VIETNAMESE
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String getDefaultBlacklist(java.lang.String)
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String getDefaultWhitelist(java.lang.String)
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String getBlacklist(android.content.SharedPreferences,java.lang.String)
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: java.lang.String getWhitelist(android.content.SharedPreferences,java.lang.String)
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: void setBlacklist(android.content.SharedPreferences,java.lang.String,java.lang.String)
+edu.sfsu.cs.orange.ocr.OcrCharacterHelper: void setWhitelist(android.content.SharedPreferences,java.lang.String,java.lang.String)
+edu.sfsu.cs.orange.ocr.OcrResult
+edu.sfsu.cs.orange.ocr.OcrResult: OcrResult(android.graphics.Bitmap,java.lang.String,int[],int,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List,long)
+edu.sfsu.cs.orange.ocr.OcrResult: OcrResult()
+edu.sfsu.cs.orange.ocr.OcrResult: android.graphics.Bitmap getBitmap()
+edu.sfsu.cs.orange.ocr.OcrResult: java.lang.String getText()
+edu.sfsu.cs.orange.ocr.OcrResult: int[] getWordConfidences()
+edu.sfsu.cs.orange.ocr.OcrResult: int getMeanConfidence()
+edu.sfsu.cs.orange.ocr.OcrResult: long getRecognitionTimeRequired()
+edu.sfsu.cs.orange.ocr.OcrResult: android.graphics.Point getBitmapDimensions()
+edu.sfsu.cs.orange.ocr.OcrResult: java.util.List getRegionBoundingBoxes()
+edu.sfsu.cs.orange.ocr.OcrResult: java.util.List getTextlineBoundingBoxes()
+edu.sfsu.cs.orange.ocr.OcrResult: java.util.List getWordBoundingBoxes()
+edu.sfsu.cs.orange.ocr.OcrResult: java.util.List getStripBoundingBoxes()
+edu.sfsu.cs.orange.ocr.OcrResult: java.util.List getCharacterBoundingBoxes()
+edu.sfsu.cs.orange.ocr.OcrResult: long getTimestamp()
+edu.sfsu.cs.orange.ocr.OcrResult: void setBitmap(android.graphics.Bitmap)
+edu.sfsu.cs.orange.ocr.OcrResult: void setText(java.lang.String)
+edu.sfsu.cs.orange.ocr.OcrResult: void setWordConfidences(int[])
+edu.sfsu.cs.orange.ocr.OcrResult: void setMeanConfidence(int)
+edu.sfsu.cs.orange.ocr.OcrResult: void setRecognitionTimeRequired(long)
+edu.sfsu.cs.orange.ocr.OcrResult: void setRegionBoundingBoxes(java.util.List)
+edu.sfsu.cs.orange.ocr.OcrResult: void setTextlineBoundingBoxes(java.util.List)
+edu.sfsu.cs.orange.ocr.OcrResult: void setWordBoundingBoxes(java.util.List)
+edu.sfsu.cs.orange.ocr.OcrResult: void setStripBoundingBoxes(java.util.List)
+edu.sfsu.cs.orange.ocr.OcrResult: void setCharacterBoundingBoxes(java.util.List)
+edu.sfsu.cs.orange.ocr.OcrResult: java.lang.String toString()
+edu.sfsu.cs.orange.ocr.OcrResultFailure
+edu.sfsu.cs.orange.ocr.OcrResultFailure: long getTimeRequired()
+edu.sfsu.cs.orange.ocr.OcrResultFailure: long getTimestamp()
+edu.sfsu.cs.orange.ocr.OcrResultFailure: java.lang.String toString()
+edu.sfsu.cs.orange.ocr.OcrResultText
+edu.sfsu.cs.orange.ocr.OcrResultText: OcrResultText(java.lang.String,int[],int,android.graphics.Point,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List)
+edu.sfsu.cs.orange.ocr.OcrResultText: java.lang.String getText()
+edu.sfsu.cs.orange.ocr.OcrResultText: android.graphics.Point getBitmapDimensions()
+edu.sfsu.cs.orange.ocr.OcrResultText: int[] getWordConfidences()
+edu.sfsu.cs.orange.ocr.OcrResultText: int getMeanConfidence()
+edu.sfsu.cs.orange.ocr.OcrResultText: java.util.List getRegionBoundingBoxes()
+edu.sfsu.cs.orange.ocr.OcrResultText: java.util.List getTextlineBoundingBoxes()
+edu.sfsu.cs.orange.ocr.OcrResultText: java.util.List getStripBoundingBoxes()
+edu.sfsu.cs.orange.ocr.OcrResultText: java.util.List getWordBoundingBoxes()
+edu.sfsu.cs.orange.ocr.OcrResultText: java.util.List getCharacterBoundingBoxes()
+edu.sfsu.cs.orange.ocr.OcrResultText: java.lang.String toString()
+edu.sfsu.cs.orange.ocr.PlanarYUVLuminanceSource
+edu.sfsu.cs.orange.ocr.PlanarYUVLuminanceSource: PlanarYUVLuminanceSource(byte[],int,int,int,int,int,int,boolean)
+edu.sfsu.cs.orange.ocr.PlanarYUVLuminanceSource: byte[] getRow(int,byte[])
+edu.sfsu.cs.orange.ocr.PlanarYUVLuminanceSource: byte[] getMatrix()
+edu.sfsu.cs.orange.ocr.PlanarYUVLuminanceSource: boolean isCropSupported()
+edu.sfsu.cs.orange.ocr.PlanarYUVLuminanceSource: edu.sfsu.cs.orange.ocr.LuminanceSource crop(int,int,int,int)
+edu.sfsu.cs.orange.ocr.PlanarYUVLuminanceSource: android.graphics.Bitmap renderCroppedGreyscaleBitmap()
+edu.sfsu.cs.orange.ocr.PreferencesActivity
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_SOURCE_LANGUAGE_PREFERENCE
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_TARGET_LANGUAGE_PREFERENCE
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_TOGGLE_TRANSLATION
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_CONTINUOUS_PREVIEW
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_PAGE_SEGMENTATION_MODE
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_OCR_ENGINE_MODE
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_CHARACTER_BLACKLIST
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_CHARACTER_WHITELIST
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_TOGGLE_LIGHT
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_TRANSLATOR
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_AUTO_FOCUS
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_DISABLE_CONTINUOUS_FOCUS
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_HELP_VERSION_SHOWN
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_NOT_OUR_RESULTS_SHOWN
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_REVERSE_IMAGE
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_PLAY_BEEP
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String KEY_VIBRATE
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String TRANSLATOR_BING
+edu.sfsu.cs.orange.ocr.PreferencesActivity: java.lang.String TRANSLATOR_GOOGLE
+edu.sfsu.cs.orange.ocr.PreferencesActivity: PreferencesActivity()
+edu.sfsu.cs.orange.ocr.PreferencesActivity: void onCreate(android.os.Bundle)
+edu.sfsu.cs.orange.ocr.PreferencesActivity: void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String)
+edu.sfsu.cs.orange.ocr.PreferencesActivity: void onResume()
+edu.sfsu.cs.orange.ocr.PreferencesActivity: void onPause()
+edu.sfsu.cs.orange.ocr.R
+edu.sfsu.cs.orange.ocr.R$array
+edu.sfsu.cs.orange.ocr.R$array: int capturemodes
+edu.sfsu.cs.orange.ocr.R$array: int iso6391
+edu.sfsu.cs.orange.ocr.R$array: int iso6393
+edu.sfsu.cs.orange.ocr.R$array: int languagenames
+edu.sfsu.cs.orange.ocr.R$array: int ocrenginemodes
+edu.sfsu.cs.orange.ocr.R$array: int pagesegmentationmodes
+edu.sfsu.cs.orange.ocr.R$array: int translationtargetiso6391_google
+edu.sfsu.cs.orange.ocr.R$array: int translationtargetiso6391_microsoft
+edu.sfsu.cs.orange.ocr.R$array: int translationtargetlanguagenames_google
+edu.sfsu.cs.orange.ocr.R$array: int translationtargetlanguagenames_microsoft
+edu.sfsu.cs.orange.ocr.R$array: int translators
+edu.sfsu.cs.orange.ocr.R$color
+edu.sfsu.cs.orange.ocr.R$color: int help_button_view
+edu.sfsu.cs.orange.ocr.R$color: int help_view
+edu.sfsu.cs.orange.ocr.R$color: int result_minor_text
+edu.sfsu.cs.orange.ocr.R$color: int result_text
+edu.sfsu.cs.orange.ocr.R$color: int result_view
+edu.sfsu.cs.orange.ocr.R$color: int status_text
+edu.sfsu.cs.orange.ocr.R$color: int status_top_text_background
+edu.sfsu.cs.orange.ocr.R$color: int translation_text
+edu.sfsu.cs.orange.ocr.R$color: int viewfinder_corners
+edu.sfsu.cs.orange.ocr.R$color: int viewfinder_frame
+edu.sfsu.cs.orange.ocr.R$color: int viewfinder_mask
+edu.sfsu.cs.orange.ocr.R$drawable
+edu.sfsu.cs.orange.ocr.R$drawable: int background
+edu.sfsu.cs.orange.ocr.R$drawable: int background_pressed
+edu.sfsu.cs.orange.ocr.R$drawable: int ic_launcher
+edu.sfsu.cs.orange.ocr.R$drawable: int shutter
+edu.sfsu.cs.orange.ocr.R$drawable: int shutter_button
+edu.sfsu.cs.orange.ocr.R$drawable: int shutter_pressed
+edu.sfsu.cs.orange.ocr.R$id
+edu.sfsu.cs.orange.ocr.R$id: int camera_button_view
+edu.sfsu.cs.orange.ocr.R$id: int decode
+edu.sfsu.cs.orange.ocr.R$id: int decode_failed
+edu.sfsu.cs.orange.ocr.R$id: int decode_succeeded
+edu.sfsu.cs.orange.ocr.R$id: int done_button
+edu.sfsu.cs.orange.ocr.R$id: int help_contents
+edu.sfsu.cs.orange.ocr.R$id: int image_view
+edu.sfsu.cs.orange.ocr.R$id: int indeterminate_progress_indicator_view
+edu.sfsu.cs.orange.ocr.R$id: int ocr_continuous_decode
+edu.sfsu.cs.orange.ocr.R$id: int ocr_continuous_decode_failed
+edu.sfsu.cs.orange.ocr.R$id: int ocr_continuous_decode_succeeded
+edu.sfsu.cs.orange.ocr.R$id: int ocr_decode
+edu.sfsu.cs.orange.ocr.R$id: int ocr_decode_failed
+edu.sfsu.cs.orange.ocr.R$id: int ocr_decode_succeeded
+edu.sfsu.cs.orange.ocr.R$id: int ocr_result_text_view
+edu.sfsu.cs.orange.ocr.R$id: int preview_view
+edu.sfsu.cs.orange.ocr.R$id: int progress_small
+edu.sfsu.cs.orange.ocr.R$id: int quit
+edu.sfsu.cs.orange.ocr.R$id: int restart_preview
+edu.sfsu.cs.orange.ocr.R$id: int result_view
+edu.sfsu.cs.orange.ocr.R$id: int shutter_button
+edu.sfsu.cs.orange.ocr.R$id: int source_language_text_view
+edu.sfsu.cs.orange.ocr.R$id: int source_language_text_view_label
+edu.sfsu.cs.orange.ocr.R$id: int status_view_bottom
+edu.sfsu.cs.orange.ocr.R$id: int status_view_top
+edu.sfsu.cs.orange.ocr.R$id: int translation_language_label_text_view
+edu.sfsu.cs.orange.ocr.R$id: int translation_language_text_view
+edu.sfsu.cs.orange.ocr.R$id: int translation_text_view
+edu.sfsu.cs.orange.ocr.R$id: int viewfinder_view
+edu.sfsu.cs.orange.ocr.R$layout
+edu.sfsu.cs.orange.ocr.R$layout: int capture
+edu.sfsu.cs.orange.ocr.R$layout: int help
+edu.sfsu.cs.orange.ocr.R$raw
+edu.sfsu.cs.orange.ocr.R$raw: int beep
+edu.sfsu.cs.orange.ocr.R$string
+edu.sfsu.cs.orange.ocr.R$string: int app_name
+edu.sfsu.cs.orange.ocr.R$styleable
+edu.sfsu.cs.orange.ocr.R$styleable: int[] ViewfinderView
+edu.sfsu.cs.orange.ocr.R$xml
+edu.sfsu.cs.orange.ocr.R$xml: int preferences
+edu.sfsu.cs.orange.ocr.ViewfinderView
+edu.sfsu.cs.orange.ocr.ViewfinderView: ViewfinderView(android.content.Context,android.util.AttributeSet)
+edu.sfsu.cs.orange.ocr.ViewfinderView: void setCameraManager(edu.sfsu.cs.orange.ocr.camera.CameraManager)
+edu.sfsu.cs.orange.ocr.ViewfinderView: void onDraw(android.graphics.Canvas)
+edu.sfsu.cs.orange.ocr.ViewfinderView: void drawViewfinder()
+edu.sfsu.cs.orange.ocr.ViewfinderView: void addResultText(edu.sfsu.cs.orange.ocr.OcrResultText)
+edu.sfsu.cs.orange.ocr.ViewfinderView: void removeResultText()
+edu.sfsu.cs.orange.ocr.camera.AutoFocusManager
+edu.sfsu.cs.orange.ocr.camera.AutoFocusManager: void onAutoFocus(boolean,android.hardware.Camera)
+edu.sfsu.cs.orange.ocr.camera.CameraManager
+edu.sfsu.cs.orange.ocr.camera.CameraManager: CameraManager(android.content.Context)
+edu.sfsu.cs.orange.ocr.camera.CameraManager: void openDriver(android.view.SurfaceHolder)
+edu.sfsu.cs.orange.ocr.camera.CameraManager: void closeDriver()
+edu.sfsu.cs.orange.ocr.camera.CameraManager: void startPreview()
+edu.sfsu.cs.orange.ocr.camera.CameraManager: void stopPreview()
+edu.sfsu.cs.orange.ocr.camera.CameraManager: void requestOcrDecode(android.os.Handler,int)
+edu.sfsu.cs.orange.ocr.camera.CameraManager: void requestAutoFocus(long)
+edu.sfsu.cs.orange.ocr.camera.CameraManager: android.graphics.Rect getFramingRect()
+edu.sfsu.cs.orange.ocr.camera.CameraManager: android.graphics.Rect getFramingRectInPreview()
+edu.sfsu.cs.orange.ocr.camera.CameraManager: void adjustFramingRect(int,int)
+edu.sfsu.cs.orange.ocr.camera.CameraManager: edu.sfsu.cs.orange.ocr.PlanarYUVLuminanceSource buildLuminanceSource(byte[],int,int)
+edu.sfsu.cs.orange.ocr.camera.ShutterButton
+edu.sfsu.cs.orange.ocr.camera.ShutterButton: ShutterButton(android.content.Context)
+edu.sfsu.cs.orange.ocr.camera.ShutterButton: ShutterButton(android.content.Context,android.util.AttributeSet)
+edu.sfsu.cs.orange.ocr.camera.ShutterButton: ShutterButton(android.content.Context,android.util.AttributeSet,int)
+edu.sfsu.cs.orange.ocr.camera.ShutterButton: void setOnShutterButtonListener(edu.sfsu.cs.orange.ocr.camera.ShutterButton$OnShutterButtonListener)
+edu.sfsu.cs.orange.ocr.camera.ShutterButton: void drawableStateChanged()
+edu.sfsu.cs.orange.ocr.camera.ShutterButton: boolean performClick()
+edu.sfsu.cs.orange.ocr.camera.ShutterButton$OnShutterButtonListener
+edu.sfsu.cs.orange.ocr.camera.ShutterButton$OnShutterButtonListener: void onShutterButtonFocus(edu.sfsu.cs.orange.ocr.camera.ShutterButton,boolean)
+edu.sfsu.cs.orange.ocr.camera.ShutterButton$OnShutterButtonListener: void onShutterButtonClick(edu.sfsu.cs.orange.ocr.camera.ShutterButton)
+edu.sfsu.cs.orange.ocr.language.LanguageCodeHelper
+edu.sfsu.cs.orange.ocr.language.LanguageCodeHelper: java.lang.String TAG
+edu.sfsu.cs.orange.ocr.language.LanguageCodeHelper: java.lang.String mapLanguageCode(java.lang.String)
+edu.sfsu.cs.orange.ocr.language.LanguageCodeHelper: java.lang.String getOcrLanguageName(android.content.Context,java.lang.String)
+edu.sfsu.cs.orange.ocr.language.LanguageCodeHelper: java.lang.String getTranslationLanguageName(android.content.Context,java.lang.String)
+edu.sfsu.cs.orange.ocr.language.TranslateAsyncTask
+edu.sfsu.cs.orange.ocr.language.TranslateAsyncTask: TranslateAsyncTask(edu.sfsu.cs.orange.ocr.CaptureActivity,java.lang.String,java.lang.String,java.lang.String)
+edu.sfsu.cs.orange.ocr.language.TranslateAsyncTask: java.lang.Boolean doInBackground(java.lang.String[])
+edu.sfsu.cs.orange.ocr.language.TranslateAsyncTask: void onPostExecute(java.lang.Boolean)
+edu.sfsu.cs.orange.ocr.language.TranslateAsyncTask: void onPostExecute(java.lang.Object)
+edu.sfsu.cs.orange.ocr.language.TranslateAsyncTask: java.lang.Object doInBackground(java.lang.Object[])
+edu.sfsu.cs.orange.ocr.language.Translator
+edu.sfsu.cs.orange.ocr.language.Translator: java.lang.String BAD_TRANSLATION_MSG
+edu.sfsu.cs.orange.ocr.language.TranslatorBing
+edu.sfsu.cs.orange.ocr.language.TranslatorBing: TranslatorBing()
+edu.sfsu.cs.orange.ocr.language.TranslatorBing: java.lang.String toLanguage(java.lang.String)
+edu.sfsu.cs.orange.ocr.language.TranslatorGoogle
+edu.sfsu.cs.orange.ocr.language.TranslatorGoogle: java.lang.String toLanguage(java.lang.String)
+org.json.simple.ItemList
+org.json.simple.ItemList: ItemList()
+org.json.simple.ItemList: ItemList(java.lang.String)
+org.json.simple.ItemList: ItemList(java.lang.String,java.lang.String)
+org.json.simple.ItemList: ItemList(java.lang.String,java.lang.String,boolean)
+org.json.simple.ItemList: java.util.List getItems()
+org.json.simple.ItemList: java.lang.String[] getArray()
+org.json.simple.ItemList: void split(java.lang.String,java.lang.String,java.util.List,boolean)
+org.json.simple.ItemList: void split(java.lang.String,java.lang.String,java.util.List)
+org.json.simple.ItemList: void setSP(java.lang.String)
+org.json.simple.ItemList: void add(int,java.lang.String)
+org.json.simple.ItemList: void add(java.lang.String)
+org.json.simple.ItemList: void addAll(org.json.simple.ItemList)
+org.json.simple.ItemList: void addAll(java.lang.String)
+org.json.simple.ItemList: void addAll(java.lang.String,java.lang.String)
+org.json.simple.ItemList: void addAll(java.lang.String,java.lang.String,boolean)
+org.json.simple.ItemList: java.lang.String get(int)
+org.json.simple.ItemList: int size()
+org.json.simple.ItemList: java.lang.String toString()
+org.json.simple.ItemList: java.lang.String toString(java.lang.String)
+org.json.simple.ItemList: void clear()
+org.json.simple.ItemList: void reset()
+org.json.simple.JSONArray
+org.json.simple.JSONArray: long serialVersionUID
+org.json.simple.JSONArray: JSONArray()
+org.json.simple.JSONArray: void writeJSONString(java.util.List,java.io.Writer)
+org.json.simple.JSONArray: void writeJSONString(java.io.Writer)
+org.json.simple.JSONArray: java.lang.String toJSONString(java.util.List)
+org.json.simple.JSONArray: java.lang.String toJSONString()
+org.json.simple.JSONArray: java.lang.String toString()
+org.json.simple.JSONAware
+org.json.simple.JSONAware: java.lang.String toJSONString()
+org.json.simple.JSONObject
+org.json.simple.JSONObject: long serialVersionUID
+org.json.simple.JSONObject: JSONObject()
+org.json.simple.JSONObject: void writeJSONString(java.util.Map,java.io.Writer)
+org.json.simple.JSONObject: void writeJSONString(java.io.Writer)
+org.json.simple.JSONObject: java.lang.String toJSONString(java.util.Map)
+org.json.simple.JSONObject: java.lang.String toJSONString()
+org.json.simple.JSONObject: java.lang.String toString()
+org.json.simple.JSONObject: java.lang.String toString(java.lang.String,java.lang.Object)
+org.json.simple.JSONObject: java.lang.String escape(java.lang.String)
+org.json.simple.JSONStreamAware
+org.json.simple.JSONStreamAware: void writeJSONString(java.io.Writer)
+org.json.simple.JSONValue
+org.json.simple.JSONValue: JSONValue()
+org.json.simple.JSONValue: java.lang.Object parse(java.io.Reader)
+org.json.simple.JSONValue: java.lang.Object parse(java.lang.String)
+org.json.simple.JSONValue: java.lang.Object parseWithException(java.io.Reader)
+org.json.simple.JSONValue: java.lang.Object parseWithException(java.lang.String)
+org.json.simple.JSONValue: void writeJSONString(java.lang.Object,java.io.Writer)
+org.json.simple.JSONValue: java.lang.String toJSONString(java.lang.Object)
+org.json.simple.JSONValue: java.lang.String escape(java.lang.String)
+org.json.simple.parser.ContainerFactory
+org.json.simple.parser.ContainerFactory: java.util.Map createObjectContainer()
+org.json.simple.parser.ContainerFactory: java.util.List creatArrayContainer()
+org.json.simple.parser.ContentHandler
+org.json.simple.parser.ContentHandler: void startJSON()
+org.json.simple.parser.ContentHandler: void endJSON()
+org.json.simple.parser.ContentHandler: boolean startObject()
+org.json.simple.parser.ContentHandler: boolean endObject()
+org.json.simple.parser.ContentHandler: boolean startObjectEntry(java.lang.String)
+org.json.simple.parser.ContentHandler: boolean endObjectEntry()
+org.json.simple.parser.ContentHandler: boolean startArray()
+org.json.simple.parser.ContentHandler: boolean endArray()
+org.json.simple.parser.ContentHandler: boolean primitive(java.lang.Object)
+org.json.simple.parser.JSONParser
+org.json.simple.parser.JSONParser: int S_INIT
+org.json.simple.parser.JSONParser: int S_IN_FINISHED_VALUE
+org.json.simple.parser.JSONParser: int S_IN_OBJECT
+org.json.simple.parser.JSONParser: int S_IN_ARRAY
+org.json.simple.parser.JSONParser: int S_PASSED_PAIR_KEY
+org.json.simple.parser.JSONParser: int S_IN_PAIR_VALUE
+org.json.simple.parser.JSONParser: int S_END
+org.json.simple.parser.JSONParser: int S_IN_ERROR
+org.json.simple.parser.JSONParser: JSONParser()
+org.json.simple.parser.JSONParser: void reset()
+org.json.simple.parser.JSONParser: void reset(java.io.Reader)
+org.json.simple.parser.JSONParser: int getPosition()
+org.json.simple.parser.JSONParser: java.lang.Object parse(java.lang.String)
+org.json.simple.parser.JSONParser: java.lang.Object parse(java.lang.String,org.json.simple.parser.ContainerFactory)
+org.json.simple.parser.JSONParser: java.lang.Object parse(java.io.Reader)
+org.json.simple.parser.JSONParser: java.lang.Object parse(java.io.Reader,org.json.simple.parser.ContainerFactory)
+org.json.simple.parser.JSONParser: void parse(java.lang.String,org.json.simple.parser.ContentHandler)
+org.json.simple.parser.JSONParser: void parse(java.lang.String,org.json.simple.parser.ContentHandler,boolean)
+org.json.simple.parser.JSONParser: void parse(java.io.Reader,org.json.simple.parser.ContentHandler)
+org.json.simple.parser.JSONParser: void parse(java.io.Reader,org.json.simple.parser.ContentHandler,boolean)
+org.json.simple.parser.ParseException
+org.json.simple.parser.ParseException: long serialVersionUID
+org.json.simple.parser.ParseException: int ERROR_UNEXPECTED_CHAR
+org.json.simple.parser.ParseException: int ERROR_UNEXPECTED_TOKEN
+org.json.simple.parser.ParseException: int ERROR_UNEXPECTED_EXCEPTION
+org.json.simple.parser.ParseException: ParseException(int)
+org.json.simple.parser.ParseException: ParseException(int,java.lang.Object)
+org.json.simple.parser.ParseException: ParseException(int,int,java.lang.Object)
+org.json.simple.parser.ParseException: int getErrorType()
+org.json.simple.parser.ParseException: void setErrorType(int)
+org.json.simple.parser.ParseException: int getPosition()
+org.json.simple.parser.ParseException: void setPosition(int)
+org.json.simple.parser.ParseException: java.lang.Object getUnexpectedObject()
+org.json.simple.parser.ParseException: void setUnexpectedObject(java.lang.Object)
+org.json.simple.parser.ParseException: java.lang.String toString()
+org.json.simple.parser.Yytoken
+org.json.simple.parser.Yytoken: int TYPE_VALUE
+org.json.simple.parser.Yytoken: int TYPE_LEFT_BRACE
+org.json.simple.parser.Yytoken: int TYPE_RIGHT_BRACE
+org.json.simple.parser.Yytoken: int TYPE_LEFT_SQUARE
+org.json.simple.parser.Yytoken: int TYPE_RIGHT_SQUARE
+org.json.simple.parser.Yytoken: int TYPE_COMMA
+org.json.simple.parser.Yytoken: int TYPE_COLON
+org.json.simple.parser.Yytoken: int TYPE_EOF
+org.json.simple.parser.Yytoken: int type
+org.json.simple.parser.Yytoken: java.lang.Object value
+org.json.simple.parser.Yytoken: Yytoken(int,java.lang.Object)
+org.json.simple.parser.Yytoken: java.lang.String toString()
+org.xeustechnologies.jtar.Octal
+org.xeustechnologies.jtar.Octal: Octal()
+org.xeustechnologies.jtar.Octal: long parseOctal(byte[],int,int)
+org.xeustechnologies.jtar.Octal: int getOctalBytes(long,byte[],int,int)
+org.xeustechnologies.jtar.Octal: int getCheckSumOctalBytes(long,byte[],int,int)
+org.xeustechnologies.jtar.Octal: int getLongOctalBytes(long,byte[],int,int)
+org.xeustechnologies.jtar.TarConstants
+org.xeustechnologies.jtar.TarConstants: int EOF_BLOCK
+org.xeustechnologies.jtar.TarConstants: int DATA_BLOCK
+org.xeustechnologies.jtar.TarConstants: int HEADER_BLOCK
+org.xeustechnologies.jtar.TarConstants: TarConstants()
+org.xeustechnologies.jtar.TarEntry
+org.xeustechnologies.jtar.TarEntry: java.io.File file
+org.xeustechnologies.jtar.TarEntry: org.xeustechnologies.jtar.TarHeader header
+org.xeustechnologies.jtar.TarEntry: TarEntry(java.io.File,java.lang.String)
+org.xeustechnologies.jtar.TarEntry: TarEntry(byte[])
+org.xeustechnologies.jtar.TarEntry: boolean equals(org.xeustechnologies.jtar.TarEntry)
+org.xeustechnologies.jtar.TarEntry: boolean isDescendent(org.xeustechnologies.jtar.TarEntry)
+org.xeustechnologies.jtar.TarEntry: org.xeustechnologies.jtar.TarHeader getHeader()
+org.xeustechnologies.jtar.TarEntry: java.lang.String getName()
+org.xeustechnologies.jtar.TarEntry: void setName(java.lang.String)
+org.xeustechnologies.jtar.TarEntry: int getUserId()
+org.xeustechnologies.jtar.TarEntry: void setUserId(int)
+org.xeustechnologies.jtar.TarEntry: int getGroupId()
+org.xeustechnologies.jtar.TarEntry: void setGroupId(int)
+org.xeustechnologies.jtar.TarEntry: java.lang.String getUserName()
+org.xeustechnologies.jtar.TarEntry: void setUserName(java.lang.String)
+org.xeustechnologies.jtar.TarEntry: java.lang.String getGroupName()
+org.xeustechnologies.jtar.TarEntry: void setGroupName(java.lang.String)
+org.xeustechnologies.jtar.TarEntry: void setIds(int,int)
+org.xeustechnologies.jtar.TarEntry: void setModTime(long)
+org.xeustechnologies.jtar.TarEntry: void setModTime(java.util.Date)
+org.xeustechnologies.jtar.TarEntry: java.util.Date getModTime()
+org.xeustechnologies.jtar.TarEntry: java.io.File getFile()
+org.xeustechnologies.jtar.TarEntry: long getSize()
+org.xeustechnologies.jtar.TarEntry: void setSize(long)
+org.xeustechnologies.jtar.TarEntry: boolean isDirectory()
+org.xeustechnologies.jtar.TarEntry: void extractTarHeader(java.lang.String)
+org.xeustechnologies.jtar.TarEntry: long computeCheckSum(byte[])
+org.xeustechnologies.jtar.TarEntry: void writeEntryHeader(byte[])
+org.xeustechnologies.jtar.TarEntry: void parseTarHeader(byte[])
+org.xeustechnologies.jtar.TarHeader
+org.xeustechnologies.jtar.TarHeader: int NAMELEN
+org.xeustechnologies.jtar.TarHeader: int MODELEN
+org.xeustechnologies.jtar.TarHeader: int UIDLEN
+org.xeustechnologies.jtar.TarHeader: int GIDLEN
+org.xeustechnologies.jtar.TarHeader: int SIZELEN
+org.xeustechnologies.jtar.TarHeader: int MODTIMELEN
+org.xeustechnologies.jtar.TarHeader: int CHKSUMLEN
+org.xeustechnologies.jtar.TarHeader: byte LF_OLDNORM
+org.xeustechnologies.jtar.TarHeader: byte LF_NORMAL
+org.xeustechnologies.jtar.TarHeader: byte LF_LINK
+org.xeustechnologies.jtar.TarHeader: byte LF_SYMLINK
+org.xeustechnologies.jtar.TarHeader: byte LF_CHR
+org.xeustechnologies.jtar.TarHeader: byte LF_BLK
+org.xeustechnologies.jtar.TarHeader: byte LF_DIR
+org.xeustechnologies.jtar.TarHeader: byte LF_FIFO
+org.xeustechnologies.jtar.TarHeader: byte LF_CONTIG
+org.xeustechnologies.jtar.TarHeader: int MAGICLEN
+org.xeustechnologies.jtar.TarHeader: java.lang.String TMAGIC
+org.xeustechnologies.jtar.TarHeader: java.lang.String GNU_TMAGIC
+org.xeustechnologies.jtar.TarHeader: int UNAMELEN
+org.xeustechnologies.jtar.TarHeader: int GNAMELEN
+org.xeustechnologies.jtar.TarHeader: int DEVLEN
+org.xeustechnologies.jtar.TarHeader: java.lang.StringBuffer name
+org.xeustechnologies.jtar.TarHeader: int mode
+org.xeustechnologies.jtar.TarHeader: int userId
+org.xeustechnologies.jtar.TarHeader: int groupId
+org.xeustechnologies.jtar.TarHeader: long size
+org.xeustechnologies.jtar.TarHeader: long modTime
+org.xeustechnologies.jtar.TarHeader: int checkSum
+org.xeustechnologies.jtar.TarHeader: byte linkFlag
+org.xeustechnologies.jtar.TarHeader: java.lang.StringBuffer linkName
+org.xeustechnologies.jtar.TarHeader: java.lang.StringBuffer magic
+org.xeustechnologies.jtar.TarHeader: java.lang.StringBuffer userName
+org.xeustechnologies.jtar.TarHeader: java.lang.StringBuffer groupName
+org.xeustechnologies.jtar.TarHeader: int devMajor
+org.xeustechnologies.jtar.TarHeader: int devMinor
+org.xeustechnologies.jtar.TarHeader: TarHeader()
+org.xeustechnologies.jtar.TarHeader: java.lang.StringBuffer parseName(byte[],int,int)
+org.xeustechnologies.jtar.TarHeader: int getNameBytes(java.lang.StringBuffer,byte[],int,int)
+org.xeustechnologies.jtar.TarInputStream
+org.xeustechnologies.jtar.TarInputStream: TarInputStream(java.io.InputStream)
+org.xeustechnologies.jtar.TarInputStream: boolean markSupported()
+org.xeustechnologies.jtar.TarInputStream: void mark(int)
+org.xeustechnologies.jtar.TarInputStream: void reset()
+org.xeustechnologies.jtar.TarInputStream: int read()
+org.xeustechnologies.jtar.TarInputStream: int read(byte[],int,int)
+org.xeustechnologies.jtar.TarInputStream: org.xeustechnologies.jtar.TarEntry getNextEntry()
+org.xeustechnologies.jtar.TarInputStream: void closeCurrentEntry()
+org.xeustechnologies.jtar.TarInputStream: void skipPad()
+org.xeustechnologies.jtar.TarInputStream: long skip(long)
+org.xeustechnologies.jtar.TarOutputStream
+org.xeustechnologies.jtar.TarOutputStream: TarOutputStream(java.io.OutputStream)
+org.xeustechnologies.jtar.TarOutputStream: void close()
+org.xeustechnologies.jtar.TarOutputStream: void write(int)
+org.xeustechnologies.jtar.TarOutputStream: void write(byte[],int,int)
+org.xeustechnologies.jtar.TarOutputStream: void putNextEntry(org.xeustechnologies.jtar.TarEntry)
+org.xeustechnologies.jtar.TarOutputStream: void closeCurrentEntry()
+org.xeustechnologies.jtar.TarOutputStream: void pad()
+org.xeustechnologies.jtar.TarUtils
+org.xeustechnologies.jtar.TarUtils: TarUtils()
+org.xeustechnologies.jtar.TarUtils: long calculateTarSize(java.io.File)

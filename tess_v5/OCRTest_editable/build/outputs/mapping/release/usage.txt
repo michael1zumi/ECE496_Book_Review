@@ -1,0 +1,99 @@
+com.google.api.translate.TranslateV1:
+    private static final java.lang.String LANG_PARAM
+    private static final java.lang.String TEXT_PARAM
+    private static final java.lang.String PIPE_PARAM
+    private static final java.lang.String URL
+    private static final java.lang.String PARAMETERS
+com.google.api.translate.TranslateV2:
+    private static final java.lang.String URL_TEMPLATE
+com.memetix.mst.detect.Detect:
+    private static final java.lang.String SERVICE_URL
+    private static final java.lang.String ARRAY_SERVICE_URL
+com.memetix.mst.language.Language$GetLanguagesForTranslateService:
+    private static final java.lang.String SERVICE_URL
+    230:230:private Language$GetLanguagesForTranslateService()
+com.memetix.mst.language.Language$LanguageService:
+    private static final java.lang.String SERVICE_URL
+    200:200:private Language$LanguageService()
+com.memetix.mst.language.SpokenDialect$SpokenDialectService:
+    private static final java.lang.String SERVICE_URL
+    154:154:private SpokenDialect$SpokenDialectService()
+com.memetix.mst.sentence.BreakSentences:
+    private static final java.lang.String SERVICE_URL
+com.memetix.mst.speak.Speak:
+    private static final java.lang.String SERVICE_URL
+com.memetix.mst.translate.Translate:
+    private static final java.lang.String SERVICE_URL
+    private static final java.lang.String ARRAY_SERVICE_URL
+    private static final java.lang.String ARRAY_JSON_OBJECT_PROPERTY
+edu.sfsu.cs.orange.ocr.BeepManager:
+    private static final float BEEP_VOLUME
+edu.sfsu.cs.orange.ocr.CaptureActivity:
+    private static final boolean CONTINUOUS_DISPLAY_RECOGNIZED_TEXT
+    private static final boolean CONTINUOUS_DISPLAY_METADATA
+    private static final boolean DISPLAY_SHUTTER_BUTTON
+    static final java.lang.String DOWNLOAD_BASE
+    static final java.lang.String OSD_FILENAME
+    static final java.lang.String OSD_FILENAME_BASE
+    static final int MINIMUM_MEAN_CONFIDENCE
+    private static final int SETTINGS_ID
+    private static final int ABOUT_ID
+    private static final int OPTIONS_COPY_RECOGNIZED_TEXT_ID
+    private static final int OPTIONS_COPY_TRANSLATED_TEXT_ID
+    private static final int OPTIONS_SHARE_RECOGNIZED_TEXT_ID
+    private static final int OPTIONS_SHARE_TRANSLATED_TEXT_ID
+    1027:1027:static boolean getFirstLaunch()
+edu.sfsu.cs.orange.ocr.HelpActivity:
+    private static final java.lang.String BASE_URL
+    private static final java.lang.String WEBVIEW_STATE_PRESENT
+edu.sfsu.cs.orange.ocr.ViewfinderView:
+    static final boolean DRAW_REGION_BOXES
+    static final boolean DRAW_TEXTLINE_BOXES
+    static final boolean DRAW_STRIP_BOXES
+    static final boolean DRAW_WORD_BOXES
+    static final boolean DRAW_TRANSPARENT_WORD_BACKGROUNDS
+    static final boolean DRAW_CHARACTER_BOXES
+    static final boolean DRAW_WORD_TEXT
+    static final boolean DRAW_CHARACTER_TEXT
+    private java.lang.String[] words
+    private java.util.List regionBoundingBoxes
+    private java.util.List stripBoundingBoxes
+    private java.util.List characterBoundingBoxes
+edu.sfsu.cs.orange.ocr.camera.AutoFocusManager:
+    private static final long AUTO_FOCUS_INTERVAL_MS
+edu.sfsu.cs.orange.ocr.camera.CameraConfigurationManager:
+    private static final java.lang.String TAG
+    private static final int MIN_PREVIEW_PIXELS
+    private static final int MAX_PREVIEW_PIXELS
+    130:140:void setTorch(android.hardware.Camera,boolean)
+edu.sfsu.cs.orange.ocr.camera.CameraManager:
+    private static final int MIN_FRAME_WIDTH
+    private static final int MIN_FRAME_HEIGHT
+    private static final int MAX_FRAME_WIDTH
+    private static final int MAX_FRAME_HEIGHT
+edu.sfsu.cs.orange.ocr.language.Translator:
+    32:34:private Translator(android.app.Activity)
+edu.sfsu.cs.orange.ocr.language.TranslatorBing:
+    private static final java.lang.String CLIENT_ID
+    private static final java.lang.String CLIENT_SECRET
+edu.sfsu.cs.orange.ocr.language.TranslatorGoogle:
+    private static final java.lang.String API_KEY
+org.json.simple.parser.Yylex:
+    public static final int YYEOF
+    private static final int ZZ_BUFFERSIZE
+    public static final int YYINITIAL
+    public static final int STRING_BEGIN
+    private static final java.lang.String ZZ_CMAP_PACKED
+    private static final java.lang.String ZZ_ACTION_PACKED_0
+    private static final java.lang.String ZZ_ROWMAP_PACKED_0
+    private static final int ZZ_UNKNOWN_ERROR
+    private static final int ZZ_NO_MATCH
+    private static final int ZZ_PUSHBACK_2BIG
+    private static final java.lang.String ZZ_ATTRIBUTE_PACKED_0
+    Yylex(java.io.InputStream)
+    public final void yyclose()
+    public final int yystate()
+    public final int yylength()
+    public void yypushback(int)
+org.xeustechnologies.jtar.TarInputStream:
+    private static final int SKIP_BUFFER_SIZE

@@ -1,0 +1,20 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles 'proguard.cfg'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.rmtheis:tess-two:6.0.4'
+    implementation files('libs/google-api-translate-java-0.98-mod2.jar')
+    implementation files('libs/json_simple-1.1.jar')
+    implementation files('libs/jtar-1.0.4.jar')
+    implementation files('libs/microsoft-translator-java-api-0.6-mod.jar')
+}

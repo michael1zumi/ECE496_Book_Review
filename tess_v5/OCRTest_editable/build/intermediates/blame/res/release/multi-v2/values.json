@@ -1,0 +1,192 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Michael Liu\\Desktop\\496\\ECE496_Book_Review\\tess_v5\\OCRTest_editable\\build\\intermediates\\res\\merged\\release\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Michael Liu\\Desktop\\496\\ECE496_Book_Review\\tess_v5\\OCRTest_editable\\src\\main\\res\\values\\ids.xml",
+                    "from": {
+                        "startLines": "18,19,20,22,23,24,25,26,27,29,30",
+                        "startColumns": "2,2,2,2,2,2,2,2,2,2,2",
+                        "startOffsets": "661,695,736,781,830,886,945,983,1028,1079,1111",
+                        "endColumns": "33,40,43,48,55,58,37,44,47,31,42",
+                        "endOffsets": "692,733,777,827,883,942,980,1025,1073,1108,1151"
+                    },
+                    "to": {
+                        "startLines": "422,423,424,425,426,427,428,429,430,431,432",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "13703,13739,13782,13828,13879,13937,13998,14038,14085,14135,14169",
+                        "endColumns": "35,42,45,50,57,60,39,46,49,33,44",
+                        "endOffsets": "13734,13777,13823,13874,13932,13993,14033,14080,14130,14164,14209"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Michael Liu\\Desktop\\496\\ECE496_Book_Review\\tess_v5\\OCRTest_editable\\src\\main\\res\\values\\attrs.xml",
+                    "from": {
+                        "startLines": "17",
+                        "startColumns": "2",
+                        "startOffsets": "632",
+                        "endLines": "18",
+                        "endColumns": "22",
+                        "endOffsets": "696"
+                    },
+                    "to": {
+                        "startLines": "420",
+                        "startColumns": "4",
+                        "startOffsets": "13634",
+                        "endLines": "421",
+                        "endColumns": "22",
+                        "endOffsets": "13698"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Michael Liu\\Desktop\\496\\ECE496_Book_Review\\tess_v5\\OCRTest_editable\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "18",
+                        "startColumns": "4",
+                        "startOffsets": "663",
+                        "endColumns": "45",
+                        "endOffsets": "704"
+                    },
+                    "to": {
+                        "startLines": "433",
+                        "startColumns": "4",
+                        "startOffsets": "14214",
+                        "endColumns": "45",
+                        "endOffsets": "14255"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Michael Liu\\Desktop\\496\\ECE496_Book_Review\\tess_v5\\OCRTest_editable\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "21,22,23,24,25,26,27,28,29,30,31",
+                        "startColumns": "2,2,2,2,2,2,2,2,2,2,2",
+                        "startOffsets": "742,836,927,1054,1131,1215,1316,1424,1505,1603,1684",
+                        "endColumns": "50,43,51,45,45,45,60,48,52,50,49",
+                        "endOffsets": "790,877,976,1097,1174,1258,1374,1470,1555,1651,1731"
+                    },
+                    "to": {
+                        "startLines": "409,410,411,412,413,414,415,416,417,418,419",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "13063,13116,13162,13216,13264,13312,13360,13423,13474,13529,13582",
+                        "endColumns": "52,45,53,47,47,47,62,50,54,52,51",
+                        "endOffsets": "13111,13157,13211,13259,13307,13355,13418,13469,13524,13577,13629"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Michael Liu\\Desktop\\496\\ECE496_Book_Review\\tess_v5\\OCRTest_editable\\src\\main\\res\\values\\arrays.xml",
+                    "from": {
+                        "startLines": "17,166,106,46,34,22,204,354,279,401,40",
+                        "startColumns": "1,1,1,1,4,4,1,1,1,1,1",
+                        "startOffsets": "626,5066,2917,1440,1112,736,6481,11104,9199,13110,1254",
+                        "endLines": "20,200,163,103,38,32,275,397,350,444,43",
+                        "endColumns": "16,16,16,16,19,19,16,16,16,16,16",
+                        "endOffsets": "730,6320,5045,2838,1251,1102,9044,12941,10920,14440,1367"
+                    },
+                    "to": {
+                        "startLines": "2,6,41,99,157,162,173,245,289,361,405",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,164,1423,3556,4959,5103,5474,8042,9884,11610,12945",
+                        "endLines": "5,40,98,156,161,172,244,288,360,404,408",
+                        "endColumns": "16,16,16,16,19,19,16,16,16,16,16",
+                        "endOffsets": "159,1418,3551,4954,5098,5469,8037,9879,11605,12940,13058"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\Michael Liu\\Desktop\\496\\ECE496_Book_Review\\tess_v5\\OCRTest_editable\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Michael Liu\\Desktop\\496\\ECE496_Book_Review\\tess_v5\\OCRTest_editable\\src\\main\\res\\values\\ids.xml",
+                    "from": {
+                        "startLines": "18,19,20,22,23,24,25,26,27,29,30",
+                        "startColumns": "2,2,2,2,2,2,2,2,2,2,2",
+                        "startOffsets": "661,695,736,781,830,886,945,983,1028,1079,1111",
+                        "endColumns": "33,40,43,48,55,58,37,44,47,31,42",
+                        "endOffsets": "692,733,777,827,883,942,980,1025,1073,1108,1151"
+                    },
+                    "to": {
+                        "startLines": "422,423,424,425,426,427,428,429,430,431,432",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "13703,13739,13782,13828,13879,13937,13998,14038,14085,14135,14169",
+                        "endColumns": "35,42,45,50,57,60,39,46,49,33,44",
+                        "endOffsets": "13734,13777,13823,13874,13932,13993,14033,14080,14130,14164,14209"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Michael Liu\\Desktop\\496\\ECE496_Book_Review\\tess_v5\\OCRTest_editable\\src\\main\\res\\values\\attrs.xml",
+                    "from": {
+                        "startLines": "17",
+                        "startColumns": "2",
+                        "startOffsets": "632",
+                        "endLines": "18",
+                        "endColumns": "22",
+                        "endOffsets": "696"
+                    },
+                    "to": {
+                        "startLines": "420",
+                        "startColumns": "4",
+                        "startOffsets": "13634",
+                        "endLines": "421",
+                        "endColumns": "22",
+                        "endOffsets": "13698"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Michael Liu\\Desktop\\496\\ECE496_Book_Review\\tess_v5\\OCRTest_editable\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "18",
+                        "startColumns": "4",
+                        "startOffsets": "663",
+                        "endColumns": "45",
+                        "endOffsets": "704"
+                    },
+                    "to": {
+                        "startLines": "433",
+                        "startColumns": "4",
+                        "startOffsets": "14214",
+                        "endColumns": "45",
+                        "endOffsets": "14255"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Michael Liu\\Desktop\\496\\ECE496_Book_Review\\tess_v5\\OCRTest_editable\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "21,22,23,24,25,26,27,28,29,30,31",
+                        "startColumns": "2,2,2,2,2,2,2,2,2,2,2",
+                        "startOffsets": "742,836,927,1054,1131,1215,1316,1424,1505,1603,1684",
+                        "endColumns": "50,43,51,45,45,45,60,48,52,50,49",
+                        "endOffsets": "790,877,976,1097,1174,1258,1374,1470,1555,1651,1731"
+                    },
+                    "to": {
+                        "startLines": "409,410,411,412,413,414,415,416,417,418,419",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "13063,13116,13162,13216,13264,13312,13360,13423,13474,13529,13582",
+                        "endColumns": "52,45,53,47,47,47,62,50,54,52,51",
+                        "endOffsets": "13111,13157,13211,13259,13307,13355,13418,13469,13524,13577,13629"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Michael Liu\\Desktop\\496\\ECE496_Book_Review\\tess_v5\\OCRTest_editable\\src\\main\\res\\values\\arrays.xml",
+                    "from": {
+                        "startLines": "17,166,106,46,34,22,204,354,279,401,40",
+                        "startColumns": "1,1,1,1,4,4,1,1,1,1,1",
+                        "startOffsets": "626,5066,2917,1440,1112,736,6481,11104,9199,13110,1254",
+                        "endLines": "20,200,163,103,38,32,275,397,350,444,43",
+                        "endColumns": "16,16,16,16,19,19,16,16,16,16,16",
+                        "endOffsets": "730,6320,5045,2838,1251,1102,9044,12941,10920,14440,1367"
+                    },
+                    "to": {
+                        "startLines": "2,6,41,99,157,162,173,245,289,361,405",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,164,1423,3556,4959,5103,5474,8042,9884,11610,12945",
+                        "endLines": "5,40,98,156,161,172,244,288,360,404,408",
+                        "endColumns": "16,16,16,16,19,19,16,16,16,16,16",
+                        "endOffsets": "159,1418,3551,4954,5098,5469,8037,9879,11605,12940,13058"
+                    }
+                }
+            ]
+        }
+    ]
+}
