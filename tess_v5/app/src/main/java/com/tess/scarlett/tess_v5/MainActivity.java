@@ -552,7 +552,7 @@ public class MainActivity extends AppCompatActivity{
                     }
                     itemContent = itemInList.text();
                     index ++;
-                } while(itemContent.startsWith("Sponsored"));
+                } while(itemContent.matches("(.*)Sponsored(.*)"));
 
                 if (bool == 1){
                     foundItem = bookname;
