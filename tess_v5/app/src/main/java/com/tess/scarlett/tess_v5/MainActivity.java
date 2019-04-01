@@ -221,11 +221,8 @@ public class MainActivity extends AppCompatActivity{
             String imageFilePath = imagePath + "/ocr_v5.jpg";
             outputFileDir = Uri.fromFile(new File(imageFilePath));
             System.out.println("+++++++++++++++data path is "+DATA_PATH+"\n\n\n\n");
-
             final Intent pictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
             pictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,outputFileDir);
-
             if(pictureIntent.resolveActivity(getPackageManager() ) != null){
                 startActivityForResult(pictureIntent,100);
             }
@@ -531,17 +528,33 @@ public class MainActivity extends AppCompatActivity{
                 Document secondSearch;
                 Elements productDetail;
                 Elements reviews;
-                Elements firstReview;
-                Elements secondReview;
+                Element firstReview;
                 String isbn = "";
 
-
-                String url = "https://www.amazon.ca/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=" + bookname;
+                String url = "https://www.amazon.ca/s?k=" + bookname;
                 Document firstSearch = Jsoup.connect(url).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
                         .timeout(999999999)
                         .get();
-                Element itemInList = firstSearch.select("div[data-index=0]").first();
-                if (itemInList == null){
+
+
+
+                Element itemInList;
+                String searchWord;
+                String itemContent;
+                int index = 0;
+                int bool = 0;
+                do{
+                    searchWord = "div[data-index="+ String.valueOf(index) +"]";
+                    itemInList = firstSearch.select(searchWord).first();
+                    if (itemInList == null){
+                        bool = 1;
+                        break;
+                    }
+                    itemContent = itemInList.text();
+                    index ++;
+                } while(itemContent.startsWith("Sponsored"));
+
+                if (bool == 1){
                     foundItem = bookname;
                     rate[0] = "0.0";
                     rate[1] = "0.0";
@@ -554,25 +567,261 @@ public class MainActivity extends AppCompatActivity{
                     productLink[0] = "None";
                     productLink[1] = "None";
                 }
-                else{
-
+                else {
                     Element itemLink = itemInList.select("a[class=a-size-base a-link-normal a-text-bold]").first();
-                    if (itemLink == null){
-                        foundItem = bookname;
-                        rate[0] = "0.0";
-                        rate[1] = "0.0";
-                        price[0] = "0.0";
-                        price[1] = "0.0";
-                        review[0] = "None";
-                        review[1] = "None";
-                        review[2] = "None";
-                        review[3] = "None";
-                        productLink[0] = "None";
-                        productLink[1] = "None";
+                    if (itemLink == null){ // may be electronic device
+                        Element itemname = itemInList.select("a[class=a-link-normal a-text-normal]").first();
+                        if (itemname == null){
+                            foundItem = bookname;
+                            rate[0] = "0.0";
+                            rate[1] = "0.0";
+                            price[0] = "0.0";
+                            price[1] = "0.0";
+                            review[0] = "None";
+                            review[1] = "None";
+                            review[2] = "None";
+                            review[3] = "None";
+                            productLink[0] = "None";
+                            productLink[1] = "None";
+                        }
+                        else{
+                            foundItem = itemname.text();
+                            String rateINFO =  itemInList.select("span[class=a-icon-alt]").text();
+                            if (itemInList.select("span[class=a-icon-alt]").first() == null){
+                                foundItem = bookname;
+                                rate[0] = "0.0";
+                                rate[1] = "0.0";
+                                price[0] = "0.0";
+                                price[1] = "0.0";
+                                review[0] = "None";
+                                review[1] = "None";
+                                review[2] = "None";
+                                review[3] = "None";
+                                productLink[0] = "None";
+                                productLink[1] = "None";
+                            }
+                            else{
+                                foundProduct = true;
+                                rateINFO = rateINFO.substring(0,3);
+                                rate[0] = rateINFO;
+                                rate[0] = "Amazon: " + rate[0] + "/5";
+                                //System.out.println(rate[0]);
+
+                                String link = "https://www.amazon.ca"+ itemname.attr("href");
+
+                                System.out.println("123"+link);
+                                secondSearch = Jsoup.connect(link).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
+                                        .timeout(999999999)
+                                        .get();
+                                String priceInfo = "";
+                                if (secondSearch.select("span[id=priceblock_dealprice]").first()==null){
+                                    priceInfo = secondSearch.select("span[id=priceblock_ourprice]").first().text();
+                                }
+                                else {
+                                    priceInfo = secondSearch.select("span[id=priceblock_dealprice]").first().text();
+                                }
+                                int start = priceInfo.indexOf("$");
+                                priceInfo = priceInfo.substring(start+1);
+                                priceInfo = priceInfo.replaceAll(" ","");
+                                price[0] = priceInfo;
+
+
+
+                                reviews = secondSearch.select("div[id=productDescription]");
+                                if (reviews.first() == null){
+                                    foundProduct = false;
+                                    foundItem = bookname;
+                                    rate[0] = "0.0";
+                                    rate[1] = "0.0";
+                                    price[0] = "0.0";
+                                    price[1] = "0.0";
+                                    review[0] = "None";
+                                    review[1] = "None";
+                                    review[2] = "None";
+                                    review[3] = "None";
+                                    productLink[0] = "None";
+                                    productLink[1] = "None";
+                                }
+                                else {
+                                    foundProduct = true;
+
+                                    productLink[0] = link;
+                                    firstReview = reviews.select("p").first();
+                                    review[0] = firstReview.text();
+                                    review[0] = "<b>" + "Amazon: " + "</b> " + review[0];
+                                    //System.out.println(review[0]);
+
+                                    String searchName = foundItem;
+
+                                    start = foundItem.lastIndexOf("(");
+                                    if (start>0){
+                                        searchName = foundItem.substring(0, start);
+                                    }
+                                    start = foundItem.lastIndexOf("[");
+                                    if (start>0){
+                                        searchName = foundItem.substring(0, start);
+                                    }
+                                    searchName = searchName.replaceAll(" ", "+");
+
+                                    System.out.println(searchName);
+
+
+                                    int same = 1;
+                                    String bestbuyurl = "https://www.bestbuy.ca/en-CA/Search/SearchResults.aspx?type=product&page=1&sortBy=relevance&sortDir=desc&query=" + searchName;
+                                    Document bestbuySearch = Jsoup.connect(bestbuyurl).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
+                                            .timeout(999999999)
+                                            .get();
+                                    Element cantfind = bestbuySearch.select("div[class=search-no-results]").first();
+                                    if (cantfind != null){
+                                        System.out.println("item name of amazon can not be found in busybuy");
+                                        System.out.println(bookname);
+                                        bestbuyurl = "https://www.bestbuy.ca/en-CA/Search/SearchResults.aspx?type=product&page=1&sortBy=relevance&sortDir=desc&query=" + bookname;
+                                        bestbuySearch = Jsoup.connect(bestbuyurl).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
+                                                .timeout(999999999)
+                                                .get();
+                                        cantfind = bestbuySearch.select("div[class=search-no-results]").first();
+                                        same = 0;
+                                        if (cantfind != null){
+                                            rate[1] = "No rating in Bestbuy";
+                                            price[1] = "Can't find the specific product in Bestbuy";
+                                            review[2] = "No user review in "+"<b>" + "Bestbuy " + "</b> ";
+                                            productLink[1] = "None";
+                                            return null;
+                                        }
+                                    }
+
+
+                                    Element selectedItem = bestbuySearch.select("ul[class=listing-items util_equalheight clearfix]").first();
+
+                                    String bestbuyDesc = "";
+                                    if (selectedItem == null){
+                                        System.out.println("here");
+                                        if (bestbuySearch.select("h1[class=product-title]").first() == null){
+                                            rate[1] = "No rating in Bestbuy";
+                                            price[1] = "Can't find the specific product in Bestbuy";
+                                            review[2] = "No user review in "+"<b>" + "Bestbuy " + "</b> ";
+                                            productLink[1] = "None";
+                                        }
+                                        else{
+                                            if (same == 0){
+                                                String itemInBestbuy = bestbuySearch.select("h1[class=product-title]").first().text();
+                                                foundItem = "Found in Amazon: " + foundItem + "\n";
+                                                foundItem = foundItem + "Found in Bestbuy: " + itemInBestbuy + "\n";
+                                                foundItem = foundItem + "Please try with more keywords";
+                                            }
+
+                                            productLink[1] = bestbuyurl;
+                                            if(bestbuySearch.select("div[class=prodprice ]").first() == null){
+                                                price[1] = bestbuySearch.select("div[class=prodprice price-onsale]").text();
+                                            }
+                                            else{
+                                                price[1] = bestbuySearch.select("div[class=prodprice ]").text();
+                                            }
+                                            start = price[1].indexOf("$");
+                                            price[1] = price[1].substring(start+1);
+
+
+                                            Element bestbuyRate = bestbuySearch.select("div[itemprop=ratingvalue]").first();
+
+                                            if(bestbuyRate == null){
+                                                rate[1] = "No rating of this product in Bestbuy";
+                                            }
+                                            else{
+                                                //System.out.println(bestbuyRate);
+                                                rate[1] = bestbuyRate.text();
+                                                rate[1] = "Bestbuy: " + rate[1] + "/5";
+                                            }
+
+                                            bestbuyDesc  = bestbuySearch.select("div[class=tab-overview-item]").text();
+                                            start = bestbuyDesc.indexOf("Overview");
+                                            //System.out.println(bestbuyDesc);
+                                            bestbuyDesc = bestbuyDesc.substring(start+9);
+                                            review[2] = bestbuyDesc;
+                                            review[2] = "<b>" + "Bestbuy: " + "</b> " + review[2];
+                                        }
+
+
+
+                                    }
+                                    else {
+                                        System.out.println("there");
+                                        selectedItem = selectedItem.select("h4[class=prod-title]").first();
+                                        selectedItem = selectedItem.select("a[href]").first();
+                                        String itemlink = "https://www.bestbuy.ca"+ selectedItem.attr("href");
+                                        //System.out.println(itemlink);
+                                        secondSearch = Jsoup.connect(itemlink).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
+                                                .timeout(999999999)
+                                                .get();
+                                        if (same == 0){
+                                            String itemInBestbuy = secondSearch.select("h1[class=product-title]").first().text();
+                                            foundItem = "Found in Amazon: " + foundItem + "\n";
+                                            foundItem = foundItem + "Found in Bestbuy: " + itemInBestbuy + "\n";
+                                            foundItem = foundItem + "Please try with more keywords";
+                                        }
+
+                                        if(secondSearch.select("div[class=prodprice ]").first() == null){
+                                            price[1] = secondSearch.select("div[class=prodprice price-onsale]").first().text();
+                                        }
+                                        else{
+                                            price[1] = secondSearch.select("div[class=prodprice ]").first().text();
+                                        }
+
+                                        start = price[1].indexOf("$");
+                                        price[1] = price[1].substring(start+1);
+
+
+                                        if(secondSearch.select("div[itemprop=ratingvalue]").first() == null){
+                                            rate[1] = "No rating of this product in Bestbuy" ;
+                                        }
+                                        else {
+                                            rate[1] = secondSearch.select("div[itemprop=ratingvalue]").first().text();
+                                            rate[1] = "Bestbuy: " + rate[1] + "/5";
+                                        }
+
+
+                                        bestbuyDesc  = secondSearch.select("div[class=tab-overview-item]").text();
+                                        start = bestbuyDesc.indexOf("Overview");
+                                        bestbuyDesc = bestbuyDesc.substring(start+9);
+                                        review[2] = bestbuyDesc;
+                                        review[2] = "<b>" + "Bestbuy: " + "</b> " + review[2];
+                                    }
+
+
+                                    price[0] = price[0].replaceAll(",", "");
+                                    price[1] = price[1].replaceAll(",", "");
+                                    if (price[1].startsWith("Can't") == false){
+                                        if (Float.parseFloat(price[0])>Float.parseFloat(price[1])){
+                                            String swap = price[0];
+                                            price[0] = "Bestbuy: $" + price[1];
+                                            price[1] = "Amazon: $" + swap;
+                                        }
+                                        else{
+                                            price[0] = "Amazon: $" + price[0];
+                                            price[1] = "Bestbuy: $" + price[1];
+                                        }
+
+                                    }
+                                    else {
+                                        price[0] = "Amazon: $" + price[0];
+                                    }
+
+
+                                }
+
+
+
+
+
+
+
+                            }
+
+                        }
                     }
-                    else{
+
+                    else {// may be book
                         String itemVersion = itemLink.text();
-                        System.out.println(itemVersion);
+
                         if (itemVersion.startsWith("Paperback")==false&itemVersion.startsWith("Hardcover")==false){
                             foundItem = bookname;
                             rate[0] = "0.0";
@@ -592,13 +841,14 @@ public class MainActivity extends AppCompatActivity{
                             Elements rateINFO =  itemInList.select("span[class=a-icon-alt]");
                             String amazon_rate = rateINFO.text();
                             amazon_rate = amazon_rate.substring(0,3);
-                            rate[0] = amazon_rate;
+                            rate[1] = amazon_rate;
+                            rate[1] = "Amazon: " + rate[1] + "/5";
+
 
                             // get book name
                             String itemname = itemInList.select("a[class=a-link-normal a-text-normal]").text();
                             foundItem = itemname;
 
-                            // get amazon link
                             String link = "https://www.amazon.ca"+ itemLink.attr("href");
                             productLink[0] = link;
                             secondSearch = Jsoup.connect(link).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
@@ -614,32 +864,33 @@ public class MainActivity extends AppCompatActivity{
                             amazon_price = amazon_price.replaceAll(" ","");
                             price[0] = amazon_price;
 
-
                             // get book isbn
-                            productDetail = secondSearch.select("div[class=content]");
+                            productDetail = secondSearch.getElementsByClass​("content");
                             isbn = productDetail.select("li:contains(ISBN-13)").text();
 
                             // get amazon review
                             reviews = secondSearch.select("div[class=a-row a-spacing-small review-data]");
-                            firstReview = reviews.eq(1);
-                            secondReview = reviews.eq(2);
-                            String amazon_review_1 = firstReview.text();
-                            String amazon_review_2 = secondReview.text();
+                            Element Review_1 = reviews.first();
+                            //Elements Review_2 = reviews.eq(2);
+                            String amazon_review_1 = Review_1.text();
+                            //String amazon_review_2 = Review_2.text();
                             int end = amazon_review_1.lastIndexOf("Read more");
                             amazon_review_1 = amazon_review_1.substring(0,end);
-                            end = amazon_review_2.lastIndexOf("Read more");
-                            amazon_review_2 = amazon_review_2.substring(0,end);
+                            //end = amazon_review_2.lastIndexOf("Read more");
+                            //amazon_review_2 = amazon_review_2.substring(0,end);
                             review[0] = amazon_review_1;
-                            review[1] = amazon_review_2;
+                            review[1] = " ";
+                            review[0] = "<b>" + "Amazon: " + "</b> " + review[0];
+                            review[1] = "<b>" + "Amazon: " + "</b> " + review[1];
 
-                            // search for indigo
+
+
                             String finalISBN = isbn.substring(9, 12)+isbn.substring(13, 23);
 
                             String indigourl = "https://www.chapters.indigo.ca/en-ca/books/as/" + finalISBN + "-item.html";
                             productLink[1] = indigourl;
-
                             Document indigoSearch = Jsoup.connect(indigourl).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
-                                    .timeout(999999999).ignoreHttpErrors(true)
+                                    .timeout(999999999)
                                     .get();
                             Element productPrice = indigoSearch.getElementsByClass​("item-price__price-amount").first();
                             if (productPrice == null){
@@ -658,13 +909,16 @@ public class MainActivity extends AppCompatActivity{
                             price[1] = indigoPrice;
 
 
+
+
                             // search for goodread
                             String goodreadurl = "https://www.goodreads.com/search?q=" + finalISBN;
                             Document goodreadSearch = Jsoup.connect(goodreadurl).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
                                     .timeout(999999999)
                                     .get();
                             String goodreadRates = goodreadSearch.select("span[itemprop='ratingValue']").first().text();
-                            rate[1] = goodreadRates;
+                            rate[0] = goodreadRates;
+                            rate[0] = "Goodreads: " + rate[0] + "/5";
 
                             Elements goodreadReviews = goodreadSearch.getElementsByClass​("reviewText stacked");
                             Elements goodreadFirstReview = goodreadReviews.eq(0);
@@ -673,6 +927,9 @@ public class MainActivity extends AppCompatActivity{
                             String goodread_review_2 = goodreadSecondReview.text();
                             review[2] = goodread_review_1;
                             review[3] = goodread_review_2;
+                            review[2] = "<b>" + "Goodreads: " + "</b> " + review[2];
+                            review[3] = "<b>" + "Goodreads: " + "</b> " + review[3];
+
 
                             if (Float.parseFloat(price[0])>Float.parseFloat(price[1])){
                                 String swap = price[0];
@@ -683,27 +940,20 @@ public class MainActivity extends AppCompatActivity{
                                 price[0] = "Amazon: $" + price[0];
                                 price[1] = "Indigo: $" + price[1];
                             }
-
-
                         }
-
-
                     }
-
                 }
-
-
 
 
 
 
             }
             catch (HttpStatusException e){
-                System.out.println("here");
+                System.out.println("catch1");
 
             }
             catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("catch2");
             }
             return null;
         }
@@ -733,9 +983,9 @@ public class MainActivity extends AppCompatActivity{
                 info.setText(price[1]);
 
                 info = findViewById(R.id.ratings);
-                info.setText("Goodreads: " + rate[1] + "/5");
+                info.setText(rate[0]);
                 info = findViewById(R.id.ratings2);
-                info.setText("Amazon: " + rate[0] + "/5");
+                info.setText(rate[1]);
 
 //            rating = findViewById(R.id.ratingBar);
 //            rating.setRating(Float.valueOf(rate[1]));
@@ -743,9 +993,9 @@ public class MainActivity extends AppCompatActivity{
 //            rating.setRating(Float.valueOf(rate[0]));
 
                 info = findViewById(R.id.reviews);
-                String amazon_review = "<b>" + "Amazon: " + "</b> " + review[0];
+                String amazon_review = review[0];
                 info.setText(Html.fromHtml(amazon_review));
-                String goodreads_review = "<b>" + "Goodreads: " + "</b> " + review[2];
+                String goodreads_review = review[2];
                 info = findViewById(R.id.reviews2);
                 info.setText(Html.fromHtml(goodreads_review));
 
