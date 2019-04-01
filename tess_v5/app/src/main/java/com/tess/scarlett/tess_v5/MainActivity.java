@@ -144,9 +144,6 @@ public class MainActivity extends AppCompatActivity{
                     //start from here
                     pickImage();
                     Toast.makeText(getApplicationContext(),"Accessing Gallery!", Toast.LENGTH_LONG).show();
-
-
-
                     return true;
                 case R.id.navigation_profile:
                     //mTextMessage.setText(R.string.title_notifications);
@@ -205,23 +202,6 @@ public class MainActivity extends AppCompatActivity{
 
 
         startActivityForResult(geniusIntent, 205);
-
-        /*PackageManager packageManager = getPackageManager();
-        List<ResolveInfo> activities = packageManager.queryIntentActivities(geniusIntent,0);
-        boolean isIntentsafe = activities.size() > 0;
-
-        if (isIntentsafe){
-            startActivityForResult(geniusIntent, 205);
-        }
-        // This says something like "Share this photo with"
-        String title = getResources().getString(R.string.app_name);
-        // Create intent to show chooser
-        Intent chooser = Intent.createChooser(geniusIntent, title);
-
-        // Verify the intent will resolve to at least one activity
-        if (geniusIntent.resolveActivity(getPackageManager()) != null) {
-            startActivity(chooser);
-        }*/
 
         /*try{
             //camera.setDisplayOrientation(90);
@@ -283,18 +263,42 @@ public class MainActivity extends AppCompatActivity{
             if (data != null) {
                 Uri contentURI = data.getData();
                 try {
+
+                    StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+                    StrictMode.setVmPolicy(builder.build());
+                    String imagePath = DATA_PATH + "/imgs";
+                    File dir = new File(imagePath);
+                    if (isWriteStoragePermissionGranted() == true) {
+                        if(!dir.exists()){ System.out.println("HERE1\n");
+                            if (!dir.mkdirs()) {
+                                Log.e(TAG, "ERROR: Creation of directory " + imagePath + " failed, check does Android Manifest have permission to write to external storage.");
+                            }
+                        } else {
+                            Log.i(TAG, "Created directory " + imagePath);
+                        }
+                    }
+                    String imageFilePath = imagePath + "/ocr_v5.jpg";
+                    outputFileDir = Uri.fromFile(new File(imageFilePath));
+                    System.out.println("+++++++++++++++data path is "+DATA_PATH+"\n\n\n\n");
+
+                    prepareTessData();
+
+
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
                     //String path = saveImage(bitmap);
                     Toast.makeText(getApplicationContext(),"Image Saved Sueecssfully!", Toast.LENGTH_SHORT).show();
                     //imageview.setImageBitmap(bitmap);
-                    String retstr = getText(bitmap);
+                    System.out.println("\n [[[[[[[[[[[ right before gettexttt : \n");
+                    String retstr = getText(bitmap);    //invoked own Tesseract OCR here
 
-                    //showResult(retstr);
+
+
                     searchview = findViewById(R.id.searchView);
                     searchview.setQuery(retstr,false);
                     searchview.requestFocus();
 
-                    System.out.println("\n Gallery Returned Str is : \n" + retstr);
+                    //showResult(retstr);
+                    //System.out.println("\n Gallery Returned Str is : \n" + retstr);
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -386,6 +390,7 @@ public class MainActivity extends AppCompatActivity{
             searchview = findViewById(R.id.searchView);
             searchview.setQuery(result,false);
             searchview.requestFocus();
+            showResult(result);
 //            processText(result);
 //            searchview = findViewById(R.id.searchView);
 //            cardview = findViewById(R.id.cardView);
@@ -759,15 +764,7 @@ public class MainActivity extends AppCompatActivity{
     public void pickImage() {
         Intent intent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        /*
-        intent.setType("image/*");
-        intent.putExtra("crop", "true");
-        intent.putExtra("scale", true);
-        intent.putExtra("outputX", 256);
-        intent.putExtra("outputY", 256);
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
-        //intent.putExtra("return-data", true);*/
+
         startActivityForResult(intent, 1);
         System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~"+ "pickImage_Main" + "~~~~~~~~~~~~~~~~~~~\n");
     }
