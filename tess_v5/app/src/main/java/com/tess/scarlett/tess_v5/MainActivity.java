@@ -29,6 +29,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.ScrollView;
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity{
     private String Model = "";
     private String query = "";
     private boolean foundProduct = false;
+    private boolean isMultiple = false;
 
 
     // string array
@@ -718,6 +720,7 @@ public class MainActivity extends AppCompatActivity{
                                                 foundItem = "<p>Found in Amazon: " + "<b>"+foundItem + "</b></p>";
                                                 foundItem = foundItem + "<p>Found in Bestbuy: " + "<b>"+itemInBestbuy + "</b></p>";
                                                 foundItem = foundItem + "<small>Please try searching with a longer keyword</small>";
+                                                isMultiple = true;
                                             }
 
                                             productLink[1] = bestbuyurl;
@@ -767,6 +770,7 @@ public class MainActivity extends AppCompatActivity{
                                             foundItem = "<p>Found in Amazon: " + "<b>"+foundItem + "</b></p>";
                                             foundItem = foundItem + "<p>Found in Bestbuy: " + "<b>"+itemInBestbuy + "</b></p>";
                                             foundItem = foundItem + "<small>Please try searching with a longer keyword</small>";
+                                            isMultiple = true;
                                         }
 
                                         if(secondSearch.select("div[class=prodprice ]").first() == null){
@@ -976,6 +980,8 @@ public class MainActivity extends AppCompatActivity{
             RelativeLayout search_results;
             RelativeLayout layout;
             RelativeLayout notFoundPage;
+            LinearLayout button_layer;
+            button_layer = findViewById(R.id.action_frame);
             layout = findViewById(R.id.progressBarLayer);
             layout.setVisibility(View.GONE);
             BottomNavigationView nav;
@@ -1015,6 +1021,14 @@ public class MainActivity extends AppCompatActivity{
                 String goodreads_review = review[2];
                 info = findViewById(R.id.reviews2);
                 info.setText(Html.fromHtml(goodreads_review));
+
+                if (isMultiple){
+                    button_layer.setVisibility(View.GONE);
+                    isMultiple = false;
+                }
+                else{
+                    button_layer.setVisibility(View.VISIBLE);
+                }
 
                 foundProduct=false;
             }

@@ -145,7 +145,7 @@ public class SearchFragment extends Fragment {
         share_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
             @Override
             public void onClick(View v) {
-                
+                // share button code here
             }
         });
         queryTextListener = new SearchView.OnQueryTextListener() {
