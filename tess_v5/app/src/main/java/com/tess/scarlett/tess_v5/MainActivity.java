@@ -509,6 +509,15 @@ public class MainActivity extends AppCompatActivity{
 
         bookname = userInput;
         bookname = bookname.replaceAll(" ", "+");
+
+        BottomNavigationView nav;
+        nav = findViewById(R.id.navigation);
+        nav.setOnNavigationItemSelectedListener(null);
+        int size = nav.getMenu().size();
+        for (int i=0;i<size;i++){
+            nav.getMenu().getItem(i).setCheckable(false);
+        }
+
         System.out.println(userInput);
         JsoupAsyncTask jsoupAsyncTask = new JsoupAsyncTask();
         jsoupAsyncTask.execute();
@@ -969,6 +978,13 @@ public class MainActivity extends AppCompatActivity{
             RelativeLayout notFoundPage;
             layout = findViewById(R.id.progressBarLayer);
             layout.setVisibility(View.GONE);
+            BottomNavigationView nav;
+            nav = findViewById(R.id.navigation);
+            nav.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+            int size = nav.getMenu().size();
+            for (int i=0;i<size;i++){
+                nav.getMenu().getItem(i).setCheckable(true);
+            }
 
             if (foundProduct) {
                 search_results = findViewById(R.id.search_results);
