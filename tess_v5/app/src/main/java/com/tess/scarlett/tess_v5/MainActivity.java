@@ -1036,5 +1036,12 @@ public class MainActivity extends AppCompatActivity{
         System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~"+ "pickImage_Main" + "~~~~~~~~~~~~~~~~~~~\n");
     }
 
+    public String getBookname() {
+        return bookname;
+    }
+
+    public String[] getProductLink(){
+        return productLink;
+    }
 
 }

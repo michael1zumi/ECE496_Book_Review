@@ -27,8 +27,15 @@ import android.widget.Toast;
 import com.googlecode.tesseract.android.TessBaseAPI;
 import com.tess.scarlett.tess_v5.MainActivity;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import static android.support.constraint.Constraints.TAG;
 import static com.tess.scarlett.tess_v5.R.color.color_grey;
@@ -64,6 +71,9 @@ public class SearchFragment extends Fragment {
 
 
 
+    private static final String Purchase_file = "purchase.ser";
+    private static final String Favourite_file = "favourite.ser";
+
     public SearchFragment() {
         // Required empty public constructor
     }
@@ -93,7 +103,6 @@ public class SearchFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        //((MainActivity)getActivity()).hideUpButton();
 
     }
 
@@ -108,10 +117,73 @@ public class SearchFragment extends Fragment {
         purchase_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
             @Override
             public void onClick(View v) {
+                Map map = new HashMap();
+                Map existing_map;
+                boolean alreadyExist = false;
+                ObjectOutputStream oos;
+                ObjectInputStream ois;
+
+                String key = ((MainActivity)getActivity()).getBookname();
+                String value = ((MainActivity)getActivity()).getProductLink()[0];
+
+                //wirte to file
+                File purhcase_file = new File(getContext().getFilesDir() + "/map.ser");
+                try {
+                    if (!purhcase_file.exists()){
+                        map.put(key,value);
+                        FileOutputStream fos = new FileOutputStream(purhcase_file);
+                        oos = new ObjectOutputStream(fos);
+                        oos.writeObject(map);
+                        oos.close();
+                        fos.close();
+                    }
+                    else{
+                        FileInputStream fis = new FileInputStream(purhcase_file);
+                        ois = new ObjectInputStream(fis);
+                        existing_map = (Map) ois.readObject();
+                        ois.close();
+                        fis.close();
+
+                        FileOutputStream fos = new FileOutputStream(purhcase_file);
+                        if (existing_map.containsKey(key)){
+                            alreadyExist = true;
+                            existing_map.remove(key);
+                            fos.close(); //emptying out the file
+                            fos = new FileOutputStream(purhcase_file);
+                            oos = new ObjectOutputStream(fos);
+                            oos.writeObject(existing_map);
+                            oos.close();
+                            fos.close();
+                        }
+                        else{
+                            alreadyExist = false;
+                            existing_map.put(key,value);
+                            fos.close(); //emptying out the file
+                            fos = new FileOutputStream(purhcase_file);
+                            oos = new ObjectOutputStream(fos);
+                            oos.writeObject(existing_map);
+                            oos.close();
+                            fos.close();
+                        }
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
                 Drawable drawable = getResources().getDrawable(R.drawable.ic_cart).mutate();
                 drawable = DrawableCompat.wrap(drawable);
-                drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
+                if (alreadyExist){
+                    drawable.setColorFilter(getResources().getColor(R.color.color_grey), PorterDuff.Mode.SRC_ATOP);
+                }
+                else{
+                    drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
+                }
                 purchase_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+
             }
         });
 
@@ -149,20 +221,6 @@ public class SearchFragment extends Fragment {
                 return true;
             }
         };
-        // Inflate the layout for this fragment
-
-        /*
-        //button for the old gallery access; now using tabs in mainactivity
-        Button button;
-        button = (Button) view.findViewById(R.id.ViewGallery);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pickImage();
-
-            }
-        });
-        */
         searchview.setOnQueryTextListener(queryTextListener);
 
         return view;
