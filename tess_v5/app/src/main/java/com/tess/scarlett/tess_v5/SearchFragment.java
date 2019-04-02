@@ -126,97 +126,26 @@ public class SearchFragment extends Fragment {
         favourite_file = new File(getContext().getFilesDir() + "/map2.ser");
 
         color_helper("purchase",purchase_file);
+        color_helper("favourite",favourite_file);
 
         purchase_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
             @Override
             public void onClick(View v) {
-                Map map = new HashMap();
-                Map existing_map;
-                boolean alreadyExist = false;
-                ObjectOutputStream oos;
-                ObjectInputStream ois;
-
-                //wirte to file
-                try {
-                    if (!purchase_file.exists()){
-                        map.put(key,value);
-                        FileOutputStream fos = new FileOutputStream(purchase_file);
-                        oos = new ObjectOutputStream(fos);
-                        oos.writeObject(map);
-                        oos.close();
-                        fos.close();
-                        System.out.println("purchase file did not exist before, but now created!\n");
-                    }
-                    else{
-                        System.out.println("purchase file already exists\n");
-                        FileInputStream fis = new FileInputStream(purchase_file);
-                        ois = new ObjectInputStream(fis);
-                        existing_map = (Map) ois.readObject();
-                        ois.close();
-                        fis.close();
-
-                        FileOutputStream fos = new FileOutputStream(purchase_file);
-                        if (existing_map.containsKey(key)){
-                            alreadyExist = true;
-                            existing_map.remove(key);
-                            fos.close(); //emptying out the file
-                            fos = new FileOutputStream(purchase_file);
-                            oos = new ObjectOutputStream(fos);
-                            oos.writeObject(existing_map);
-                            oos.close();
-                            fos.close();
-                            System.out.println("product name exists!\n");
-                        }
-                        else{
-                            alreadyExist = false;
-                            existing_map.put(key,value);
-                            fos.close(); //emptying out the file
-                            fos = new FileOutputStream(purchase_file);
-                            oos = new ObjectOutputStream(fos);
-                            oos.writeObject(existing_map);
-                            oos.close();
-                            fos.close();
-                            System.out.println("product name does not exist!\n");
-                        }
-                    }
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-
-                Drawable drawable = getResources().getDrawable(R.drawable.ic_cart).mutate();
-                drawable = DrawableCompat.wrap(drawable);
-                if (alreadyExist){
-                    drawable.setColorFilter(getResources().getColor(R.color.color_grey), PorterDuff.Mode.SRC_ATOP);
-                }
-                else{
-                    drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
-                }
-                purchase_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
-
+                onClick_helper("purchase",purchase_file);
             }
         });
 
         favourite_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
             @Override
             public void onClick(View v) {
-                Drawable drawable = getResources().getDrawable(R.drawable.ic_favourite).mutate();
-                drawable = DrawableCompat.wrap(drawable);
-                drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
-                favourite_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+                onClick_helper("favourite",favourite_file);
             }
         });
 
         share_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
             @Override
             public void onClick(View v) {
-                Drawable drawable = getResources().getDrawable(R.drawable.ic_share).mutate();
-                drawable = DrawableCompat.wrap(drawable);
-                drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
-                share_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+                
             }
         });
         queryTextListener = new SearchView.OnQueryTextListener() {
@@ -238,6 +167,92 @@ public class SearchFragment extends Fragment {
         return view;
     }
 
+    public void onClick_helper(String filename, File file){
+        Map map = new HashMap();
+        Map existing_map;
+        boolean alreadyExist = false;
+        ObjectOutputStream oos;
+        ObjectInputStream ois;
+        Drawable drawable;
+
+        //wirte to file
+        try {
+            if (!file.exists()){
+                map.put(key,value);
+                FileOutputStream fos = new FileOutputStream(file);
+                oos = new ObjectOutputStream(fos);
+                oos.writeObject(map);
+                oos.close();
+                fos.close();
+                System.out.println("purchase file did not exist before, but now created!\n");
+            }
+            else{
+                System.out.println("purchase file already exists\n");
+                FileInputStream fis = new FileInputStream(file);
+                ois = new ObjectInputStream(fis);
+                existing_map = (Map) ois.readObject();
+                ois.close();
+                fis.close();
+
+                FileOutputStream fos = new FileOutputStream(file);
+                if (existing_map.containsKey(key)){
+                    alreadyExist = true;
+                    existing_map.remove(key);
+                    fos.close(); //emptying out the file
+                    fos = new FileOutputStream(file);
+                    oos = new ObjectOutputStream(fos);
+                    oos.writeObject(existing_map);
+                    oos.close();
+                    fos.close();
+                    System.out.println("product name exists!\n");
+                }
+                else{
+                    alreadyExist = false;
+                    existing_map.put(key,value);
+                    fos.close(); //emptying out the file
+                    fos = new FileOutputStream(file);
+                    oos = new ObjectOutputStream(fos);
+                    oos.writeObject(existing_map);
+                    oos.close();
+                    fos.close();
+                    System.out.println("product name does not exist!\n");
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        switch(filename){
+            case "purchase":
+                drawable = getResources().getDrawable(R.drawable.ic_cart).mutate();
+                drawable = DrawableCompat.wrap(drawable);
+                if (alreadyExist){
+                    drawable.setColorFilter(getResources().getColor(R.color.color_grey), PorterDuff.Mode.SRC_ATOP);
+                }
+                else{
+                    drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
+                }
+                purchase_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+                break;
+            case "favourite":
+                drawable = getResources().getDrawable(R.drawable.ic_favourite).mutate();
+                drawable = DrawableCompat.wrap(drawable);
+                if (alreadyExist){
+                    drawable.setColorFilter(getResources().getColor(R.color.color_grey), PorterDuff.Mode.SRC_ATOP);
+                }
+                else{
+                    drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
+                }
+                favourite_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+                break;
+            default:
+        }
+
+    }
     public void color_helper(String filename, File file){
         Drawable drawable;
         if (file.exists()){
@@ -271,10 +286,7 @@ public class SearchFragment extends Fragment {
                         favourite_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
                         break;
                     default:
-                        drawable = getResources().getDrawable(R.drawable.ic_share).mutate();
-                        drawable = DrawableCompat.wrap(drawable);
-                        drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
-                        share_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+
                 }
             }
 
