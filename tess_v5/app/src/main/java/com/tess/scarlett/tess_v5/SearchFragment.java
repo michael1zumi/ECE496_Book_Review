@@ -1,8 +1,12 @@
 package com.tess.scarlett.tess_v5;
 
+import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +31,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import static android.support.constraint.Constraints.TAG;
+import static com.tess.scarlett.tess_v5.R.color.color_grey;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,6 +53,9 @@ public class SearchFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private SearchView searchview;
+    private Button purchase_button;
+    private Button favourite_button;
+    private Button share_button;
     private SearchView.OnQueryTextListener queryTextListener;
     private String userInput;
 
@@ -96,6 +104,37 @@ public class SearchFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_search, container, false);
         searchview = view.findViewById(R.id.searchView);
 
+        purchase_button = view.findViewById(R.id.purchase_button);
+        purchase_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
+            @Override
+            public void onClick(View v) {
+                Drawable drawable = getResources().getDrawable(R.drawable.ic_cart).mutate();
+                drawable = DrawableCompat.wrap(drawable);
+                drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
+                purchase_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+            }
+        });
+
+        favourite_button = view.findViewById(R.id.favourite_button);
+        favourite_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
+            @Override
+            public void onClick(View v) {
+                Drawable drawable = getResources().getDrawable(R.drawable.ic_favourite).mutate();
+                drawable = DrawableCompat.wrap(drawable);
+                drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
+                favourite_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+            }
+        });
+        share_button = view.findViewById(R.id.share_button);
+        share_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
+            @Override
+            public void onClick(View v) {
+                Drawable drawable = getResources().getDrawable(R.drawable.ic_share).mutate();
+                drawable = DrawableCompat.wrap(drawable);
+                drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
+                share_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+            }
+        });
         queryTextListener = new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {

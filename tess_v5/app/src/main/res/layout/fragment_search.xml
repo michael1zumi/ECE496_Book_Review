@@ -303,7 +303,7 @@
                     <View
                         android:layout_width="1dp"
                         android:layout_height="fill_parent"
-                        android:background="#A9A9A9" />
+                        android:background="@color/color_grey" />
                     <Button
                         android:id="@+id/favourite_button"
                         android:layout_weight="1"

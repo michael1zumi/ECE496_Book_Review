@@ -6,4 +6,5 @@
     <color name="colorNavi">#96061a</color>
     <color name="unselected">#f3acaaaa</color>
     <color name="selected">#f2f0f0</color>
+    <color name="color_grey">#A9A9A9</color>
 </resources>
