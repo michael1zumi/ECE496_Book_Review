@@ -74,6 +74,10 @@ public class SearchFragment extends Fragment {
     private static final String Purchase_file = "purchase.ser";
     private static final String Favourite_file = "favourite.ser";
 
+    private String key;
+    private String value;
+    private File purchase_file;
+
     public SearchFragment() {
         // Required empty public constructor
     }
@@ -112,8 +116,38 @@ public class SearchFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_search, container, false);
         searchview = view.findViewById(R.id.searchView);
-
         purchase_button = view.findViewById(R.id.purchase_button);
+        favourite_button = view.findViewById(R.id.favourite_button);
+        share_button = view.findViewById(R.id.share_button);
+        key = ((MainActivity)getActivity()).getBookname();
+        value = ((MainActivity)getActivity()).getProductLink()[0];
+        purchase_file = new File(getContext().getFilesDir() + "/map.ser");
+
+        if (purchase_file.exists()){
+            Map existing_map =  new HashMap();
+            try {
+                ObjectInputStream ois;
+                FileInputStream fis = new FileInputStream(purchase_file);
+                ois = new ObjectInputStream(fis);
+                existing_map = (Map) ois.readObject();
+                ois.close();
+                fis.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (existing_map.containsKey(key)){
+                Drawable drawable = getResources().getDrawable(R.drawable.ic_cart).mutate();
+                drawable = DrawableCompat.wrap(drawable);
+                drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
+                purchase_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+            }
+
+        }
+
         purchase_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
             @Override
             public void onClick(View v) {
@@ -123,47 +157,47 @@ public class SearchFragment extends Fragment {
                 ObjectOutputStream oos;
                 ObjectInputStream ois;
 
-                String key = ((MainActivity)getActivity()).getBookname();
-                String value = ((MainActivity)getActivity()).getProductLink()[0];
-
                 //wirte to file
-                File purhcase_file = new File(getContext().getFilesDir() + "/map.ser");
                 try {
-                    if (!purhcase_file.exists()){
+                    if (!purchase_file.exists()){
                         map.put(key,value);
-                        FileOutputStream fos = new FileOutputStream(purhcase_file);
+                        FileOutputStream fos = new FileOutputStream(purchase_file);
                         oos = new ObjectOutputStream(fos);
                         oos.writeObject(map);
                         oos.close();
                         fos.close();
+                        System.out.println("purchase file did not exist before, but now created!\n");
                     }
                     else{
-                        FileInputStream fis = new FileInputStream(purhcase_file);
+                        System.out.println("purchase file already exists\n");
+                        FileInputStream fis = new FileInputStream(purchase_file);
                         ois = new ObjectInputStream(fis);
                         existing_map = (Map) ois.readObject();
                         ois.close();
                         fis.close();
 
-                        FileOutputStream fos = new FileOutputStream(purhcase_file);
+                        FileOutputStream fos = new FileOutputStream(purchase_file);
                         if (existing_map.containsKey(key)){
                             alreadyExist = true;
                             existing_map.remove(key);
                             fos.close(); //emptying out the file
-                            fos = new FileOutputStream(purhcase_file);
+                            fos = new FileOutputStream(purchase_file);
                             oos = new ObjectOutputStream(fos);
                             oos.writeObject(existing_map);
                             oos.close();
                             fos.close();
+                            System.out.println("product name exists!\n");
                         }
                         else{
                             alreadyExist = false;
                             existing_map.put(key,value);
                             fos.close(); //emptying out the file
-                            fos = new FileOutputStream(purhcase_file);
+                            fos = new FileOutputStream(purchase_file);
                             oos = new ObjectOutputStream(fos);
                             oos.writeObject(existing_map);
                             oos.close();
                             fos.close();
+                            System.out.println("product name does not exist!\n");
                         }
                     }
                 } catch (FileNotFoundException e) {
@@ -187,7 +221,6 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        favourite_button = view.findViewById(R.id.favourite_button);
         favourite_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
             @Override
             public void onClick(View v) {
@@ -197,7 +230,7 @@ public class SearchFragment extends Fragment {
                 favourite_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
             }
         });
-        share_button = view.findViewById(R.id.share_button);
+
         share_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
             @Override
             public void onClick(View v) {
