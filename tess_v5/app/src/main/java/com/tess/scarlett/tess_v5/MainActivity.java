@@ -653,6 +653,7 @@ public class MainActivity extends AppCompatActivity{
 
                                     String searchName = foundItem;
 
+
                                     start = foundItem.lastIndexOf("(");
                                     if (start>0){
                                         searchName = foundItem.substring(0, start);
@@ -664,7 +665,7 @@ public class MainActivity extends AppCompatActivity{
                                     searchName = searchName.replaceAll(" ", "+");
 
                                     System.out.println(searchName);
-
+                                    foundItem = "<b>" + foundItem + "</b>";
 
                                     int same = 1;
                                     String bestbuyurl = "https://www.bestbuy.ca/en-CA/Search/SearchResults.aspx?type=product&page=1&sortBy=relevance&sortDir=desc&query=" + searchName;
@@ -705,9 +706,9 @@ public class MainActivity extends AppCompatActivity{
                                         else{
                                             if (same == 0){
                                                 String itemInBestbuy = bestbuySearch.select("h1[class=product-title]").first().text();
-                                                foundItem = "Found in Amazon: " + foundItem + "\n";
-                                                foundItem = foundItem + "Found in Bestbuy: " + itemInBestbuy + "\n";
-                                                foundItem = foundItem + "Please try with more keywords";
+                                                foundItem = "<p>Found in Amazon: " + "<b>"+foundItem + "</b></p>";
+                                                foundItem = foundItem + "<p>Found in Bestbuy: " + "<b>"+itemInBestbuy + "</b></p>";
+                                                foundItem = foundItem + "<small>Please try searching with a longer keyword</small>";
                                             }
 
                                             productLink[1] = bestbuyurl;
@@ -754,9 +755,9 @@ public class MainActivity extends AppCompatActivity{
                                                 .get();
                                         if (same == 0){
                                             String itemInBestbuy = secondSearch.select("h1[class=product-title]").first().text();
-                                            foundItem = "Found in Amazon: " + foundItem + "\n";
-                                            foundItem = foundItem + "Found in Bestbuy: " + itemInBestbuy + "\n";
-                                            foundItem = foundItem + "Please try with more keywords";
+                                            foundItem = "<p>Found in Amazon: " + "<b>"+foundItem + "</b></p>";
+                                            foundItem = foundItem + "<p>Found in Bestbuy: " + "<b>"+itemInBestbuy + "</b></p>";
+                                            foundItem = foundItem + "<small>Please try searching with a longer keyword</small>";
                                         }
 
                                         if(secondSearch.select("div[class=prodprice ]").first() == null){
@@ -847,7 +848,7 @@ public class MainActivity extends AppCompatActivity{
 
                             // get book name
                             String itemname = itemInList.select("a[class=a-link-normal a-text-normal]").text();
-                            foundItem = itemname;
+                            foundItem = "<b>" + itemname +"</b>";
 
                             String link = "https://www.amazon.ca"+ itemLink.attr("href");
                             productLink[0] = link;
@@ -974,7 +975,7 @@ public class MainActivity extends AppCompatActivity{
                 search_results.setVisibility(View.VISIBLE);
 
                 info = findViewById(R.id.product_name);
-                info.setText(foundItem);
+                info.setText(Html.fromHtml(foundItem));
 
                 System.out.println("Price: " + price[0] + " + " + price[1]);
                 info = findViewById(R.id.price);
