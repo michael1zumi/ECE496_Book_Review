@@ -13,6 +13,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,6 +26,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
@@ -44,9 +47,12 @@ import android.widget.Button;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
@@ -975,6 +981,10 @@ public class MainActivity extends AppCompatActivity{
         // print on screen
         @Override
         protected void onPostExecute(Void result) {
+            File purchase_file = new File(getFilesDir() + "/map.ser");
+            File favourite_file = new File(getFilesDir() + "/map2.ser");
+            color_helper("purchase",purchase_file,bookname);
+            color_helper("favourite",favourite_file,bookname);
             TextView info;
 //            RatingBar rating;
             RelativeLayout search_results;
@@ -1058,4 +1068,63 @@ public class MainActivity extends AppCompatActivity{
         return productLink;
     }
 
+    public void color_helper(String filename, File file, String key){
+        Drawable drawable;
+        Button purchase_button = findViewById(R.id.purchase_button);
+        Button favourite_button = findViewById(R.id.favourite_button);
+        if (file.exists()){
+            Map existing_map =  new HashMap();
+            try {
+                ObjectInputStream ois;
+                FileInputStream fis = new FileInputStream(file);
+                ois = new ObjectInputStream(fis);
+                existing_map = (Map) ois.readObject();
+                ois.close();
+                fis.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (existing_map.containsKey(key)){
+                //System.out.println("inner ! current book name is "+key);
+                switch (filename){
+                    case "purchase":
+                        drawable = getResources().getDrawable(R.drawable.ic_cart).mutate();
+                        drawable = DrawableCompat.wrap(drawable);
+                        drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
+                        purchase_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+                        break;
+                    case "favourite":
+                        drawable = getResources().getDrawable(R.drawable.ic_favourite).mutate();
+                        drawable = DrawableCompat.wrap(drawable);
+                        drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
+                        favourite_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+                        break;
+                    default:
+
+                }
+            }
+            else{
+                switch (filename) {
+                    case "purchase":
+                        drawable = getResources().getDrawable(R.drawable.ic_cart).mutate();
+                        drawable = DrawableCompat.wrap(drawable);
+                        drawable.setColorFilter(getResources().getColor(R.color.color_grey), PorterDuff.Mode.SRC_ATOP);
+                        purchase_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+                        break;
+                    case "favourite":
+                        drawable = getResources().getDrawable(R.drawable.ic_favourite).mutate();
+                        drawable = DrawableCompat.wrap(drawable);
+                        drawable.setColorFilter(getResources().getColor(R.color.color_grey), PorterDuff.Mode.SRC_ATOP);
+                        favourite_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+                        break;
+                    default:
+                }
+            }
+
+        }
+    }
 }

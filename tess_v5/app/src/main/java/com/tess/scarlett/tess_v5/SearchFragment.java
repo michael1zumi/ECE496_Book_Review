@@ -122,11 +122,12 @@ public class SearchFragment extends Fragment {
         share_button = view.findViewById(R.id.share_button);
         key = ((MainActivity)getActivity()).getBookname();
         value = ((MainActivity)getActivity()).getProductLink()[0];
+
         purchase_file = new File(getContext().getFilesDir() + "/map.ser");
         favourite_file = new File(getContext().getFilesDir() + "/map2.ser");
-
-        color_helper("purchase",purchase_file);
-        color_helper("favourite",favourite_file);
+//
+//        ((MainActivity)getActivity()).color_helper("purchase",purchase_file,key);
+//        ((MainActivity)getActivity()).color_helper("favourite",favourite_file,key);
 
         purchase_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
             @Override
@@ -175,6 +176,8 @@ public class SearchFragment extends Fragment {
         ObjectInputStream ois;
         Drawable drawable;
 
+        key = ((MainActivity)getActivity()).getBookname();
+        value = ((MainActivity)getActivity()).getProductLink()[0];
         //wirte to file
         try {
             if (!file.exists()){
@@ -184,10 +187,10 @@ public class SearchFragment extends Fragment {
                 oos.writeObject(map);
                 oos.close();
                 fos.close();
-                System.out.println("purchase file did not exist before, but now created!\n");
+                //System.out.println("purchase file did not exist before, but now created!\n");
             }
             else{
-                System.out.println("purchase file already exists\n");
+                //System.out.println("purchase file already exists\n");
                 FileInputStream fis = new FileInputStream(file);
                 ois = new ObjectInputStream(fis);
                 existing_map = (Map) ois.readObject();
@@ -253,45 +256,45 @@ public class SearchFragment extends Fragment {
         }
 
     }
-    public void color_helper(String filename, File file){
-        Drawable drawable;
-        if (file.exists()){
-            Map existing_map =  new HashMap();
-            try {
-                ObjectInputStream ois;
-                FileInputStream fis = new FileInputStream(file);
-                ois = new ObjectInputStream(fis);
-                existing_map = (Map) ois.readObject();
-                ois.close();
-                fis.close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-            if (existing_map.containsKey(key)){
-                switch (filename){
-                    case "purchase":
-                        drawable = getResources().getDrawable(R.drawable.ic_cart).mutate();
-                        drawable = DrawableCompat.wrap(drawable);
-                        drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
-                        purchase_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
-                        break;
-                    case "favourite":
-                        drawable = getResources().getDrawable(R.drawable.ic_favourite).mutate();
-                        drawable = DrawableCompat.wrap(drawable);
-                        drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
-                        favourite_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
-                        break;
-                    default:
-
-                }
-            }
-
-        }
-    }
+//    public void color_helper(String filename, File file, String key){
+//        Drawable drawable;
+//        if (file.exists()){
+//            Map existing_map =  new HashMap();
+//            try {
+//                ObjectInputStream ois;
+//                FileInputStream fis = new FileInputStream(file);
+//                ois = new ObjectInputStream(fis);
+//                existing_map = (Map) ois.readObject();
+//                ois.close();
+//                fis.close();
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            } catch (ClassNotFoundException e) {
+//                e.printStackTrace();
+//            }
+//            if (existing_map.containsKey(key)){
+//                switch (filename){
+//                    case "purchase":
+//                        drawable = getResources().getDrawable(R.drawable.ic_cart).mutate();
+//                        drawable = DrawableCompat.wrap(drawable);
+//                        drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
+//                        purchase_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+//                        break;
+//                    case "favourite":
+//                        drawable = getResources().getDrawable(R.drawable.ic_favourite).mutate();
+//                        drawable = DrawableCompat.wrap(drawable);
+//                        drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
+//                        favourite_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+//                        break;
+//                    default:
+//
+//                }
+//            }
+//
+//        }
+//    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
