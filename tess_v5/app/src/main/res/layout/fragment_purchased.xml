@@ -115,7 +115,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/purchased_title_field"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingBottom="70dp">
 
                 </LinearLayout>
                 <!--<TextView-->
