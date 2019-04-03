@@ -1082,6 +1082,7 @@ public class MainActivity extends AppCompatActivity{
                 String goodreads_review = review[2];
                 info = findViewById(R.id.reviews2);
                 info.setText(Html.fromHtml(goodreads_review));
+                info.append("\n\n");
 
                 if (isMultiple){
                     button_layer.setVisibility(View.GONE);
@@ -1089,7 +1090,7 @@ public class MainActivity extends AppCompatActivity{
                 }
                 else{
                     button_layer.setVisibility(View.VISIBLE);
-                    history_helper(history_file,bookname,productLink[0]);
+                    history_helper(history_file,Jsoup.parse(foundItem).text(),productLink[0]);
                 }
 
                 foundProduct=false;

@@ -54,4 +54,60 @@
             android:textSize="16sp" />
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/recentScansResults"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#e2dcce"
+        android:visibility="invisible">
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/history_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50sp"
+                    android:text="SEARCHING HISTORY"
+                    android:textAlignment="center"
+                    android:textColor="#F30F0F0F"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/history_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/history_title"
+                    android:layout_marginTop="10sp"
+                    android:text=""
+                    android:paddingLeft="20sp"
+                    android:paddingRight="20sp"
+                    android:textAlignment="viewStart"
+                    android:textSize="24sp"
+                    android:textColor="#F30F0F0F"/>
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+
 </android.support.constraint.ConstraintLayout>
