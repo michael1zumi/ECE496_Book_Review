@@ -265,7 +265,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == Activity.RESULT_OK){
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK){  //Gallery Access
 
             if (data != null) {
                 Uri contentURI = data.getData();
@@ -314,13 +314,13 @@ public class MainActivity extends AppCompatActivity{
                 System.out.println("\n????????????request 1 Main???????????????");
             }
         }
-        else if (requestCode == 100 && resultCode == Activity.RESULT_OK){
+        else if (requestCode == 100 && resultCode == Activity.RESULT_OK){   //old OCR camera
             prepareTessData();
             System.out.println("outputFileDir is "+outputFileDir+"\n");
             startOCR(outputFileDir);
             System.out.println("!!!!!!!!!!!!!OCR finished Main!!!!!!!!!!!!!\n\n\n\n");
         }
-        else if (requestCode == 205 && resultCode == Activity.RESULT_OK){
+        else if (requestCode == 205 && resultCode == Activity.RESULT_OK){   //new OCR camera
             //Uri OCRuri = data.getData();
             String recvData = data.getStringExtra("returnedLibString");
             System.out.println("........returnedLibString is :" + recvData);
@@ -330,16 +330,16 @@ public class MainActivity extends AppCompatActivity{
             searchview.requestFocus();
             //showResult(recvData);
         }
-        else if (requestCode == REQUEST_CODE) {
+        else if (requestCode == REQUEST_CODE) { //ISBN
             IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-            if (scanResult != null) {
-                showResult(scanResult.getContents()); //segfault if press back button without scanning anything
-                System.out.println("&&&&&&&&&&&&&&&&&&&&&&Scan result is " + scanResult.getContents() + "\n");
+            if (scanResult.getContents() != null) {
+                showResult(scanResult.getContents()); //FIXED on 040219: segfault if press back button without scanning anything
+                System.out.println("^^^^^ISBN Scan result is " + scanResult.getContents() + "\n");
             }
         }
         else{
-            System.out.println("\n????????????else: image problem???????????????");
-            Toast.makeText(getApplicationContext(),"Image problem", Toast.LENGTH_SHORT).show();
+            System.out.println("\n????????????ON else: returned to main???????????????");
+            //Toast.makeText(getApplicationContext(),"Image problem", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -1016,9 +1016,6 @@ public class MainActivity extends AppCompatActivity{
                         }
                     }
                 }
-
-
-
 
             }
             catch (HttpStatusException e){
