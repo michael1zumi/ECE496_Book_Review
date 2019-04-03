@@ -83,40 +83,52 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <ImageButton
-                    android:id="@+id/clear_favourites"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_clear"
-                    android:scaleType="fitCenter"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_alignParentRight="true"
-                    android:background="#e2dcce"
-                    style="?android:attr/borderlessButtonStyle"/>
+                <RelativeLayout
+                    android:id="@+id/favourites_title_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/result_style">
+                    <ImageButton
+                        android:id="@+id/clear_favourites"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_clear"
+                        android:scaleType="fitCenter"
+                        android:layout_alignParentRight="true"
+                        android:background="#ffffff"
+                        style="?android:attr/borderlessButtonStyle"/>
+                    <TextView
+                        android:id="@+id/favourites_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30sp"
+                        android:text="FAVOURITE LIST"
+                        android:textAlignment="center"
+                        android:textColor="#F30F0F0F"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/favourites_items"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/favourites_title_field"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/favourites_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50sp"
-                    android:text="FAVOURITE LIST"
-                    android:textAlignment="center"
-                    android:textColor="#F30F0F0F"
-                    android:textSize="28sp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/favourites_field"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/favourites_title"
-                    android:layout_marginTop="10sp"
-                    android:text=""
-                    android:paddingLeft="20sp"
-                    android:paddingRight="20sp"
-                    android:textAlignment="viewStart"
-                    android:textSize="24sp"
-                    android:textColor="#F30F0F0F"/>
+                </LinearLayout>
+                <!--<TextView-->
+                    <!--android:id="@+id/favourites_field"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_below="@id/favourites_title"-->
+                    <!--android:layout_marginTop="10sp"-->
+                    <!--android:text=""-->
+                    <!--android:paddingLeft="20sp"-->
+                    <!--android:paddingRight="20sp"-->
+                    <!--android:textAlignment="viewStart"-->
+                    <!--android:textSize="24sp"-->
+                    <!--android:textColor="#F30F0F0F"/>-->
             </RelativeLayout>
         </ScrollView>
     </RelativeLayout>

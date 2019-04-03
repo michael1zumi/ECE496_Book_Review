@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -111,17 +112,26 @@ public class PurchasedFragment extends Fragment {
                 layout.setVisibility(View.GONE);
                 layout = view.findViewById(R.id.purchasedResults);
                 layout.setVisibility(View.VISIBLE);
-                TextView text = view.findViewById(R.id.purchased_field);
+                LinearLayout layer= view.findViewById(R.id.purchased_items);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                params.setMargins(0,10,0,0);
+                //TextView text = view.findViewById(R.id.purchased_field);
                 Iterator it = existing_map.keySet().iterator();
                 int i =0;
                 while (it.hasNext())
                 {
                     i += 1;
                     Object key = it.next();
-                    text.append(i+". "+String.valueOf(key).replaceAll("\\+", " ").toUpperCase()+"\n\n");
+                    TextView textView = new TextView(getContext());
+                    textView.setText(i+". "+String.valueOf(key).replaceAll("\\+", " ").toUpperCase());
+                    textView.setPadding(30, 10, 0, 10);
+                    textView.setTextSize(24);
+                    textView.setTextColor(Color.parseColor("#F30F0F0F"));
+                    textView.setLayoutParams(params);
+                    textView.setBackgroundResource(R.drawable.result_style);
+                    layer.addView(textView);
 
                 }
-                text.append("\n\n");
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
