@@ -196,7 +196,7 @@ public class SearchFragment extends Fragment {
         ObjectInputStream ois;
         Drawable drawable;
 
-        key = ((MainActivity)getActivity()).getBookname();
+        key = ((MainActivity)getActivity()).getFoundItem();
         value = ((MainActivity)getActivity()).getProductLink()[0];
         //wirte to file
         try {

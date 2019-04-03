@@ -1034,8 +1034,8 @@ public class MainActivity extends AppCompatActivity{
             File purchase_file = new File(getFilesDir() + "/map.ser");
             File favourite_file = new File(getFilesDir() + "/map2.ser");
             File history_file = new File(getFilesDir() + "/map3.ser");
-            color_helper("purchase",purchase_file,bookname);
-            color_helper("favourite",favourite_file,bookname);
+            color_helper("purchase",purchase_file,Jsoup.parse(foundItem).text());
+            color_helper("favourite",favourite_file,Jsoup.parse(foundItem).text());
             TextView info;
 //            RatingBar rating;
             RelativeLayout search_results;
@@ -1116,6 +1116,8 @@ public class MainActivity extends AppCompatActivity{
     public String getBookname() {
         return bookname;
     }
+
+    public String getFoundItem() { return Jsoup.parse(foundItem).text(); }
 
     public String[] getProductLink(){
         return productLink;
