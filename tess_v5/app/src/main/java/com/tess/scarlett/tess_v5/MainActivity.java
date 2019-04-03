@@ -554,7 +554,7 @@ public class MainActivity extends AppCompatActivity{
                 Element firstReview;
                 String isbn = "";
 
-                bookname = bookname.replaceAll("[-.^:,]","");
+                bookname = bookname.replaceAll("['^:,()*]","");
                 String url = "https://www.amazon.ca/s?k=" + bookname;
                 Document firstSearch = Jsoup.connect(url).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
                         .timeout(999999999)
