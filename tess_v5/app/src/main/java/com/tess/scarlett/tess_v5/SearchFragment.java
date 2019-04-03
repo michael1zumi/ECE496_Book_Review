@@ -1,5 +1,7 @@
 package com.tess.scarlett.tess_v5;
 
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -35,6 +37,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static android.support.constraint.Constraints.TAG;
@@ -146,7 +149,24 @@ public class SearchFragment extends Fragment {
         share_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
             @Override
             public void onClick(View v) {
-                // share button code here
+                // Build the intent
+                //get the link (a global in MainActivity)
+                Intent iShare = new Intent(Intent.ACTION_SEND);
+
+                if (((MainActivity)getActivity()).getProductLink() != null) {
+                    String linkStr = ((MainActivity) getActivity()).getProductLink()[0];
+                    iShare.setType("text/plain");
+                    iShare.putExtra(Intent.EXTRA_SUBJECT, "Sharing URL");
+                    iShare.putExtra(Intent.EXTRA_TEXT, linkStr);
+                }
+
+                PackageManager packageManager = ((MainActivity)getActivity()).getPackageManager();
+                List<ResolveInfo> activities = packageManager.queryIntentActivities(iShare, 0);
+                boolean isIntentSafe = activities.size() > 0;
+
+                if (isIntentSafe) {
+                    startActivity(Intent.createChooser(iShare, "Share URL"));
+                }
             }
         });
         queryTextListener = new SearchView.OnQueryTextListener() {
