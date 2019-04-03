@@ -54,6 +54,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.OutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import java.io.IOException;
@@ -63,6 +64,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 
 import android.os.AsyncTask;
 
@@ -552,6 +554,7 @@ public class MainActivity extends AppCompatActivity{
                 Element firstReview;
                 String isbn = "";
 
+                bookname = bookname.replaceAll("[-.^:,]","");
                 String url = "https://www.amazon.ca/s?k=" + bookname;
                 Document firstSearch = Jsoup.connect(url).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
                         .timeout(999999999)
@@ -1033,6 +1036,7 @@ public class MainActivity extends AppCompatActivity{
         protected void onPostExecute(Void result) {
             File purchase_file = new File(getFilesDir() + "/map.ser");
             File favourite_file = new File(getFilesDir() + "/map2.ser");
+            File history_file = new File(getFilesDir() + "/map3.ser");
             color_helper("purchase",purchase_file,bookname);
             color_helper("favourite",favourite_file,bookname);
             TextView info;
@@ -1088,6 +1092,7 @@ public class MainActivity extends AppCompatActivity{
                 }
                 else{
                     button_layer.setVisibility(View.VISIBLE);
+                    history_helper(history_file,bookname,productLink[0]);
                 }
 
                 foundProduct=false;
@@ -1176,5 +1181,62 @@ public class MainActivity extends AppCompatActivity{
             }
 
         }
+    }
+    public void history_helper(File file, String key, String value){
+        Map map = new LinkedHashMap();
+        ObjectOutputStream oos;
+        ObjectInputStream ois;
+
+        //wirte to file
+        try {
+            if (!file.exists()){
+                map.put(key,value);
+                FileOutputStream fos = new FileOutputStream(file);
+                oos = new ObjectOutputStream(fos);
+                oos.writeObject(map);
+                oos.close();
+                fos.close();
+            }
+            else{
+                FileInputStream fis = new FileInputStream(file);
+                ois = new ObjectInputStream(fis);
+                map= (Map) ois.readObject();
+                ois.close();
+                fis.close();
+
+                System.out.println("map size is: "+map.size());
+
+                FileOutputStream fos = new FileOutputStream(file);
+                if (map.containsKey(key)){
+                    map.remove(key);
+                    map.put(key,value);
+                    fos.close(); //emptying out the file
+                    fos = new FileOutputStream(file);
+                    oos = new ObjectOutputStream(fos);
+                    oos.writeObject(map);
+                    oos.close();
+                    fos.close();
+                }
+                else{
+                    if (map.size()>=20){
+                        map.remove(map.keySet().iterator().next());
+                    }
+                    map.put(key,value);
+                    fos.close(); //emptying out the file
+                    fos = new FileOutputStream(file);
+                    oos = new ObjectOutputStream(fos);
+                    oos.writeObject(map);
+                    oos.close();
+                    fos.close();
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 }
