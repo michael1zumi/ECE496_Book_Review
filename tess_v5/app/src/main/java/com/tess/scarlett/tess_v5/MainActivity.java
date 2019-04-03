@@ -322,12 +322,16 @@ public class MainActivity extends AppCompatActivity{
             //Uri OCRuri = data.getData();
             String recvData = data.getStringExtra("returnedLibString");
             System.out.println("........returnedLibString is :" + recvData);
-            showResult(recvData);
+
+            searchview = findViewById(R.id.searchView);
+            searchview.setQuery(recvData,false);
+            searchview.requestFocus();
+            //showResult(recvData);
         }
         else if (requestCode == REQUEST_CODE) {
             IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
             if (scanResult != null) {
-                showResult(scanResult.getContents());
+                showResult(scanResult.getContents()); //segfault if press back button without scanning anything
                 System.out.println("&&&&&&&&&&&&&&&&&&&&&&Scan result is " + scanResult.getContents() + "\n");
             }
         }
