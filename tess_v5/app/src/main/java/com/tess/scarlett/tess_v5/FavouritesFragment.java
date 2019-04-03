@@ -1,11 +1,14 @@
 package com.tess.scarlett.tess_v5;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -126,27 +129,51 @@ public class FavouritesFragment extends Fragment {
         clear_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
             @Override
             public void onClick(View v) {
+                final AlertDialog dialog  = new AlertDialog.Builder(getContext())
+                        .setTitle("Confirm")
+                        .setMessage("Do you really want to clear your searching history?")
+                        .setIcon(R.drawable.ic_warning)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
-                ObjectOutputStream oos;
-                FileOutputStream fos;
-                try {
-                    fos = new FileOutputStream(favourite_file);
-                    fos.close();//empty file
-                    fos = new FileOutputStream(favourite_file);
-                    oos = new ObjectOutputStream(fos);
-                    Map existing_map = new HashMap();
-                    oos.writeObject(existing_map);
-                    oos.close();
-                    fos.close();
-                    Fragment selectedFragment = FavouritesFragment.newInstance("","");
-                    FragmentTransaction transaction = getFragmentManager() .beginTransaction();
-                    transaction.replace(R.id.frame_layout, selectedFragment);
-                    transaction.commit();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                ObjectOutputStream oos;
+                                FileOutputStream fos;
+                                try {
+                                    fos = new FileOutputStream(favourite_file);
+                                    fos.close();//empty file
+                                    fos = new FileOutputStream(favourite_file);
+                                    oos = new ObjectOutputStream(fos);
+                                    Map existing_map = new HashMap();
+                                    oos.writeObject(existing_map);
+                                    oos.close();
+                                    fos.close();
+                                    Fragment selectedFragment = FavouritesFragment.newInstance("","");
+                                    FragmentTransaction transaction = getFragmentManager() .beginTransaction();
+                                    transaction.replace(R.id.frame_layout, selectedFragment);
+                                    transaction.commit();
+                                } catch (FileNotFoundException e) {
+                                    e.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }})
+                        .setNegativeButton(android.R.string.no,new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                // if this button is clicked, just close
+                                // the dialog box and do nothing
+                                dialog.cancel();
+                            }
+                        }).create();
+
+                dialog.setOnShowListener( new DialogInterface.OnShowListener() {
+                    public void onShow(DialogInterface arg0) {
+                        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#96061a"));
+                        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#96061a"));
+                    }
+                });
+
+                dialog.show();
             }
         });
         return view;
