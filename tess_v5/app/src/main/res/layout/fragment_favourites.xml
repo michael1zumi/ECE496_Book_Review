@@ -97,7 +97,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50sp"
-                    android:text="PURCHASE LIST"
+                    android:text="FAVOURITE LIST"
                     android:textAlignment="center"
                     android:textColor="#F30F0F0F"
                     android:textSize="28sp"
