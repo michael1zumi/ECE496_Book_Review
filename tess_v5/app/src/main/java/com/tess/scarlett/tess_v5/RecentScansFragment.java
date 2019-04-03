@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,8 +20,11 @@ import android.support.v7.app.ActionBar;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -84,7 +88,7 @@ public class RecentScansFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_recent_scans, container, false);
 
-        File history_file = new File(getContext().getFilesDir() + "/map3.ser");
+        final File history_file = new File(getContext().getFilesDir() + "/map3.ser");
 
         try {
             FileInputStream fis = new FileInputStream(history_file);
@@ -122,6 +126,34 @@ public class RecentScansFragment extends Fragment {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+        Button clear_button = view.findViewById(R.id.clear_recentScans);
+        clear_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
+            @Override
+            public void onClick(View v) {
+
+                ObjectOutputStream oos;
+                FileOutputStream fos;
+                try {
+                    fos = new FileOutputStream(history_file);
+                    fos.close();//empty file
+                    fos = new FileOutputStream(history_file);
+                    oos = new ObjectOutputStream(fos);
+                    Map existing_map = new HashMap();
+                    oos.writeObject(existing_map);
+                    oos.close();
+                    fos.close();
+                    Fragment selectedFragment = RecentScansFragment.newInstance("","");
+                    FragmentTransaction transaction = getFragmentManager() .beginTransaction();
+                    transaction.replace(R.id.frame_layout, selectedFragment);
+                    transaction.commit();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         //ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
         //actionBar.setDisplayHomeAsUpEnabled(true);
 

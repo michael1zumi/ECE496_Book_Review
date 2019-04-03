@@ -5,17 +5,22 @@ import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -78,7 +83,7 @@ public class FavouritesFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_favourites, container, false);
 
-        File favourite_file = new File(getContext().getFilesDir() + "/map2.ser");
+        final File favourite_file = new File(getContext().getFilesDir() + "/map2.ser");
 
         try {
             FileInputStream fis = new FileInputStream(favourite_file);
@@ -117,6 +122,33 @@ public class FavouritesFragment extends Fragment {
             e.printStackTrace();
         }
 
+        Button clear_button = view.findViewById(R.id.clear_favourites);
+        clear_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
+            @Override
+            public void onClick(View v) {
+
+                ObjectOutputStream oos;
+                FileOutputStream fos;
+                try {
+                    fos = new FileOutputStream(favourite_file);
+                    fos.close();//empty file
+                    fos = new FileOutputStream(favourite_file);
+                    oos = new ObjectOutputStream(fos);
+                    Map existing_map = new HashMap();
+                    oos.writeObject(existing_map);
+                    oos.close();
+                    fos.close();
+                    Fragment selectedFragment = FavouritesFragment.newInstance("","");
+                    FragmentTransaction transaction = getFragmentManager() .beginTransaction();
+                    transaction.replace(R.id.frame_layout, selectedFragment);
+                    transaction.commit();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         return view;
     }
 

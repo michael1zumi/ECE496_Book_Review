@@ -10,14 +10,18 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -84,7 +88,7 @@ public class PurchasedFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_purchased, container, false);
 
-        File purchase_file = new File(getContext().getFilesDir() + "/map.ser");
+        final File purchase_file = new File(getContext().getFilesDir() + "/map.ser");
 
         try {
             FileInputStream fis = new FileInputStream(purchase_file);
@@ -122,6 +126,34 @@ public class PurchasedFragment extends Fragment {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+        Button clear_button = view.findViewById(R.id.clear_purchased);
+        clear_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
+            @Override
+            public void onClick(View v) {
+
+                ObjectOutputStream oos;
+                FileOutputStream fos;
+                try {
+                    fos = new FileOutputStream(purchase_file);
+                    fos.close();//empty file
+                    fos = new FileOutputStream(purchase_file);
+                    oos = new ObjectOutputStream(fos);
+                    Map existing_map = new HashMap();
+                    oos.writeObject(existing_map);
+                    oos.close();
+                    fos.close();
+                    Fragment selectedFragment = PurchasedFragment.newInstance("","");
+                    FragmentTransaction transaction = getFragmentManager() .beginTransaction();
+                    transaction.replace(R.id.frame_layout, selectedFragment);
+                    transaction.commit();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         return view;
     }
 

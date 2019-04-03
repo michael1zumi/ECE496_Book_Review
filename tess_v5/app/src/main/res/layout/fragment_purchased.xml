@@ -83,6 +83,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+                <Button
+                    android:id="@+id/clear_purchased"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="clear"
+                    android:layout_alignParentRight="true"
+                    android:background="#e2dcce"
+                    style="?android:attr/borderlessButtonStyle"/>
+
                 <TextView
                     android:id="@+id/purchased_title"
                     android:layout_width="match_parent"
