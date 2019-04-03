@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -130,7 +131,7 @@ public class PurchasedFragment extends Fragment {
             e.printStackTrace();
         }
 
-        Button clear_button = view.findViewById(R.id.clear_purchased);
+        ImageButton clear_button = view.findViewById(R.id.clear_purchased);
         clear_button.setOnClickListener(new Button.OnClickListener() { // Then you should add add click listener for your button.
             @Override
             public void onClick(View v) {
