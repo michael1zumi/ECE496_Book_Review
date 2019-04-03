@@ -1,6 +1,7 @@
 package com.tess.scarlett.tess_v5;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -96,6 +97,8 @@ public class RecentScansFragment extends Fragment {
                 layout.setVisibility(View.GONE);
             }
             else{
+                TextView textview = view.findViewById(R.id.history_title);
+                textview.setPaintFlags(textview.getPaintFlags() |  Paint.UNDERLINE_TEXT_FLAG);
                 RelativeLayout layout = view.findViewById(R.id.recentScans);
                 layout.setVisibility(View.GONE);
                 layout = view.findViewById(R.id.recentScansResults);

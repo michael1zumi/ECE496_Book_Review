@@ -1,6 +1,7 @@
 package com.tess.scarlett.tess_v5;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,16 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.Iterator;
+import java.util.Map;
 
 
 /**
@@ -71,7 +82,47 @@ public class PurchasedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_purchased, container, false);
+        final View view = inflater.inflate(R.layout.fragment_purchased, container, false);
+
+        File purchase_file = new File(getContext().getFilesDir() + "/map.ser");
+
+        try {
+            FileInputStream fis = new FileInputStream(purchase_file);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Map existing_map = (Map) ois.readObject();
+            if (existing_map.size()==0){
+                RelativeLayout layout = view.findViewById(R.id.purchased);
+                layout.setVisibility(View.VISIBLE);
+                layout = view.findViewById(R.id.purchasedResults);
+                layout.setVisibility(View.GONE);
+            }
+            else{
+                TextView textview = view.findViewById(R.id.purchased_title);
+                textview.setPaintFlags(textview.getPaintFlags() |  Paint.UNDERLINE_TEXT_FLAG);
+                RelativeLayout layout = view.findViewById(R.id.purchased);
+                layout.setVisibility(View.GONE);
+                layout = view.findViewById(R.id.purchasedResults);
+                layout.setVisibility(View.VISIBLE);
+                TextView text = view.findViewById(R.id.purchased_field);
+                Iterator it = existing_map.keySet().iterator();
+                int i =0;
+                while (it.hasNext())
+                {
+                    i += 1;
+                    Object key = it.next();
+                    text.append(i+". "+String.valueOf(key).replaceAll("\\+", " ").toUpperCase()+"\n\n");
+
+                }
+                text.append("\n\n");
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
