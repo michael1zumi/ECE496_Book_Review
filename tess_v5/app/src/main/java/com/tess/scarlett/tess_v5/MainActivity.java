@@ -53,7 +53,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
@@ -62,7 +61,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -632,9 +630,21 @@ public class MainActivity extends AppCompatActivity{
                                 secondSearch = Jsoup.connect(link).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
                                         .timeout(999999999)
                                         .get();
+
                                 String priceInfo = "";
+                                int i = 0;
                                 if (secondSearch.select("span[id=priceblock_dealprice]").first()==null){
-                                    priceInfo = secondSearch.select("span[id=priceblock_ourprice]").first().text();
+                                    if (secondSearch.select("span[id=priceblock_ourprice]").first() != null){
+                                        priceInfo = secondSearch.select("span[id=priceblock_ourprice]").first().text();
+                                    }
+                                    else {
+                                        if (secondSearch.select("span[class=a-color-price]").first() != null){
+                                            priceInfo = secondSearch.select("span[class=a-color-price]").first().text();
+                                        }
+                                        else{
+                                            i = 1;
+                                        }
+                                    }
                                 }
                                 else {
                                     priceInfo = secondSearch.select("span[id=priceblock_dealprice]").first().text();
@@ -642,6 +652,9 @@ public class MainActivity extends AppCompatActivity{
                                 int start = priceInfo.indexOf("$");
                                 priceInfo = priceInfo.substring(start+1);
                                 priceInfo = priceInfo.replaceAll(" ","");
+                                if (i == 1){
+                                    priceInfo = "Can't find the price info in Amazon";
+                                }
                                 price[0] = priceInfo;
 
 
@@ -733,10 +746,15 @@ public class MainActivity extends AppCompatActivity{
 
                                             productLink[1] = bestbuyurl;
                                             if(bestbuySearch.select("div[class=prodprice ]").first() == null){
-                                                price[1] = bestbuySearch.select("div[class=prodprice price-onsale]").text();
+                                                if (bestbuySearch.select("div[class=prodprice price-onsale]").first() == null){
+                                                    price[1] = "Can't find the specific product in Bestbuy";
+                                                }
+                                                else{
+                                                    price[1] = bestbuySearch.select("div[class=prodprice price-onsale]").first().text();
+                                                }
                                             }
                                             else{
-                                                price[1] = bestbuySearch.select("div[class=prodprice ]").text();
+                                                price[1] = bestbuySearch.select("div[class=prodprice ]").first().text();
                                             }
                                             start = price[1].indexOf("$");
                                             price[1] = price[1].substring(start+1);
@@ -754,11 +772,17 @@ public class MainActivity extends AppCompatActivity{
                                             }
 
                                             bestbuyDesc  = bestbuySearch.select("div[class=tab-overview-item]").text();
-                                            start = bestbuyDesc.indexOf("Overview");
-                                            //System.out.println(bestbuyDesc);
-                                            bestbuyDesc = bestbuyDesc.substring(start+9);
-                                            review[2] = bestbuyDesc;
-                                            review[2] = "<b>" + "Bestbuy: " + "</b> " + review[2];
+                                            if (bestbuySearch.select("div[class=tab-overview-item]").first() == null){
+                                                review[2] = "No user review in "+"<b>" + "Bestbuy " + "</b> ";
+                                            }
+                                            else{
+                                                start = bestbuyDesc.indexOf("Overview");
+                                                //System.out.println(bestbuyDesc);
+                                                bestbuyDesc = bestbuyDesc.substring(start+9);
+                                                review[2] = bestbuyDesc;
+                                                review[2] = "<b>" + "Bestbuy: " + "</b> " + review[2];
+                                            }
+
                                         }
 
 
@@ -767,7 +791,21 @@ public class MainActivity extends AppCompatActivity{
                                     else {
                                         System.out.println("there");
                                         selectedItem = selectedItem.select("h4[class=prod-title]").first();
+                                        if (selectedItem == null){
+                                            rate[1] = "No rating in Bestbuy";
+                                            price[1] = "Can't find the specific product in Bestbuy";
+                                            review[2] = "No user review in "+"<b>" + "Bestbuy " + "</b> ";
+                                            productLink[1] = "None";
+                                            return null;
+                                        }
                                         selectedItem = selectedItem.select("a[href]").first();
+                                        if (selectedItem == null){
+                                            rate[1] = "No rating in Bestbuy";
+                                            price[1] = "Can't find the specific product in Bestbuy";
+                                            review[2] = "No user review in "+"<b>" + "Bestbuy " + "</b> ";
+                                            productLink[1] = "None";
+                                            return null;
+                                        }
                                         String itemlink = "https://www.bestbuy.ca"+ selectedItem.attr("href");
                                         //System.out.println(itemlink);
                                         secondSearch = Jsoup.connect(itemlink).userAgent("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; MALC)")
@@ -811,7 +849,7 @@ public class MainActivity extends AppCompatActivity{
 
                                     price[0] = price[0].replaceAll(",", "");
                                     price[1] = price[1].replaceAll(",", "");
-                                    if (price[1].startsWith("Can't") == false){
+                                    if (price[1].startsWith("Can't") == false && price[0].startsWith("Can't") == false){
                                         if (Float.parseFloat(price[0])>Float.parseFloat(price[1])){
                                             String swap = price[0];
                                             price[0] = "Bestbuy: $" + price[1];
@@ -824,7 +862,13 @@ public class MainActivity extends AppCompatActivity{
 
                                     }
                                     else {
-                                        price[0] = "Amazon: $" + price[0];
+                                        if (price[1].startsWith("Can't") == false && price[0].startsWith("Can't") == true){
+                                            price[1] = "Bestbuy: $" + price[1];
+                                        }
+                                        else if (price[0].startsWith("Can't") == false && price[1].startsWith("Can't") == true){
+                                            price[0] = "Amazon: $" + price[0];
+                                        }
+
                                     }
 
 
@@ -985,7 +1029,6 @@ public class MainActivity extends AppCompatActivity{
         protected void onPostExecute(Void result) {
             File purchase_file = new File(getFilesDir() + "/map.ser");
             File favourite_file = new File(getFilesDir() + "/map2.ser");
-            File history_file = new File(getFilesDir() + "/map3.ser");
             color_helper("purchase",purchase_file,bookname);
             color_helper("favourite",favourite_file,bookname);
             TextView info;
@@ -1041,7 +1084,6 @@ public class MainActivity extends AppCompatActivity{
                 }
                 else{
                     button_layer.setVisibility(View.VISIBLE);
-                    history_helper(history_file,bookname,productLink[0]);
                 }
 
                 foundProduct=false;
@@ -1130,63 +1172,5 @@ public class MainActivity extends AppCompatActivity{
             }
 
         }
-    }
-
-    public void history_helper(File file, String key, String value){
-        Map map = new LinkedHashMap();
-        ObjectOutputStream oos;
-        ObjectInputStream ois;
-
-        //wirte to file
-        try {
-            if (!file.exists()){
-                map.put(key,value);
-                FileOutputStream fos = new FileOutputStream(file);
-                oos = new ObjectOutputStream(fos);
-                oos.writeObject(map);
-                oos.close();
-                fos.close();
-            }
-            else{
-                FileInputStream fis = new FileInputStream(file);
-                ois = new ObjectInputStream(fis);
-                map= (Map) ois.readObject();
-                ois.close();
-                fis.close();
-
-                System.out.println("map size is: "+map.size());
-
-                FileOutputStream fos = new FileOutputStream(file);
-                if (map.containsKey(key)){
-                    map.remove(key);
-                    map.put(key,value);
-                    fos.close(); //emptying out the file
-                    fos = new FileOutputStream(file);
-                    oos = new ObjectOutputStream(fos);
-                    oos.writeObject(map);
-                    oos.close();
-                    fos.close();
-                }
-                else{
-                    if (map.size()>=20){
-                        map.remove(map.keySet().iterator().next());
-                    }
-                    map.put(key,value);
-                    fos.close(); //emptying out the file
-                    fos = new FileOutputStream(file);
-                    oos = new ObjectOutputStream(fos);
-                    oos.writeObject(map);
-                    oos.close();
-                    fos.close();
-                }
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
     }
 }
