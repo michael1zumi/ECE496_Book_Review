@@ -107,7 +107,7 @@ public class RecentScansFragment extends Fragment {
                 {
                     i += 1;
                     Object key = it.next();
-                    text.append(i+". "+String.valueOf(key).replaceAll("\\+", " ").toUpperCase()+"\n");
+                    text.append(i+". "+String.valueOf(key).replaceAll("\\+", " ").toUpperCase()+"\n\n");
 
                 }
                 text.append("\n\n");
