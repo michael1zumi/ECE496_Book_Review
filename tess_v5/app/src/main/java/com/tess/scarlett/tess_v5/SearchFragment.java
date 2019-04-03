@@ -256,45 +256,6 @@ public class SearchFragment extends Fragment {
         }
 
     }
-//    public void color_helper(String filename, File file, String key){
-//        Drawable drawable;
-//        if (file.exists()){
-//            Map existing_map =  new HashMap();
-//            try {
-//                ObjectInputStream ois;
-//                FileInputStream fis = new FileInputStream(file);
-//                ois = new ObjectInputStream(fis);
-//                existing_map = (Map) ois.readObject();
-//                ois.close();
-//                fis.close();
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            } catch (ClassNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//            if (existing_map.containsKey(key)){
-//                switch (filename){
-//                    case "purchase":
-//                        drawable = getResources().getDrawable(R.drawable.ic_cart).mutate();
-//                        drawable = DrawableCompat.wrap(drawable);
-//                        drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
-//                        purchase_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
-//                        break;
-//                    case "favourite":
-//                        drawable = getResources().getDrawable(R.drawable.ic_favourite).mutate();
-//                        drawable = DrawableCompat.wrap(drawable);
-//                        drawable.setColorFilter(getResources().getColor(R.color.colorNavi), PorterDuff.Mode.SRC_ATOP);
-//                        favourite_button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
-//                        break;
-//                    default:
-//
-//                }
-//            }
-//
-//        }
-//    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
